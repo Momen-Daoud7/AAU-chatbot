@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configure Google Generative AI
-GEMINI_API_KEY = "AIzaSyCvAksr5dpxOCaozeR_bOeEVrVeyhAWfMAAIzaSyCvAksr5dpxOCaozeR_bOeEVrVeyhAWfMA"
+GEMINI_API_KEY = "AIzaSyCvAksr5dpxOCaozeR_bOeEVrVeyhAWfMA"
 genai.configure(api_key=GEMINI_API_KEY)
 
 # Set up generation config
