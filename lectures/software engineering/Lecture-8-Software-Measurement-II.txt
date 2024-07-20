@@ -1,0 +1,214 @@
+Why measure the process?
+ The process creates the product
+ If we can improve the process, we indirectly improve the
+  product
+ Through measurement, we can understand, control and
+  improve the process
+ This will lead to us engineering quality into the process
+  rather than simply taking product quality measurements
+  when the product is done
+ We will look briefly at a number of process metrics
+Defect Density During Machine Testing
+ Defect rate during formal testingis usually positively
+  correlated with the defect rate experienced in the field
+
+ Higher defect rates found during testing is an indicator
+  that higher defect rates will be experienced in the field
+
+ Exception: In the case of exceptional testing effort or more
+  effective testing methods being employed
+
+ It is useful to monitor defect density metrics of subsequent
+  releases of the same product
+
+ In order to appraise product quality, consider the following
+  scenarios
+Defect Density During Machine Testing
+
+   Scenario 1: Defect rate during testing is the
+        same or lower than previous release.
+
+Reasoning: Does the testing for the current release deteriorate?
+
+                        No             Yes
+
+
+
+
+                                              You need to
+     Quality Prospect
+                                             perform more
+        is positive
+                                                testing
+  Defect Density During Machine Testing
+
+           Scenario 2: Defect rate is substantially higher
+                       than that of the previous release
+
+Reasoning: Did we plan for and actually improve testing effectiveness?
+
+                            Yes           No
+
+
+
+
+                                                Quality prospect
+         Quality Prospect                      negative. Perform
+            is positive                          more testing.
+Other useful process metrics
+ Fix response time
+    Average time to fix a defect
+ Percent delinquent fixes
+    Fixes which exceed the recommended fix time according
+     to their severity level
+ Fix quality
+    Percentage of fixes which turn out to be defective
+Why measure people?
+ People metrics are of interest to management for:
+
+   Financial purposes
+
+
+   Project management purposes
+
+
+   HR problem identification
+Warning on People Measurement
+ People do not like being measured
+ In many cases, you will not be able to look at a numbers
+  and draw conclusions.
+ For example, at face value, Clyde may take a longer time to
+  finish his work when compared to colleagues. However,
+  further inspection might reveal that his code is bug free
+  whilst that of his colleagues needs a lot of reworking
+ Beware when using people metrics. Only use them as
+  indicators for potential problems
+ You should never take disciplinary action against personell
+  based simply on people metrics
+Some people metrics…
+For individual developers or teams:
+ Cost per Function Point
+ Mean Time required to develop a Function Point
+ Defects produced per hour
+ Defects produced per function point
+Why measure OO Designs?
+ OO has become a very popular paradigm
+ Measuring the Quality of a design helps us identify
+  problems early on in the life cycle
+ A set of OO Design metrics were proposed by Chidamer
+  and Kemerer (MIT) in 1994.
+
+
+            Requirements
+
+                  Design
+
+                  Coding
+  Phase
+
+
+
+
+                  Testing                                           Min
+                                                                    Max
+          Acceptance Test
+
+                Operation
+
+                            0   2000   4000   6000   8000   10000
+                                         Cost ($)
+Unique OO Characteristics (1/2)
+ Encapsulation
+   Binding together of a collection of items
+     State information
+     Algorithms
+     Constants
+     Exceptions
+     …
+
+ Abstraction and Information Hiding
+   Suppressing or hiding of details
+   One can use an object’s advertised methods without
+    knowing exactly how it does its work
+Unique OO Characteristics (2/2)
+ Inheritance
+   Objects may acquire characteristics of one or more other
+    objects
+   The way inheritance is used will affect the overall quality
+    of a system
+ Localisation
+   Placing related items in close physical proximity to each
+    other
+   In the case of OO, we group related items into objects,
+    packages, ets
+Measurable Structures in OO (1/5)
+ Class
+   Template from which objects are created
+   Class design affects overall:
+     Understandability
+
+     Maintainability
+
+     Testability
+
+   Reusability is also affected by class design
+     E.g. Classes with a large number of methods tend to be more
+      application specific and less reusable
+Measurable Structures in OO (2/5)
+ Message
+   A request made by one object to another object
+   Receiving object executes a method
+   It is important to study message flow in an OO system
+     Understandability
+
+     Maintainability
+
+     Testability
+
+   The more complex message flows between objects are,
+   the less understandable a system is
+Measurable Structures in OO (3/5)
+
+ Coupling
+   A measure of the                           Class A
+    strength of association
+    established by
+    connections between
+    different entities               Class B             Class C
+   Occurs through:
+       Use of an object’s methods
+       Inheritance
+                                           Class D
+   Measurable Structures in OO (4/5)
+ Cohesion
+   The degree to which methods in                 Class A
+    a class are related to each other
+                                           int Method1(a, b);
+   Effective OO designs maximise
+    cohesion because they promote          int Method2(a, b);
+    encapsulation
+   A high degree of cohesion              String Method3();
+    indicates:
+                                           void Method4(a, b);
+       Classes are self contained
+       Fewer messages need to be passed
+        (more efficiency)
+Measurable Structures in OO (5/5)
+ Inheritance
+    A mechanism which allows an object to acquire the
+     characteristics of one or more other objects
+    Inheritance can reduce complexity by reducing the
+     number of methods and attributes in child classes
+    Too much inheritance can make the system difficult to
+     maintain
+Conclusions
+ As a result of this course, we hope this that you
+  now:
+   Appreciate the uses of measurement in general and the
+    need to apply it to software
+   Have a good idea of what steps may be involved in
+    setting up a measurement programme
+   Know a few metrics which you can use in the industry
+   Understand OO metrics in some detail and are able to
+    interpret them in practice
+

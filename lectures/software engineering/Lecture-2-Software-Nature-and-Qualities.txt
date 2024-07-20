@@ -1,0 +1,265 @@
+     Software
+Nature and Qualities
+
+
+
+
+                       1
+Outline
+ Software engineering (SE) is an intellectual activity
+  and thus human-intensive
+ Software is built to meet a certain functional goal
+  and satisfy certain qualities
+ Software processes also must meet certain
+  qualities
+ Software qualities are sometimes referred to as
+  “ilities”
+
+
+                                                          2
+Software product
+  Different from traditional types of products
+    intangible
+        difficult to describe and evaluate
+    malleable
+    human intensive
+        involves only trivial “manufacturing” process
+
+
+
+
+                                                         3
+  Classification of SW qualities
+  "ilities"
+ Internal vs. external
+   External visible to users
+   Internal concern developers
+ Product vs. process
+   Our goal is to develop software products
+   The process is how we do it
+ Internal qualities affect external qualities
+ Process quality affects product quality
+
+
+                                                 4
+Correctness
+ Software is correct if it satisfies the functional
+  requirements specifications
+    assuming that specification exists!
+ If specifications are formal, since programs are
+  formal objects, correctness can be defined formally
+    It can be proven as a theorem or disproved by
+    counterexamples (testing)
+
+
+
+
+                                                        5
+The limits of correctness
+  It is an absolute (yes/no) quality
+     there is no concept of “degree of correctness”
+     there is no concept of severity of deviation
+  What if specifications are wrong?
+     (e.g., they derive from incorrect requirements or
+       errors in domain knowledge)
+
+
+
+
+                                                          6
+Reliability
+ Reliability
+    informally, user can rely on it
+    can be defined mathematically as “probability of
+     absence of failures for a certain time period”
+    if specs are correct, all correct software is reliable, but
+     not vice-versa (in practice, however, specs can be
+     incorrect …)
+
+
+
+
+                                                                   7
+Idealized situation
+  Requirements are correct
+
+
+
+
+                Reliability
+                           Correctness
+
+                                         8
+Robustness
+ Robustness
+    software behaves “reasonably” even in
+     unforeseen circumstances (e.g., incorrect
+     input, hardware failure)
+
+
+
+
+                                                 9
+Performance
+ Efficient use of resources
+    memory, processing time, communication
+ Can be verified
+       complexity analysis
+       performance evaluation (on a model, via simulation)
+ Performance can affect scalability
+       a solution that works on a small local network may not work
+        on a large intranet
+
+
+
+
+                                                                      10
+Usability
+ Expected users find the system easy to use
+ Other term: user-friendliness
+ Rather subjective, difficult to evaluate
+ Affected mostly by user interface
+       e.g., visual vs. textual
+
+
+
+
+                                               11
+Verifiability
+ How easy it is to verify properties
+   mostly an internal quality
+   can be external as well (e.g., security critical application)
+
+
+
+
+                                                                12
+Maintainability
+  Maintainability: ease of maintenance
+  Maintenance: changes after release
+  Maintenance costs exceed 60% of total cost of
+   software
+  Three main categories of maintenance
+    corrective: removing residual errors (20%)
+    adaptive: adjusting to environment changes (20%)
+    perfective: quality improvements (>50%)
+
+
+
+
+                                                        13
+Maintainability
+ Can be decomposed as
+    Repairability
+       ability to correct defects in reasonable time
+   Evolvability
+       ability to adapt sw to environment changes and to improve it
+        in reasonable time
+
+
+
+
+                                                                       14
+Reusability
+ Existing product (or components) used (with minor
+ modifications) to build another product
+   (Similar to evolvability)
+ Also applies to process
+ Reuse of standard parts measure of maturity of the
+ field
+
+
+
+
+                                                       15
+Portability
+ Software can run on different hw platforms or sw
+  environments
+ Remains relevant as new platforms and environments
+  are introduced (e.g. digital assistants)
+ Relevant when downloading software in a
+  heterogeneous network environment
+
+
+
+
+                                                       16
+Understandability
+ Ease of understanding software
+ Program modification requires program
+ understanding
+
+
+
+
+                                          17
+Interoperability
+ Ability of a system to coexist and cooperate with other
+ systems
+   e.g., word processor and spreadsheet
+
+
+
+
+                                                            18
+Typical process qualities
+ Productivity
+    denotes its efficiency and performance
+ Timeliness
+    ability to deliver a product on time
+ Visibility
+    all of its steps and current status are documented clearly
+
+
+
+
+                                                              19
+Timeliness: issues
+ Often the development process does not follow the
+  evolution of user requirements
+ A mismatch occurs between user requirements and
+  status of the product
+
+
+
+
+                                                      20
+Timeliness: a visual description
+of the mismatch
+
+
+Function
+                User
+                needs
+                                        Actual
+                                        system
+                                        capabi li ti es
+
+
+
+
+                         t2                      Ti me
+           t0       t1        t    t4
+                               3
+
+                                                          21
+Application-specific qualities
+ E.g., information systems
+    Data integrity
+    Security
+    Data availability
+    Transaction performance.
+
+
+
+
+                                 22
+Quality measurement
+ Many qualities are subjective
+ No standard metrics defined for most qualities
+
+
+
+
+                                                   23
+

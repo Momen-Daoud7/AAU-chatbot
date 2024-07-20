@@ -1,0 +1,252 @@
+What’s the difference?
+ Verification
+    Are you building the product right?
+    Software must conform to its specification
+ Validation
+    Are you building the right product?
+    Software should do what the user really requires
+Verification and Validation Process
+ Must applied at each stage of the software
+  development process to be effective
+ Objectives
+   Discovery of system defects
+   Assessment of system usability in an operational
+    situation
+Static and Dynamic Verification
+ Software inspections (static)
+    Concerned with analysis of static system representations
+     to discover errors
+    May be supplemented by tool-based analysis of
+     documents and program code
+ Software testing (dynamic)
+    Concerned with exercising product using test data and
+     observing behavior
+Program Testing
+ Can only reveal the presence of errors, cannot prove
+  their absence
+ A successful test discovers 1 or more errors
+ The only validation technique that should be used for
+  non-functional (or performance) requirements
+ Should to used in conjunction with static verification
+  to ensure full product coverage
+Types of Testing
+ Defect testing
+    Tests designed to discover system defects
+    A successful defect test reveals the presence of defects in
+     the system
+ Statistical testing
+    Tests designed to reflect the frequency of user inputs
+    Used for reliability estimation
+Verification and Validation Goals
+ Establish confidence that software is fit for its
+  intended purpose
+ The software may or may not have all defects removed
+  by the process
+ The intended use of the product will determine the
+  degree of confidence in product needed
+Confidence Parameters
+ Software function
+    How critical is the software to the organization?
+ User expectations
+    Certain kinds of software have low user expectations
+ Marketing environment
+    getting a product to market early might be more
+     important than finding all defects
+Testing and Debugging
+ These are two distinct processes
+ Verification and validation is concerned with
+  establishing the existence of defects in a program
+ Debugging is concerned with locating and
+  repairing these defects
+ Debugging involves formulating a hypothesis
+ about program behavior and then testing this
+ hypothesis to find the error
+Planning
+ Careful planning is required to get the most out of
+  the testing and inspection process
+ Planning should start early in the development
+  process
+ The plan should identify the balance between
+  static verification and testing
+ Test planning must define standards for the testing
+  process, not just describe product tests
+ The V-model of development
+Requir ements              System                      System                   Detailed
+specification            specification                 design                    design
+
+
+
+                                           System                 Sub-system                   Module and
+            Acceptance
+                                         integration              integration                   unit code
+             test plan
+                                          test plan                test plan                    and tess
+
+
+
+                         Acceptance                    System                 Sub-system
+  Service
+                            test                   integration test         integration test
+Software Test Plan Components
+ Testing process
+ Requirements traceability
+ Items tested
+ Testing schedule
+ Test recording procedures
+ Testing HW and SW requirements
+ Testing constraints
+Software Inspections
+ People examine a source code representation to
+  discover anomalies and defects
+ Does not require systems execution so they may occur
+  before implementation
+ May be applied to any system representation
+  (document, model, test data, code, etc.)
+Inspection Success
+ Very effective technique for discovering defects
+ It is possible to discover several defects in a single
+  inspection
+ In testing one defect may in fact mask another
+ They reuse domain and programming knowledge
+  (allowing reviewers to help authors avoid making
+ common errors)
+Inspections and Testing
+ These are complementary processes
+ Inspections can check conformance to specifications,
+  but not with customer’s real needs
+ Testing must be used to check compliance with non-
+  functional system characteristics like performance,
+  usability, etc.
+Program Inspections
+ Formalizes the approach to document reviews
+ Focus is on defect detection, not defect correction
+ Defects uncovered may be logic errors, coding errors,
+ or non-compliance with development standards
+Inspection Preconditions
+ A precise specification must be available
+ Team members must be familiar with organization
+    standards
+   All representations must be syntactically correct
+   An error checklist must be prepare in advance
+   Management must buy into the the fact the inspections
+    will increase the early development costs
+   Inspections cannot be used to evaluate staff performance
+Inspection Procedure
+ System overview presented to inspection team
+ Code and associated documents are distributed to
+  team in advance
+ Errors discovered during the inspection are
+  recorded
+ Product modifications are made to repair defects
+ Re-inspection may or may not be required
+Inspection Teams
+ Have at least 4 team members
+   product author
+   inspector (looks for errors, omissions, and
+    inconsistencies)
+   reader (reads the code to the team)
+   moderator (chairs meeting and records errors
+    uncovered)
+Inspection Checklists
+ Checklists of common errors should be used to drive
+ the inspection
+
+ Error checklist should be language dependent
+
+
+ The weaker the type checking in the language, the
+ larger the checklist is likely to become
+Inspection Fault Classes
+ Data faults (e.g. array bounds)
+ Control faults (e.g. loop termination)
+ Input/output faults (e.g. all data read)
+ Interface faults (e.g. parameter assignment)
+ Storage management faults (e.g. memory leaks)
+ Exception management faults (e.g. all error
+ conditions trapped)
+Automated Static Analysis
+ Performed by software tools that process source code
+  listing
+ Can be used to flag potentially erroneous conditions
+  for the inspection team to examine
+ They should be used to supplement the reviews done
+  by inspectors
+Static Analysis Checks
+ Data faults (e.g. variables not initialized)
+ Control faults (e.g. unreachable code)
+ Input/output faults (e.g. duplicate variables
+  output)
+ Interface faults (e.g. parameter type mismatches)
+ Storage management faults (e.g. pointer
+  arithmetic)
+Static Analysis Stages I
+ Control flow analysis
+   checks loops for multiple entry points or exits
+   find unreachable code
+ Data use analysis
+   finds initialized variables
+   variable declared and never used
+ Interface analysis
+   check consistency of function prototypes and instances
+Static Analysis Stages II
+ Information flow analysis
+   examines output variable dependencies
+   highlights places for inspectors to look at closely
+ Path analysis
+   identifies paths through the program determines order
+    of statements executed on each path
+   highlights places for inspectors to look at closely
+Defect Testing
+ Component Testing
+    usually responsibility of component developer
+    test derived from developer’s experiences
+ Integration Testing
+    responsibility of independent test team
+    tests based on system specification
+   Testing Priorities
+ Exhaustive testing only way to show program is
+  defect free
+ Exhaustive testing is not possible
+ Tests must exercise system capabilities, not its
+  components
+ Testing old capabilities is more important than
+  testing new capabilities
+ Testing typical situations is more important than
+  testing boundary value cases
+The defect testing process
+
+               Test                  Test                     Test                         Test
+              cases                  data                    results                     reports
+
+
+Design test           Prepare test          Run program                Compare results
+  cases                  data               with test data              to test cases
+System Testing
+ Testing of critical systems must often rely on
+  simulators for sensor and activator data (rather than
+  endanger people or profit)
+ Test for normal operation should be done using a
+  safely obtained operational profile
+ Tests for exceptional conditions will need to involve
+  simulators
+Arithmetic Errors
+ Use language exception handling mechanisms to
+  trap errors
+ Use explicit error checks for all identified errors
+ Avoid error-prone arithmetic operations when
+  possible
+ Never use floating-point numbers
+ Shut down system (using graceful degradation) if
+  exceptions are detected
+Algorithmic Errors
+ Harder to detect than arithmetic errors
+
+ Use reasonableness checks on all outputs that can
+  affect people or profit
+
+ Set delivery limits for specified time periods, if
+  application domain calls for them
+
+ Have system request operator intervention any time
+  a judgement call must be made
+

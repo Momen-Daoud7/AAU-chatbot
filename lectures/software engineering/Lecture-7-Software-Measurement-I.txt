@@ -1,0 +1,202 @@
+What is measurement?
+Measurement is the process by which numbers or
+ symbols are assigned to attributes of entities in the
+ world according to clearly defined rules.
+The importance of Measurement
+
+
+
+Can software be
+measured?
+
+Is it software
+measurement useful?
+
+How do you measure
+software?
+The importance of Measurement
+ Measurement is crucial to the progress of all
+  sciences, even Computer Science
+ Scientific progress is made through
+   Observations and generalisations…
+   …based on data and measurements
+   Derivation of theories and…
+   …confirmation or refutation of these theories
+ Measurement turns an art into a science
+Uses of Measurement
+ Measurement helps us to understand
+   Makes the current activity visible
+   Measures establish guidelines
+ Measurement allows us to control
+   Predict outcomes and change processes
+ Measurement encourages us to improve
+   When we hold our product up to a measuring stick, we
+    can establish quality targets and aim to improve
+  Measures, Metrics and Indicators
+ Measure – An appraisal or ascertainment by comparing to
+  a standard. E.g. Joe’s body temperature is 99° Fahrenheit
+
+ Metric – A quantitative measure of the degree to which an
+  element (e.g. software system) given attribute.
+    E.g. 2 errors were discovered by customers in 18 months (more
+     meaningful than saying that 2 errors were found)
+
+ Indicator – A device, variable or metric can indicate
+  whether a particular state or goal has been achieved.
+  Usually used to draw someone’s attention to something.
+    E.g. A half-mast flag indicates that someone has died
+  Reliability and Validity of Measurements
+
+ Reliability – Refers to the consistency of a number of
+ measurements taken using the same measurement
+ method
+
+ Validity – Refers to whether the measurement or
+ metric really measures what we intend it to measure.
+Reliability and Validity of Measurements
+
+
+
+
+Reliable but not valid   Valid but not reliable   Reliable and Valid
+What makes quality software?
+
+ Cheap?
+ Reliable?
+ Testable?
+ Secure?
+ Maintainable?
+…
+What makes quality software?
+ There is not clear-cut answer
+ It depends on:
+    Stakeholders
+    Type of system
+    Type of users
+   …
+ Quality is a
+  multifaceted concept
+
+
+                            Different ideas about a quality car
+Different Quality Scenarios
+ Online banking system
+   Security
+   Correctness
+   Reliability
+ Air Traffic Control System
+   Robustness
+   Real Time Responses
+ Educational Game for Children
+   Userfriendliness
+The 3 Ps of Software Measurment
+With regards to software, we can measure:
+ Product
+ Process
+ People
+Measuring the Product
+ Product refers to the actual software system,
+  documentation and other deliverables
+ We examine the product and measure a number of
+ aspects:
+   Size
+   Functionality offered
+   Cost
+   Various Quality Attributes
+  Measuring the Process
+ Involves analysis of the way a product is developed
+ What lifecycle do we use?
+ What deliverables are produced?
+ How are they analysed?
+ How can the process help to produce products
+  faster?
+ How can the process help to produce better
+  products?
+Measuring the People
+ Involves analysis of the people developing a product
+ How fast do they work?
+ How much bugs do they produce?
+ How many sick-days do they take?
+ Very controversial. People do not like being turned
+ into numbers.
+      The Measuring Process
+        Measurement
+         Programme
+                      Non-intrusive
+                                                    Modifications
+                      Data Collection
+                                        Products
+
+
+Results, Trends,
+Reports, etc
+
+
+
+                                        Processes
+
+
+
+
+                                         People
+Collecting Software Engineering Data
+ Challenge: Make sure that collected data can
+  provide useful information for project, process
+  and quality management without being a
+  burden on the development team.
+ Try to be as unintrusive as possible
+ Try to make data collection automatic
+ Can expensive
+   Sometimes difficult to convince management
+Collecting Software Engineering Data
+A possible collection methodology:
+1. Establish the goal of data collection
+2. Develop a list of questions of interest
+3. Establish data categories
+4. Design and test data collection forms/programs
+5. Collect and validate data
+6. Analyse data
+What can we measure about a product?
+
+ Size metrics
+ Defects-based metrics
+ Cost-metrics
+ Time metrics
+ Quality Attribute metrics
+Size Metrics
+ Knowing the size of a system was important for
+ comparing different systems together
+
+ Software measured in lines of code (LOC)
+
+ As systems grew larger KLOC (thousands of lines of
+ code) was also used
+Function Points
+ Instead of measuring size, function points measure
+  the functionality offered by a system.
+ Invented by Albrecht at IBM in 1979
+Overview of Function Points                    (1/3)
+
+ Function Points gauge the functionality offered by
+  a system
+ A Function can be defined as a collection of
+  executable statements that performs a certain task
+ Function points can be calculated before a system
+  is developed
+ They are language and developer independant
+Overview of Function Points                             (2/3)
+
+ A function point count is calculated as a wieghted
+  total of five major components that comprise an
+  application…
+   External Inputs
+   External Outputs (e.g. reports)
+   Logical Internal Files
+   External Interface Files – files accessed by the
+    application but not maintained by it
+   External Inquiries – types of online inquiries supported
+Other useful product metrics
+ Cost per function point
+ Defects generated per function point
+ Percentage of fixes which in turn have defects
+

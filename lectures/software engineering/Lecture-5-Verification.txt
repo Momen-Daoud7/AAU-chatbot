@@ -1,0 +1,221 @@
+1
+Outline
+ What are the goals of verification?
+
+ What are the main approaches to verification?
+
+   What kind of assurance do we get through testing?
+   How can testing be done systematically?
+   How can we remove defects (debugging)?
+
+
+ What are the main approaches to software analysis?
+   informal vs. formal
+
+
+                                                        2
+Need for verification
+ Designers are fallible even if they are skilled and follow
+  sound principles
+ Everything must be verified, every required quality,
+  process and products
+   even verification itself…
+
+
+
+
+                                                               3
+Properties of verification
+  May not be binary (OK, not OK)
+     severity of defect is important
+     some defects may be tolerated
+  May be subjective or objective
+     e.g., usability
+  Even implicit qualities should be verified
+     because requirements are often incomplete
+     e.g., robustness
+
+
+
+                                                  4
+Approaches to verification
+ Experiment with behavior of product
+    sample behaviors via testing
+    goal is to find "counterexamples"
+    dynamic technique
+ Analyze product to deduce its adequacy
+    analytic study of properties
+    static technique
+
+
+
+                                           5
+Testing and lack of "continuity"
+  Testing samples behaviors by examining "test
+   cases"
+  Impossible to extrapolate behavior of software from
+   a finite set of test cases
+  No continuity of behavior
+    it can exhibit correct behavior in infinitely many
+     cases, but may still be incorrect in some cases
+
+
+
+
+                                                          6
+Goals of testing
+ To show the presence of bugs (Dijkstra, 1987)
+ If tests do detect failures, we cannot conclude that
+  software is defect-free
+ Still, we need to do testing
+   driven by sound and systematic principles
+
+
+
+
+                                                         7
+Goals of testing (cont.)
+ Should help isolate errors
+    to facilitate debugging
+ Should be repeatable
+    repeating the same experiment, we should get the same
+     results
+       this may not be true because of the effect of execution
+        environment on testing
+       because of non-determinism
+ Should be accurate
+
+
+                                                                  8
+Testing in the small
+ We test individual modules
+  BLACK BOX (functional) testing
+    partitioning criteria based on the module’s
+     specification
+    tests what the program is supposed to do
+  WHITE BOX (structural) testing
+    partitioning criteria based on module’s internal code
+    tests what the program does
+
+
+
+                                                             9
+10
+The infeasibility problem
+ Syntactically indicated behaviors (statements,
+  edges, etc.) are often impossible
+   unreachable code, infeasible edges, paths, etc.
+ Adequacy criteria may be impossible to satisfy
+   manual justification for omitting each impossible
+    test case
+   adequacy “scores” based on coverage
+       example: 95% statement coverage
+
+
+
+
+                                                        11
+Further problem
+ What if the code omits the implementation of some
+  part of the specification?
+ White box test cases derived from the code will ignore
+  that part of the specification!
+
+
+
+
+                                                           12
+13
+Systematic black-box techniques
+  Testing driven by logic specifications (pre and
+   postconditions)
+  Syntax-driven testing
+  Decision table based testing
+  Cause-effect graph based testing
+
+
+
+
+                                                     14
+Testing boundary conditions
+ Testing criteria partition input domain in classes,
+  assuming that behavior is "similar" for all data within a
+  class
+ Some typical programming errors, however, just
+  happen to be at the boundary between different
+  classes
+
+
+
+
+                                                          15
+Testing in the large
+ Module testing
+    testing a single module
+ Integration testing
+    integration of modules and subsystems
+ System testing
+    testing the entire system
+ Acceptance testing
+    performed by the customer
+
+
+
+
+                                             16
+Module testing
+
+ Scaffolding needed to create the environment in which
+ the module should be tested
+   stubs
+       modules used by the module under test
+   driver
+       module activating the module under test
+
+
+
+
+                                                      17
+Testing a functional module
+
+                 PROCEDURE
+   STUB          UNDER TEST               DRIVER
+          CALL                CALL
+
+
+
+
+                     ACCESS TO NONLOCAL VARIABLES
+
+
+
+
+                                                    18
+Integration testing
+ Big-bang approach
+    first test individual modules in isolation
+    then test integrated system
+ Incremental approach
+    modules are progressively integrated and tested
+        can proceed both top-down and bottom-up according to the
+         USES relation
+
+
+
+                                                                    19
+Integration testing and USES relation
+
+         A
+                         If integration and test
+                         proceed bottom-up
+                         only need drivers
+     B           C
+                         Otherwise, if we proceed
+                         top-down only stubs are
+             D       E   needed
+
+
+
+
+                                                    20
+

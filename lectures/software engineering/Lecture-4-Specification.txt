@@ -1,0 +1,303 @@
+1
+   Specification
+ A broad term that means definition
+ Used at different stages of software development
+  for different purposes
+ Generally, a statement of agreement (contract)
+  between
+   producer and consumer of a service
+   implementer and user
+ All desirable qualities must be specified
+
+
+
+                                                     2
+Uses of specification
+ Statement of user requirements
+    major failures occur because of misunderstandings
+     between the producer and the user
+    "The hardest single part of building a softwarem system
+     is deciding precisely what to build"
+
+
+
+
+                                                               3
+Uses of specification (cont.)
+ Statement of the interface between the machine and
+ the controlled environment
+   serious undesirable effects can result due to
+    misunderstandings between software engineers and
+    domain experts about the phenomena affecting the
+    control function to be implemented by software
+
+
+
+
+                                                       4
+Uses of specification (cont.)
+ Statement of requirements for implementation
+   design process is a chain of specification (i.e.,
+    definition)–implementation–verification steps
+       requirements specification refers to definition of external
+        behavior
+           design specification must be verified against it
+       design specification refers to definition of the software
+        architecture
+           code must be verified against it
+
+
+
+
+                                                                      5
+Uses of specification (cont.)
+ A reference point during maintenance
+    corrective maintenance only changes implementation
+    adaptive and perfective maintenance occur because of
+     requirements changes
+       requirements specification must change accordingly
+
+
+
+
+                                                             6
+Specification qualities
+     Precise, clear, unambiguous
+     Consistent
+     Complete
+        internal completeness
+        external completeness
+     Incremental
+
+
+
+                                    7
+Clear, unambiguous, understandable
+ Example: specification fragment for a word-
+ processor
+
+  Selecting is the process of designating
+  areas of the document that you want to
+  work on. Most editing and formatting
+  actions require two steps: first you
+  select what you want to work on,
+  such as text or graphics; then you
+  initiate the appropriate action.
+
+ can an area be scattered?
+                                                8
+Precise, unambiguous, clear
+ Another example (from a real safety-critical
+ system)
+
+The message must be triplicated.          The three
+copies must be forwarded through          three
+different physical channels. The          receiver
+accepts the message on the basis          of a
+two-out-of-three voting policy.
+
+
+
+
+                                                      9
+Consistent
+ Example: specification fragment for a word-processor
+
+
+ The whole text should be kept in lines
+ of equal length. The length is specified
+ by the user. Unless the user gives an
+ explicit hyphenation command,
+ a carriage return should occur only
+ at the end of a word.
+
+
+What if the length of a word exceeds the length of the line?
+
+
+                                                          10
+Complete
+ Internal completeness
+    the specification must define any new concept or
+     terminology that it uses
+        glossary helpful for this purpose
+   the specification must document all the needed
+    requirements
+        difficulty: when should one stop?
+
+
+
+
+                                                        11
+Incremental
+ Referring to the specification process
+    start from a sketchy document and progressively add
+     details
+
+ Referring to the specification document
+
+   document is structured and can be understood in
+    increments
+
+
+
+                                                           12
+Classification of specification styles
+  Informal, semi-formal, formal
+
+
+  Operational
+    Behavior specification in terms of some abstract
+     machine
+
+  Descriptive
+    Behavior described in terms of properties
+
+
+
+                                                        13
+How to verify a specification?
+
+ “Observe” dynamic behavior of specified
+ system (simulation, prototyping, “testing”
+ specs)
+
+ Analyze properties of the specified system
+
+
+                                               14
+     A library example
+                         Bo ok                                           Bo ok request
+        Sh elves                                                         by t he user
+                                                 T itle and auth or
+                                                 of request ed boo k; n ame
+                                                 of the user
+            Autho r
+
+                                                                       Bo ok          Bo ok
+List of Auth ors
+                                           Get a bo ok                                recept io n
+
+
+                            T itle
+                                                                   Bo ok tit le;
+                                                                   user name
+  List of t it les
+
+                           T itle                                      List of book s bo rrowed
+                                         Search by
+                                         t opics
+List of t opics
+                      T op ic
+                                                 List of t it les
+                                       T op ic   referring t o th e to pic
+                                                                             Disp lay of
+                                                                             t he list of titles
+                     T op ic request
+                     by t he user
+
+
+                                                                                                    15
+  Refinement of “Get a book”
+                    Book
+
+
+
+    Shelves
+                        Author                                 Get                  Book
+                                                               the book
+List of Authors
+                                                                                    Book
+                                                   <s helf #, book#>                reception
+                                  Find
+                     Title        book
+                                  position
+   List of titles                                         List of books borrow ed
+
+                             Title and author
+                             of reques ted book;              Book title;
+                             name of the user                 us er name
+           Book request
+           by the user
+
+
+                                                                                                16
+Patient monitoring systems
+The purpose is to monitor the patients’ vital factors--blood,
+pressure, temperature, …--reading them at specified frequencies
+from analog devices and storing readings in a DB. If readings fall
+outside the range specified for patient or device fails an alarm
+must be sent to a nurse. The system also provides reports.
+                Nurse
+
+
+                   Report
+                   Request
+                                                Report
+                 Clinical    Patient
+      Patient    Data                                              Nurse
+                             Monitoring
+                                                 Alarm
+                                                Recent data
+
+                              Data for report         Persistent data
+
+
+                                                                           17
+    A refinement
+              Patient archive
+                                                     Report         Nurse
+     Recent                                          Request
+    Data                     Data for
+                              Report
+                                          Generate
+ Update                                    Report
+ archive
+                                                   Report
+        Formatted data
+                          Central                              Nurse
+                         Monitoring        Alarm
+
+                Limits          Patient data
+
+                                          Local          Clinical
+Limits for patient                      Monitoring       Data          Patient
+
+                                                                                 18
+ More refinement
+                                  Pressure            Patient
+                                                                data
+        Limits
+                                   Temperature decode
+                      Check
+                       limit
+                     violations            Pulse
+  Pressure, pulse…
+                                  Result
+   Format
+             Date clock
+    data                                   produce
+             Time
+                                           message
+Formatted data                                       alarm
+
+
+
+                                                                       19
+Conclusions
+ Specifications describe
+   what the users need from a system (requirements
+      specification)
+     the design of a software system (design and
+      architecture specification)
+     the features offered by a system (functional
+      specification)
+     the performance characteristics of a system
+      (performance specification)
+     the external behavior of a module (module interface
+      specification)
+     the internal structure of a module (internal
+      structural specification)
+
+                                                            20
+
