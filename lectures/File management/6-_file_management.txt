@@ -1,0 +1,289 @@
+Slide 1:
+Optimal Page Replacement
+هي الطريقة المثالية , ويكون عدد الــ page fault  أقل شيء , وتعتمد هذه الطريقة على التنبؤ بالمستقبل فتختار الضحية على أساس الإطار الذي ستستخدم بعد فترة زمنية طويلة نسبيا.
+وهذه الطريقة يستحيل تطبيقها , حيث أنها تعتمد على المستقبل الذي لا يمكن التنبؤ به..ولكن هذه الطريقة تستخدم لقياس مدى فعالية الخوارزميات الأخرى مقارنة مع هذه الخوارزمية..
+The Optimal policy selects for replacement the page that will not be used for longest period of time.
+Impossible to implement (need to know the future) but serves as a standard to compare with the other algorithms we shall study.
+
+Slide 2:
+Ref string:1 2 3 4 1 2 5 1 2 3 4 5
+# page fault = 1
+
+Slide 3:
+Ref string:1 2 3 4 1 2 5 1 2 3 4 5
+# page fault = 2
+
+Slide 4:
+Ref string:1 2 3 4 1 2 5 1 2 3 4 5
+# page fault = 3
+
+Slide 5:
+Ref string:1 2 3 4 1 2 5 1 2 3 4 5
+# page fault = 4
+
+Slide 6:
+Ref string:1 2 3 4 1 2 5 1 2 3 4 5
+# page fault = 4
+رقم 1 موجود ضمن الاطارات
+
+Slide 7:
+Ref string:1 2 3 4 1 2 5 1 2 3 4 5
+# page fault = 4
+رقم 2 موجود ضمن الاطارات
+
+Slide 8:
+Ref string:1 2 3 4 1 2 5 1 2 3 4 5
+# page fault = 4
+رقم 5 لايوجد ضمن الاطارات فينظر مستقبلا.. ويختار الضحية التي ستستخدم بعد أطول فترة زمنية
+
+Slide 9:
+Ref string:1 2 3 4 1 2 5 1 2 3 4 5
+# page fault = 4
+رقم 4 ستستخدم بعد أطول فترة زمنية.. فتختار كضحية وتحل 5 محلها..
+
+Slide 10:
+Ref string:1 2 3 4 1 2 5 1 2 3 4 5
+# page fault = 5
+
+Slide 11:
+Ref string:1 2 3 4 1 2 5 1 2 3 4 5
+# page fault = 5
+رقم 1 موجود ضمن الاطارات
+
+Slide 12:
+Ref string:1 2 3 4 1 2 5 1 2 3 4 5
+# page fault = 5
+رقم 2 موجود ضمن الاطارات
+
+Slide 13:
+Ref string:1 2 3 4 1 2 5 1 2 3 4 5
+# page fault = 5
+رقم 3 موجود ضمن الاطارات
+
+Slide 14:
+Ref string:1 2 3 4 1 2 5 1 2 3 4 5
+# page fault = 5
+
+Slide 15:
+Ref string:1 2 3 4 1 2 5 1 2 3 4 5
+# page fault = 6
+
+Slide 16:
+Ref string:1 2 3 4 1 2 5 1 2 3 4 5
+# page fault = 6
+رقم 5 موجود ضمن الاطارات
+
+Slide 17:
+احسب  فى حالة عدد الاطارات 3
+7page fault  7
+Ref string:1 2 3 4 1 2 5 1 2 3 4 5
+
+Slide 18:
+Optimal Page Replacement
+page fault(9)
+
+Slide 19:
+Optimal Page Replacement
+Unfortunately, OPT is difficult to implement, because it requires future knowledge of the reference string
+As a result, OPT is used mainly for comparison purposes
+
+Slide 20:
+Least Recently Used (LRU) Algorithm
+If OPT is not feasible, perhaps an approximation of OPT is possible
+The key distinction between FIFO and OPT (other than looking backward versus forward in time) is that FIFO uses the time when a page was brought into memory whereas OPT uses the time when a page is to be used
+If we use the recent past as an approximation of the near future, then we can replace the page that has not been used for the longest period of time
+This approach is the least-recently-used (LRU) algorithm
+
+Slide 21:
+The Least Recently Used (LRU) Page Replacement Algorithm
+LRU
+خوارزمية الأقل استخداما مؤخرا:
+في هذه الخوارزمية نحاول أن نحاكي الخوارزمية المثالية, ولكن نقوم باختيار الضحية بالنظر إلى التاريخ بدل المستقبل, أي أنه الأقل استخداما مؤخرا
+هو الذي يُختار كضحية.
+
+Slide 22:
+Counter
+REF string: 1  2  3  1  1  2  5
+0
+0
+0
+
+Slide 23:
+Counter
+REF string: 1  2  3  1  1  2  5
+1
+0
+0
+1
+(0+1) = 1
+
+Slide 24:
+Counter
+REF string: 1  2  3  1  1  2  5
+1
+0
+1
+1
+2
+(0+1) = 1
+
+Slide 25:
+Counter
+REF string: 1  2  3  1  1  2  5
+1
+1
+1
+1
+2
+(0+1) = 1
+3
+
+Slide 26:
+Counter
+REF string: 1  2  3  1  1  2  5
+2
+1
+1
+1
+2
+(1+1) = 2
+3
+
+Slide 27:
+Counter
+REF string: 1  2  3  1  1  2  5
+3
+1
+1
+1
+2
+(2+1) = 3
+3
+
+Slide 28:
+Counter
+REF string: 1  2  3  1  1  2  5
+3
+1
+2
+1
+2
+(1+1) = 2
+3
+
+Slide 29:
+Counter
+REF string: 1  2  3  1  1  2  5
+3
+1
+2
+1
+2
+3
+(3) ?
+
+Slide 30:
+Counter
+REF string: 1  2  3  1  1  2  5
+3
+1
+2
+1
+2
+3
+(3) ?
+(2) ?
+
+Slide 31:
+Counter
+REF string: 1  2  3  1  1  2  5
+3
+1
+2
+1
+2
+3
+(3) ?
+(2) ?
+(1) ?
+
+Slide 32:
+Counter
+REF string: 1  2  3  1  1  2  5
+3
+1
+2
+1
+2
+3
+1 < 2 < 3
+
+Slide 33:
+Counter
+REF string: 1  2  3  1  1  2  5
+3
+1
+2
+1
+2
+5
+1 < 2 < 3
+Page fault 4
+
+Slide 34:
+A. Frank - P. Weisberg
+Least Recently Used (LRU) Algorithm
+Reference string:  1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+8 page faults
+5
+2
+4
+3
+1
+2
+3
+4
+1
+2
+5
+4
+1
+2
+5
+3
+1
+2
+4
+3
+
+Slide 35:
+Least Recently Used (LRU) Algorithm
+Page fault = 12
+
+Slide 36:
+Thrashing
+If a process does not have “enough” pages, the page-fault rate is very high.  This leads to:
+low CPU utilization
+operating system thinks that it needs to increase the degree of multiprogramming
+another process added to the system
+Thrashing  a process is busy swapping pages in and out
+
+Slide 37:
+Thrashing (Cont.)
+
+Slide 38:
+EXE( 2) Comparison of OPT with LRU
+Example: A process of 5 pages with an OS that fixes the resident set size to 3.
+
+Slide 39:
+Comparison of FIFO with LRU
+
+Slide 40:
+استعرض(queue ) سلسلة عناوين الصفحات التالية:
+0, 2, 3, 4, 2, 0 ,5, 6, 2, 0, 2, 3, 7, 6, 3, 2, 0, 2, 3, 6.
+احسب اخطاء الصفحات (page fault) التى تحدث فى كل حالة مع افتراض انه لدينا ثلاثة اطارات
+How many page faults would occur for the following replacement algorithms, assuming three frames?
+• FIFO replacement
+• Optimal replacement
+• LRU replacement
+

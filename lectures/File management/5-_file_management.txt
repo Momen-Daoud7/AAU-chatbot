@@ -1,0 +1,252 @@
+Slide 1:
+أن المبدأ الأساسي لتقنية طلب الصفحات هو عدم تحميل جميع صفحات البرنامج من الذاكرة الثانوية (Secondary Storage) أو القرص إلى الذاكرة الحقيقية Memory) (Physical، بل تحميلها مباشرة عند بداية تنفيذ البرنامج حسب الحاجة أثناء التنفيذ .
+1
+Virtual Memory
+
+Slide 2:
+عندما يتم تحميل (تبديل) البرنامج إلى الذاكرة الحقيقية للمرة الأولى فإن المصفح يحاول التنبؤ بالصفحات التي سيتم استخدامها قبل إرجاعه إلى الذاكرة الثانوية مرة أخرى، هذه الصفحات هي التي سيتم إحضارها إلى الذاكرة الحقيقية بدلا من إحضار كامل البرنامج، وبذلك تم اختصار الوقت الذي كان سيقضيه لو أنه اضطر إلى جلب عدد أكبر من الصفحات، فضلا عن اختصار المساحة التي كانت ستملؤها تلك الصفحات.
+2
+Virtual Memory (Contd.)
+
+Slide 3:
+Valid-Invalid Bit
+3
+هنا تظهر لنا الحاجة لمعرفة كاّفة الصفحات التي تخص البرنامج: أيها في الذاكرة الحقيقية وأيها في الذاكرة الثانوية (لم يتم جلبها بعد)، ولحل هذه المشكلة نحتاج إلى دعم الجهاز لإضافة bit إضافي في الجدول الذي يربط بين كل صفحة و مكانها في الذاكرة الحقيقية .(Page Table)
+
+Slide 4:
+4
+Page Table When Some Pages Are Not in Main Memory
+
+Slide 5:
+If there is a reference to a page, first reference to that page will trap to operating system:
+page fault
+Operating system looks at another table to decide:
+Invalid reference  abort
+Just not in memory
+Get empty frame
+Swap page into frame
+Reset tables
+Set validation bit = v
+Restart the instruction that caused the page fault
+5
+Page Fault
+
+Slide 6:
+File Management
+6
+Steps in Handling a Page Fault
+
+Slide 7:
+Page replacement – find some page in memory, but not really in use, swap it out
+algorithm
+performance – want an algorithm which will result in minimum number of page faults
+Same page may be brought into memory several times
+7
+What happens if there is no free frame?
+
+Slide 8:
+Find the location of the desired page on disk
+Find a free frame:   -  If there is a free frame, use it   -  If there is no free frame, use a page replacement 	algorithm to select a victim frame
+Bring  the desired page into the (newly) free frame; update the page and frame tables
+Restart the process
+8
+Basic Page Replacement
+
+Slide 9:
+5/17/2024
+File Management
+9
+Page Replacement
+
+Slide 10:
+نلاحظ أنه في حالة عدم وجود مكان فارغ في الذاكرة، فإن النظام سيضطر أن ينقل صفحتين (صفحة خارجة للقرص وصفحة داخلة للذاكرة)، بالتالي فإن معالجة خطأ الصفحة يستهلك ضعف الوقت في حال عدم وجود إطار خالٍ في الذاكرة.
+10
+Page Replacement
+
+Slide 11:
+لكن لو أخذنا بعين الاعتبار أن الصفحة المطلوبة يتم نسخها من القرص ثم وضعها في الذاكرة، أي أن القرص يحتوي نسخة منها، حينها فلن نضطر لإرجاعها للقرص لو تم اختيارها لاحقًا لتكون ضحية، إلا إذا كان قد تم تعديلها.
+لتطبيق هذه الطريقة نضيف خانة في الصفحة ونسميها خانة التعديل (modify bit or dirty bit)
+File Management
+11
+Page Replacement
+
+Slide 12:
+12
+Graph of Page Faults Versus The Number of Frames
+
+Slide 13:
+File Management
+13
+First-In-First-Out (FIFO) Algorithm
+Reference string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+3 frames (3 pages can be in memory at a time per process)
+4 frames
+1
+2
+3
+1
+2
+3
+4
+1
+2
+5
+3
+4
+9 page faults
+1
+2
+3
+1
+2
+3
+5
+1
+2
+4
+5
+10 page faults
+4
+4
+3
+
+Slide 14:
+FIFO
+First-In-First-Out (FIFO) Algorithm
+
+Slide 15:
+ليكن لدينا ثلاث اطارات والــ string  التالي:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+
+Slide 16:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+أولا 1 يدخل في أول مكان فارغ
+
+Slide 17:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+أولا 1 يدخل في أول مكان فارغ
+
+Slide 18:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+أولا 1 يدخل في أول مكان فارغ
+ونزيد الـ page fault
+عدد الـ  page fault = 1
+
+Slide 19:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+2 يدخل المكان الفارغ الذي يليه
+
+Slide 20:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+2 يدخل المكان الفارغ الذي يليه
+ونزيد الـ page fault
+عدد الـ  page fault = 2
+
+Slide 21:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+3 يدخل المكان الفارغ الذي يليه
+
+Slide 22:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+3 يدخل المكان الفارغ الذي يليه
+ونزيد الـ page fault
+عدد الـ  page fault = 3
+
+Slide 23:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+4 لايوجد ضمن الاطارات, ولايوجد ايطار فارغ فيحل محل أقدم اطار
+
+Slide 24:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+4 لايوجد ضمن الاطارات, ولايوجد ايطار فارغ فيحل محل أقدم اطار
+ونزيد الـ page fault
+عدد الـ  page fault = 4
+
+Slide 25:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+1 لايوجد ضمن الاطارات, ولايوجد ايطار فارغ فيحل محل أقدم اطار
+
+Slide 26:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+1 لايوجد ضمن الاطارات, ولايوجد ايطار فارغ فيحل محل أقدم اطار
+ونزيد الـ page fault
+عدد الـ  page fault = 5
+
+Slide 27:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+2 لايوجد ضمن الاطارات, ولايوجد ايطار فارغ فيحل محل أقدم اطار
+
+Slide 28:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+2 لايوجد ضمن الاطارات, ولايوجد ايطار فارغ فيحل محل أقدم اطار
+ونزيد الـ page fault
+عدد الـ  page fault = 6
+
+Slide 29:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+5 لايوجد ضمن الاطارات, ولايوجد ايطار فارغ فيحل محل أقدم اطار
+
+Slide 30:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+5 لايوجد ضمن الاطارات, ولايوجد ايطار فارغ فيحل محل أقدم اطار ونزيد الـ page fault
+عدد الـ  page fault = 7
+
+Slide 31:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+1 يوجد ضمن الاطارات فلا يستبدل شيء ولا نزيد عدد الـ page fault
+عدد الـ  page fault = 7
+
+Slide 32:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+2 يوجد ضمن الاطارات فلا يستبدل شيءولا نزيد عدد الـ page fault
+عدد الـ  page fault = 7
+
+Slide 33:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+3 لايوجد ضمن الاطارات, ولايوجد ايطار فارغ فيحل محل أقدم اطار
+
+Slide 34:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+3 لايوجد ضمن الاطارات, ولايوجد ايطار فارغ فيحل محل أقدم اطار
+ونزيد الـ page fault
+عدد الـ  page fault = 8
+
+Slide 35:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+4 لايوجد ضمن الاطارات, ولايوجد ايطار فارغ فيحل محل أقدم اطار
+
+Slide 36:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+4 لايوجد ضمن الاطارات, ولايوجد ايطار فارغ فيحل محل أقدم اطار
+ونزيد عدد الـ page fault
+عدد الـ  page fault = 9
+
+Slide 37:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+5 يوجد ضمن الاطارات فلا يستبدل شيءولا نزيد عدد الـ page fault
+عدد الـ  page fault = 9
+
+Slide 38:
+Ref string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+بالتالي اصبح عدد الـ page fault
+= 9
+
+Slide 39:
+39
+First-In, First-Out (FIFO) algorithm
+Maintain a linked list of all pages
+Maintain the order in which they entered memory
+Page at front of list replaced
+Advantage: (really) easy to implement
+Disadvantage:
+This algorithm forces pages out regardless of usage
+
+Slide 40:
+Number of page fault = 15
+FIFO Page Replacement
+
+Slide 41:
+(Exercise (1
+احسب عدد page faults  فى حالة عدد الاطارات 3
+String      9,6,1,2,6,3,6,4,2,3,6
+

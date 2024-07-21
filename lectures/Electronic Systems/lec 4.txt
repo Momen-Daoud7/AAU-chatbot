@@ -1,0 +1,77 @@
+Slide 1:
+LEC4:			The Concept and Strategy of the eGovernment-2
+1
+AAU-FCSIT – lec4 - e-Base Systems - Dr. Ammar M abdo
+
+Slide 2:
+Strategic Management of eGovernment
+Market based View
+To explain the competitive success of firms, we need a theory of strategy which links environmental circumstances and firm behavior to market outcomes
+In the case of the public sector, this outcome may be seen as a service optimization and benefit maximization for the various public e-service demand groups (citizen, private, and public organizations).
+2
+
+Slide 3:
+Strategic Management of eGovernment
+Resource based View
+Regardless of the nature of the rents, sustained competitive advantage requires that the condition of heterogeneity be preserved
+In public sector, competitive advantage means that governmental service provisions achieve a significant higher added value for their users than comparable service provisions of other public and private e-service providers
+3
+
+Slide 4:
+Strategic Management of eGovernment
+4
+
+Slide 5:
+e-Government Target Plan
+Vision: generally understood as the central theme or the guiding principle of organizational activity
+target focus—pursuing a future target state,
+change focus—modifying basic organizational principles,
+competitor focus—outperforming a competitor, or
+role focus—becoming a role model
+5
+
+Slide 6:
+e-Government Target Plan
+Mission: The e-government mission differs from the vision in that it does not focus on an aspired future state of the organization, but defines a core statement regarding e-government purposes, values, and standards of conduct
+Based on the e-government vision and mission, the next step is the derivation and operationalization of concrete organizational targets.
+Targets should be SMART: Specific, Measurable, Assignable, Realistic, Time related
+6
+
+Slide 7:
+Situational eGovernment Analysis
+7
+
+Slide 8:
+eGovernment Implementation
+8
+
+Slide 9:
+eGovernment Strategy Scorecard
+9
+
+Slide 10:
+Technology Aspects of e-Government
+10
+
+Slide 11:
+Open Government vs e-Government
+“Open and responsive government refers to the transparency of government actions, the accessibility of government services and information, and the responsiveness of government to new ideas, demands and needs”
+“Openness of government is the extent to which citizens can monitor and influence government processes through access to government information and access to decision-making arenas”
+“Open government is widely understood as the leveraging of information technologies to generate participatory, collaborative dialogue between policymakers and citizens”
+11
+
+Slide 12:
+Open Government vs e-Government
+Both concepts are mandatory and mutually
+e-government provides the required technological approach
+open government the necessary conceptual framework.
+12
+
+Slide 13:
+Summary
+Convergence and Technology, State and Politics, Society and Economy, and Citizen Empowerment are the four drivers behind the e-government
+EVAS, based on the system of value chain, guides the development of e-government strategy
+E-government strategy takes into account both the market and the resource-based views to gain competitive advantage
+Open Government and e-Government are both complementary concepts
+13
+

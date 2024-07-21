@@ -1,0 +1,300 @@
+Slide 1:
+1
+1
+Activities and Intents
+1
+Android Developer Fundamentals V2
+Lesson 2
+Dr. Mohamed Khairi
+
+Slide 2:
+2.3 Implicit Intents
+2
+
+Slide 3:
+Contents
+
+Intent—recap
+Implicit Intent overview
+Sending an implicit Intent
+Receiving an implicit Intent
+
+
+3
+
+Slide 4:
+Recap: Intent
+4
+
+Slide 5:
+What is an Intent?
+5
+An Intent is:
+Description of an operation to be performed 
+Messaging object used to request an action from another app component via the Android system.  
+App component
+Originator
+
+Intent
+
+Action
+Android System
+
+Slide 6:
+What can an Intent do?
+An Intent can be used to:
+start an Activity
+start a Service
+deliver a Broadcast
+
+Services and Broadcasts are covered in other lessons
+6
+
+Slide 7:
+Explicit vs. implicit Intent
+7
+
+Explicit Intent — Starts an Activity of a specific class
+
+Implicit Intent — Asks system to find an Activity class with a registered handler that can handle this request
+
+
+
+Slide 8:
+Implicit Intent overview
+8
+
+Slide 9:
+What you do with an implicit Intent
+Start an Activity in another app by describing an action you intend to perform, such as "share an article", "view a map", or "take a picture"
+Specify an action and optionally provide data with which to perform the action
+Don't specify the target Activity class, just the intended action
+9
+
+Slide 10:
+What system does with implicit Intent
+10
+Android runtime matches the implicit intent request with registered intent handlers
+If there are multiple matches, an App Chooser will open to let the user decide
+
+Slide 11:
+How does implicit Intent work?
+11
+The Android Runtime keeps a list of registered Apps
+Apps have to register via AndroidManifest.xml
+Runtime receives the request and looks for matches
+Android runtime uses Intent filters for matching
+If more than one match, shows a list of possible matches and lets the user choose one
+Android runtime starts the requested activity
+
+Slide 12:
+App Chooser
+12
+When the Android runtime finds multiple registered activities that can handle an implicit Intent, it displays an App Chooser to allow the user to select the handler
+
+Slide 13:
+Sending an implicit Intent
+13
+
+Slide 14:
+Sending an implicit Intent
+14
+Create an Intent for an action
+Intent intent = new Intent(Intent.ACTION_CALL_BUTTON);	
+User has pressed Call button — start Activity that can make a call (no data is passed in or returned)
+
+Start the Activity
+    if (intent.resolveActivity(getPackageManager()) != null) {        startActivity(intent);    }
+
+Slide 15:
+Avoid exceptions and crashes
+15
+Before starting an implicit Activity, use the package manager to check that there is a package with an Activity that matches the given criteria.
+
+Intent myIntent = new Intent(Intent.ACTION_CALL_BUTTON);
+if (intent.resolveActivity(getPackageManager()) != null) {    startActivity(intent);}
+
+Slide 16:
+Sending an implicit Intent with data URI
+16
+Create an Intent for action
+Intent intent = new Intent(Intent.ACTION_DIAL);
+Provide data as a URI
+intent.setData(Uri.parse("tel:8005551234"));
+Start the Activity
+if (intent.resolveActivity(getPackageManager()) != null) {    startActivity(intent);}
+
+Slide 17:
+Providing the data as URI
+17
+
+Create an URI from a string using Uri.parse(String uri)
+
+Uri.parse("tel:8005551234")
+Uri.parse("geo:0,0?q=brooklyn%20bridge%2C%20brooklyn%2C%20ny")
+Uri.parse("http://www.android.com");
+
+Uri documentation
+
+Slide 18:
+Implicit Intent examples
+18
+Show a web pageUri uri = Uri.parse("http://www.google.com"); Intent it = new Intent(Intent.ACTION_VIEW,uri); startActivity(it);
+Dial a phone numberUri uri = Uri.parse("tel:8005551234"); 
+Intent it = new Intent(Intent.ACTION_DIAL, uri); 
+startActivity(it);
+
+
+
+Slide 19:
+Sending an implicit Intent with extras
+19
+Create an Intent for an action
+Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+Put extras
+String query = edittext.getText().toString();
+intent.putExtra(SearchManager.QUERY, query));
+Start the Activity
+    if (intent.resolveActivity(getPackageManager()) != null) {        startActivity(intent);    }
+
+
+
+
+Slide 20:
+Category
+20
+Additional information about the kind of component to handle the intent. 
+CATEGORY_OPENABLE
+Only allow URIs of files that are openable
+CATEGORY_BROWSABLE
+Only an Activity that can start a web browser to display data referenced by the URI
+
+
+
+
+
+
+
+Slide 21:
+Sending an implicit Intent with type and category 
+21
+Create an Intent for an action
+Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+Set mime type and category for additional information 
+    intent.setType("application/pdf"); // set MIME type
+    intent.addCategory(Intent.CATEGORY_OPENABLE); 
+
+continued on next slide...
+
+
+Slide 22:
+Sending an implicit Intent with type and category 
+22
+3. Start the Activity
+    if (intent.resolveActivity(getPackageManager()) != null) {      startActivityForResult(myIntent,ACTIVITY_REQUEST_CREATE_FILE);    }
+4. Process returned content URI in onActivityResult()
+
+
+
+Slide 23:
+Common actions for an implicit Intent
+23
+Common actions include:
+ACTION_SET_ALARM
+ACTION_IMAGE_CAPTURE
+ACTION_CREATE_DOCUMENT
+ACTION_SENDTO
+and many more
+
+Slide 24:
+Apps that handle common actions
+24
+Common actions are usually handled by installed apps (both system apps and other apps), such as:
+Alarm Clock, Calendar, Camera, Contacts
+Email, File Storage, Maps, Music/Video
+Notes, Phone, Search, Settings
+Text Messaging and Web Browsing
+
+List of common actions for an implicit intent
+List of all available actions
+
+
+Slide 25:
+Receiving an Implicit Intent
+25
+
+Slide 26:
+Register your app to receive an Intent
+26
+Declare one or more Intent filters for the Activity in AndroidManifest.xml 
+Filter announces ability of Activity to accept an implicit Intent 
+Filter puts conditions on the Intent that the Activity accepts
+
+Slide 27:
+Intent filter in AndroidManifest.xml
+27
+<activity android:name="ShareActivity">  <intent-filter>    <action android:name="android.intent.action.SEND"/>    <category android:name="android.intent.category.DEFAULT"/>    <data android:mimeType="text/plain"/>  </intent-filter>
+</activity>
+
+Slide 28:
+Intent filters: action and category
+28
+
+action — Match one or more action constants
+android.intent.action.VIEW — matches any Intent with ACTION_VIEW
+android.intent.action.SEND — matches any Intent with ACTION_SEND
+
+category — additional information (list of categories)
+android.intent.category.BROWSABLE—can be started by web browser
+android.intent.category.LAUNCHER—Show activity as launcher icon
+
+Slide 29:
+Intent filters: data
+29
+
+data — Filter on data URIs, MIME type
+android:scheme="https"—require URIs to be https protocol
+android:host="developer.android.com"—only accept an Intent from specified hosts
+android:mimeType="text/plain"—limit the acceptable types of documents
+
+Slide 30:
+30
+An Activity can have multiple filters
+<activity android:name="ShareActivity">
+  <intent-filter>    <action android:name="android.intent.action.SEND"/>    ...  </intent-filter>
+  <intent-filter>    <action android:name="android.intent.action.SEND_MULTIPLE"/>    ...  </intent-filter>
+</activity>
+An Activity can have several filters
+
+Slide 31:
+A filter can have multiple actions & data
+<intent-filter>  <action android:name="android.intent.action.SEND"/>  <action android:name="android.intent.action.SEND_MULTIPLE"/>  <category android:name="android.intent.category.DEFAULT"/>  <data android:mimeType="image/*"/>  <data android:mimeType="video/*"/></intent-filter>
+31
+
+Slide 32:
+Learn more
+32
+
+Slide 33:
+Learn more
+Intent class documentation
+Uri documentation
+List of common apps that respond to implicit intents
+List of available actions
+List of categories
+Intent Filters
+
+33
+
+Slide 34:
+What's Next?
+34
+Concept Chapter: 2.3 Implicit Intents
+Practical: 2.3 Implicit Intents
+
+Slide 35:
+END
+
+35
+
+

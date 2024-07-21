@@ -1,0 +1,195 @@
+Slide 1:
+File-System Interface
+File Concept
+Access Methods
+Disk and Directory Structure
+File-System Mounting
+File Sharing
+Protection
+
+Slide 2:
+Objectives
+To explain the function of file systems
+To describe the interfaces to file systems
+To discuss file-system design tradeoffs, including access methods, file sharing, file locking, and directory structures
+To explore file-system protection
+
+Slide 3:
+File Concept
+Contiguous logical address space
+Types:
+Data
+numeric
+character
+Program
+Contents defined by file’s creator
+Many types
+Consider text file, source file, executable file
+
+Slide 4:
+File Attributes
+Name – only information kept in human-readable form
+Identifier – unique tag (number) identifies file within file system
+Type – needed for systems that support different types
+Location – pointer to file location on device
+Size – current file size
+Protection – controls who can do reading, writing, executing
+Time, date, and user identification – data for protection, security, and usage monitoring
+Information about files are kept in the directory structure, which is maintained on the disk
+Information kept in the directory structure
+
+Slide 5:
+File Operations
+File is an abstract data type
+Create
+Write – at write pointer location
+Read – at read pointer location
+Delete
+Truncate
+Open(Fi) – search the directory structure on disk for entry Fi, and move the content of entry to memory
+Close (Fi) – move the content of entry Fi in memory to directory structure on disk
+
+Slide 6:
+File Types – Name, Extension
+
+Slide 7:
+Sequential-access File
+
+Slide 8:
+Directory Structure
+A collection of nodes containing information about all files
+F 1
+F 2
+F 3
+F 4
+F n
+Directory
+Files
+Both the directory structure and the files reside on disk
+
+Slide 9:
+Disk Structure
+Disk can be subdivided into partitions
+Disks or partitions can be RAID protected against failure
+Disk or partition can be used raw – without a file system, or formatted with a file system
+Partitions also known as minidisks, slices
+Entity containing file system known as a volume
+Each volume containing file system also tracks that file system’s info in device directory or volume table of contents
+As well as general-purpose file systems there are many special-purpose file systems, frequently all within the same operating system or computer
+
+Slide 10:
+A Typical File-system Organization
+
+Slide 11:
+Types of File Systems
+We mostly talk of general-purpose file systems
+But systems frequently have may file systems, some general- and some special- purpose
+Consider Solaris has
+tmpfs – memory-based volatile FS for fast, temporary I/O
+objfs – interface into kernel memory to get kernel symbols for debugging
+ctfs – contract file system for managing daemons
+lofs – loopback file system allows one FS to be accessed in place of another
+procfs – kernel interface to process structures
+ufs, zfs – general purpose file systems
+
+Slide 12:
+Operations Performed on Directory
+Search for a file
+Create a file
+Delete a file
+List a directory
+Rename a file
+
+Slide 13:
+Directory Organization
+Efficiency – locating a file quickly
+Naming – convenient to users
+Two users can have same name for different files
+The same file can have several different names
+Grouping – logical grouping of files by properties, (e.g., all Java programs, all games, …)
+The directory is organized logically  to obtain
+
+Slide 14:
+Single-Level Directory
+A single directory for all users
+Naming problem
+Grouping problem
+
+Slide 15:
+Two-Level Directory
+Separate directory for each user
+Path name
+Can have the same file name for different user
+Efficient searching
+No grouping capability
+
+Slide 16:
+Tree-Structured Directories
+Efficient searching
+Grouping Capability
+Current directory (working directory)
+cd /spell/mail/prog
+type list
+
+Slide 17:
+File System Mounting
+A file system must be mounted before it can be accessed
+A unmounted file system (i.e., Fig. 11-11(b)) is mounted at a mount point
+
+Slide 18:
+File Sharing
+Sharing of files on multi-user systems is desirable
+Sharing may be done through a protection scheme
+On distributed systems, files may be shared across a network
+Network File System (NFS) is a common distributed file-sharing method
+If multi-user system
+User IDs identify users, allowing permissions and protections to be per-userGroup IDs allow users to be in groups, permitting group access rights
+Owner of a file / directory
+Group of a file / directory
+
+Slide 19:
+File Sharing – Remote File Systems
+Uses networking to allow file system access between systems
+Manually via programs like FTP
+Automatically, seamlessly using distributed file systems
+Semi automatically via the world wide web
+Client-server model allows clients to mount remote file systems from servers
+Server can serve multiple clients
+Client and user-on-client identification is insecure or complicated
+NFS is standard UNIX client-server file sharing protocol
+CIFS is standard Windows protocol
+Standard operating system file calls are translated into remote calls
+Distributed Information Systems (distributed naming services) such as LDAP, DNS, NIS, Active Directory implement unified access to information needed for remote computing
+
+Slide 20:
+Protection
+File owner/creator should be able to control:
+what can be done
+by whom
+Types of access
+Read
+Write
+Execute
+Append
+Delete
+List
+
+Slide 21:
+Access Lists and Groups
+Mode of access:  read, write, execute
+Three classes of users on Unix / Linux
+RWX
+a) owner access 	7		1 1 1				RWX
+b) group access 	6	 	1 1 0
+RWX
+c) public access	1	 	0 0 1
+Ask manager to create a group (unique name), say G, and add some users to the group.
+For a particular file (say game) or subdirectory, define an appropriate access.
+Attach a group to a file	         chgrp     G    game
+
+Slide 22:
+Windows 7 Access-Control List Management
+
+Slide 23:
+A Sample UNIX Directory Listing
+

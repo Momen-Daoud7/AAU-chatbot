@@ -1,0 +1,461 @@
+Slide 1:
+‹#›
+‹#›
+Activities and Intents
+‹#›
+Android Developer Fundamentals V2
+Lesson 2
+
+Slide 2:
+2.1 Activities and Intents
+‹#›
+
+Slide 3:
+Contents
+‹#›
+Activities
+Defining an Activity 
+Starting a new Activity with an Intent
+Passing data between activities with extras
+Navigating between activities
+
+
+Slide 4:
+Activities
+(high-level view)
+‹#›
+
+Slide 5:
+What is an Activity?
+‹#›
+An Activity is an application component
+Represents one window, one hierarchy of views
+Typically fills the screen, but can be embedded in other Activity or a appear as floating window
+Java class, typically one Activity in one file
+
+
+Slide 6:
+What does an Activity do?
+‹#›
+Represents an activity, such as ordering groceries, sending email, or getting directions
+Handles user interactions, such as button clicks, text entry, or login verification
+Can start other activities in the same or other apps
+Has a life cycle—is created, started, runs, is paused, resumed, stopped, and destroyed
+
+
+Slide 7:
+Examples of activities
+‹#›
+
+
+
+Slide 8:
+Apps and activities
+‹#›
+Activities are loosely tied together to make up an app
+First Activity user sees is typically called "main activity"
+Activities can be organized in parent-child relationships in the Android manifest  to aid navigation
+
+
+Slide 9:
+Layouts and Activities
+An Activity typically has a UI layout
+Layout is usually defined in one or more XML files
+Activity "inflates" layout as part of being created
+
+‹#›
+
+Slide 10:
+Implementing Activities
+‹#›
+
+Slide 11:
+Implement new activities
+‹#›
+Define layout in XML
+Define Activity Java class 
+extends AppCompatActivity
+Connect Activity with Layout 
+Set content view in onCreate()
+Declare Activity in the Android manifest
+
+
+Slide 12:
+Define layout in XML
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent">
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Let's Shop for Food!" />
+</RelativeLayout>
+‹#›
+
+Slide 13:
+2. Define Activity Java class
+
+public class MainActivity extends AppCompatActivity {
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+   }
+}
+‹#›
+
+Slide 14:
+3. Connect activity with layout
+
+public class MainActivity extends AppCompatActivity {
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
+   }
+}
+‹#›
+in this XML file
+is layout
+Resource
+
+
+
+
+Slide 15:
+4. Declare activity in Android manifest
+
+
+<activity android:name=".MainActivity">
+
+
+
+
+‹#›
+
+Slide 16:
+4. Declare main activity in manifest
+MainActivity needs to include intent-filter to start from launcher 
+
+<activity android:name=".MainActivity">
+   <intent-filter>
+       <action android:name="android.intent.action.MAIN" />
+       <category android:name="android.intent.category.LAUNCHER" />
+   </intent-filter>
+</activity>
+‹#›
+
+Slide 17:
+Intents
+‹#›
+
+Slide 18:
+What is an intent?
+‹#›
+An Intent is a description of an operation to be performed. 
+An Intent is an object used to request an action from another app component via the Android system.  
+App component
+Originator
+
+Intent
+
+Action
+Android System
+
+Slide 19:
+What can intents do?
+‹#›
+Start an Activity
+A button click starts a new Activity for text entry
+Clicking Share opens an app that allows you to post a photo
+Start an Service
+Initiate downloading a file in the background
+Deliver Broadcast
+The system informs everybody that the phone is now charging
+
+Slide 20:
+Explicit and implicit intents
+‹#›
+Explicit Intent 
+Starts a specific Activity
+Request tea with milk delivered by Nikita
+Main activity starts the ViewShoppingCart Activity
+Implicit Intent 
+Asks system to find an Activity that can handle this request
+Find an open store that sells green tea
+Clicking Share opens a chooser with a list of apps 
+
+
+Slide 21:
+Starting Activities
+‹#›
+
+Slide 22:
+Start an Activity with an explicit intent
+To start a specific Activity, use an explicit Intent
+Create an Intent
+Intent intent = new Intent(this, ActivityName.class);
+Use the Intent to start the Activity
+startActivity(intent);
+
+‹#›
+
+Slide 23:
+Start an Activity with implicit intent
+To ask Android to find an Activity to handle your request, use an implicit Intent
+Create an Intent
+Intent intent = new Intent(action, uri);
+Use the Intent to start the Activity
+startActivity(intent);
+‹#›
+
+Slide 24:
+Implicit Intents - Examples
+‹#›
+Show a web pageUri uri = Uri.parse("http://www.google.com"); Intent it = new Intent(Intent.ACTION_VIEW,uri); startActivity(it);
+Dial a phone numberUri uri = Uri.parse("tel:8005551234"); 
+Intent it = new Intent(Intent.ACTION_DIAL, uri); 
+startActivity(it);
+
+
+
+Slide 25:
+How Activities Run
+All Activity instances are managed by the Android runtime
+Started by an "Intent", a message to the Android runtime to run an activity
+
+‹#›
+MainActivityWhat do you want to do?
+FoodListActivityChoose food items...Next
+OrderActivityPlace order
+User clicks launcher icon
+Android System
+
+Intent: Start app 
+
+Start main activity
+Android System
+
+
+Start choose food activity
+Android System
+
+
+Start finish order activity
+Intent: Shop
+Intent: order  
+
+Slide 26:
+Sending and Receiving Data
+‹#›
+
+Slide 27:
+Two types of sending data with intents
+Data—one piece of information whose data location can be represented by an URI 
+
+Extras—one or more pieces of information as a collection of key-value pairs in a Bundle
+
+‹#›
+
+Slide 28:
+Sending and retrieving data
+In the first (sending) Activity:
+Create the Intent object
+Put data or extras into that Intent
+Start the new Activity with startActivity()
+In the second (receiving) Activity: 
+Get the Intent object, the Activity was started with
+Retrieve the data or extras from the Intent object
+
+‹#›
+
+Slide 29:
+Putting a URI as intent data
+// A web page URL
+intent.setData(
+    Uri.parse("http://www.google.com")); 
+// a Sample file URI
+intent.setData(
+     Uri.fromFile(new File("/sdcard/sample.jpg")));
+‹#›
+
+Slide 30:
+Put information into intent extras
+putExtra(String name, int value) ⇒ intent.putExtra("level", 406);
+putExtra(String name, String[] value)⇒ String[] foodList = {"Rice", "Beans", "Fruit"};   intent.putExtra("food", foodList);
+putExtras(bundle);⇒ if lots of data, first create a bundle and pass the bundle.
+See documentation for all
+‹#›
+
+Slide 31:
+Sending data to an activity with extras
+public static final String EXTRA_MESSAGE_KEY =    "com.example.android.twoactivities.extra.MESSAGE";
+Intent intent = new Intent(this, SecondActivity.class);
+String message = "Hello Activity!";
+intent.putExtra(EXTRA_MESSAGE_KEY, message);
+startActivity(intent);
+‹#›
+
+Slide 32:
+Get data from intents
+getData(); ⇒ Uri locationUri = intent.getData();
+int getIntExtra (String name, int defaultValue)⇒ int level = intent.getIntExtra("level", 0);
+Bundle bundle = intent.getExtras(); ⇒ Get all the data at once as a bundle.
+See documentation for all
+‹#›
+
+Slide 33:
+Returning data to the starting activity
+Use startActivityForResult() to start the second Activity
+To return data from the second Activity:
+Create a new Intent
+Put the response data in the Intent using putExtra()
+Set the result to Activity.RESULT_OK  or RESULT_CANCELED, if the user cancelled out
+call finish() to close the Activity
+Implement  onActivityResult() in first Activity
+‹#›
+
+Slide 34:
+startActivityForResult()
+startActivityForResult(intent, requestCode);
+Starts Activity (intent), assigns it identifier (requestCode)
+Returns data via Intent extras
+When done, pop stack, return to previous Activity, and execute onActivityResult() callback to process returned data
+Use requestCode to identify which Activity has "returned"
+‹#›
+
+Slide 35:
+startActivityForResult() Example
+
+
+public static final int CHOOSE_FOOD_REQUEST = 1;
+
+Intent intent = new Intent(this, ChooseFoodItemsActivity.class);
+startActivityForResult(intent, CHOOSE_FOOD_REQUEST);
+‹#›
+
+Slide 36:
+Return data and finish second activity
+ // Create an intent
+Intent replyIntent = new Intent();
+// Put the data to return into the extra
+replyIntent.putExtra(EXTRA_REPLY, reply);
+// Set the activity's result to RESULT_OK
+setResult(RESULT_OK, replyIntent);
+// Finish the current activity
+finish();
+
+‹#›
+
+Slide 37:
+Implement onActivityResult()
+public void onActivityResult(int requestCode, 
+                             int resultCode, Intent data) {
+  super.onActivityResult(requestCode, resultCode, data);
+  if (requestCode == TEXT_REQUEST) { // Identify activity
+    if (resultCode == RESULT_OK) { // Activity succeeded
+      String reply = data.getStringExtra(SecondActivity.EXTRA_REPLY);
+      // … do something with the data
+ }}}
+‹#›
+
+Slide 38:
+Navigation
+‹#›
+
+Slide 39:
+Activity stack
+When a new Activity is started, the previous Activity is stopped and pushed on the Activity back stack
+Last-in-first-out-stack—when the current Activity ends, or the  user presses the Back button, it is popped from the stack and the previous Activity resumes
+
+‹#›
+
+Slide 40:
+
+Activity Stack
+‹#›
+MainActivityWhat do you want to do?
+FoodListActivityChoose food items
+CartActivityView shopping cart
+MainActivityWhat do you want to do?
+FoodListActivityChoose food items
+CartActivityView shopping cart
+MainActivityWhat do you want to do?
+FoodListActivityChoose food items
+CartActivityView shopping cart
+OrderActivityPlace order
+MainActivityWhat do you want to do?
+FoodListActivityChoose food items
+CartActivityView shopping cart
+OrderActivityPlace order
+
+
+
+
+
+After viewing shopping cart, user decides to add more items, then places order.
+
+Slide 41:
+Two forms of navigation
+     Temporal or back navigation
+provided by the device's Back button
+controlled by the Android system's back stack
+      Ancestral or up navigation
+provided by the Up button in app's action bar
+controlled by defining parent-child relationships between activities in the Android manifest
+‹#›
+
+Slide 42:
+ Back navigation
+Back stack preserves history of recently viewed screens
+Back stack contains all the Activity instances that have been launched by the user in reverse order for the current task
+Each task has its own back stack
+Switching between tasks activates that task's back stack
+
+
+
+‹#›
+
+Slide 43:
+Up navigation
+
+
+‹#›
+Goes to parent of current Activity
+Define an Activity parent in Android manifest
+Set parentActivityName
+<activity
+   android:name=".ShowDinnerActivity"
+   android:parentActivityName=".MainActivity" >
+</activity>
+
+
+
+Slide 44:
+Learn more
+‹#›
+
+Slide 45:
+Learn more
+Android Application Fundamentals
+Starting Another Activity
+Activity (API Guide)
+Activity (API Reference)
+Intents and Intent Filters (API Guide)
+Intent (API Reference)
+Navigation
+‹#›
+
+Slide 46:
+What's Next?
+‹#›
+Concept Chapter: 2.1 Activities and Intents
+Practical: 2.1 Activities and intents
+
+Slide 47:
+END
+
+‹#›
+
+

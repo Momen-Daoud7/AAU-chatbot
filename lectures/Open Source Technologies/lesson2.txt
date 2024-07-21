@@ -1,0 +1,76 @@
+Slide 1:
+Introduction	to	Mobile Apps
+CSE 5236: Mobile Application Development  Instructor: Adam C. Champion
+Course Coordinator: Dr. Rajiv Ramnath
+1
+
+Slide 2:
+1
+Essence of A Mobile Device?
+(Potentially) available to serve everywhere, any time.
+Interwoven into daily life – live, work, play, study
+Represents and intimately “knows” the user
+Much more than just a small computer, it represents the user
+Brings in the outside world – sensing, location,  communication
+Now the dominant end-user device
+See:
+http://www.nytimes.com/2013/01/08/business/mobile-apps-drive-  rapid-changes-in-search-technology.html?ref=technology
+
+Slide 3:
+Varied Shapes, Sizes, Capabilities
+1
+
+Slide 4:
+1
+Mobile Application Development Challenges
+Competitive, fluid vendor landscape (Apple, Android  consortium incl. Amazon, RIM, HP) means apps need to be  multi-platform for wide adoption
+No “standard” device (what about iOS, Windows Phone  devices?)
+Low bandwidth input (in most cases – what about tablets?)
+Limited screen size (tablets?)
+Unreliability in connectivity and device (network access,  power, ambient light, noise, at least for now)
+Integration tradeoffs with cloud and enterprise services
+
+Slide 5:
+1
+Application Development Support
+3rd Generation Object-Oriented Languages  (iOS – Objective C, Android – Java,  Windows Phone – C# )
+Scripting languages (JavaScript, Ruby)
+Cross-platform frameworks – Titanium,  RhoMobile, Xamarin, PhoneGap
+C and C++
+Integrated into “frameworks” specifically  for mobile application development
+
+Slide 6:
+Framework	Support (e.g. Android)
+Blue background:
+Java
+Other colors:
+C/C++
+
+1
+
+Slide 7:
+1
+Framework Capabilities and Add-Ons
+Built-In Services:
+GUI, OS services (file I/O, threads, device management),  Graphics, Device access (GPS, camera, music and vido  players, sensors), Web-services, Networking, XML  processing, standard language libraries
+Add-ons:
+Maps
+Database support (SQLite)
+WebKit
+
+Slide 8:
+1
+IDE Support
+Open IDEs – Eclipse/Android Studio for  Android)
+Proprietary (Xcode for iOS, MS Visual Studio)
+Testing tools (test management, unit tests)
+Performance profiling tools
+SCM integration (Git, SVN, CVS)
+Software emulators
+Sensor injection (GPS, accelerometer, others)
+
+Slide 9:
+1
+Thank You
+Questions and comments?
+

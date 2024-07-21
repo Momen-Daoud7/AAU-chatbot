@@ -1,0 +1,717 @@
+Slide 1:
+1
+1
+Build your first app
+1
+Android Developer Fundamentals V2
+Lesson 1
+
+Slide 2:
+1.2 Layouts and resources for the UI
+2
+
+Slide 3:
+Contents
+Views, view groups, and view hierarchy
+The layout editor and ConstraintLayout
+Event handling
+Resources and measurements
+طرق العرض ، وعرض المجموعات ، وعرض التسلسل الهرمي
+محرر التخطيط و ConstraintLayout
+التعامل مع الحدث
+الموارد والقياسات
+
+3
+
+Slide 4:
+Views
+4
+
+Slide 5:
+Everything you see is a view
+If you look at your mobile device, 
+every user interface element that you see is a View.
+
+ إذا نظرت إلى جهازك المحمول ،
+كل عنصر في واجهة المستخدم تراه هو طريقة عرض.
+5
+Views
+
+Slide 6:
+What is a view?
+View subclasses are basic user interface building blocks
+Display text (TextView class), edit text (EditText class)
+Buttons (Button class), menus, other controls
+Scrollable (ScrollView, RecyclerView)
+Show images (ImageView)
+Group views (ConstraintLayout and LinearLayout)
+6
+
+Slide 7:
+
+تعد الفئات الفرعية للعرض بمثابة كتل بناء أساسية لواجهة المستخدم
+عرض النص (فئة TextView) ، تحرير النص (فئة EditText)
+الأزرار (فئة الأزرار) والقوائم وعناصر التحكم الأخرى
+قابل للتمرير (ScrollView ، RecyclerView)
+إظهار الصور (ImageView)
+عروض المجموعة (ConstraintLayout و LinearLayout)
+7
+
+Slide 8:
+Examples of view subclasses
+8
+Button
+
+EditText
+
+Slider
+CheckBox
+
+RadioButton
+
+Switch
+
+Slide 9:
+View attributes
+Color, dimensions, positioning
+May have focus (e.g., selected to receive user input)
+May be interactive (respond to user clicks)
+May be visible or not
+Relationships to other views
+9
+
+Slide 10:
+
+اللون والأبعاد وتحديد المواقع
+قد يكون له التركيز (على سبيل المثال ، محدد لتلقي مدخلات المستخدم)
+قد تكون تفاعلية (تستجيب لنقرات المستخدم)
+قد تكون مرئية أم لا
+العلاقات مع وجهات النظر الأخرى
+10
+
+Slide 11:
+Create views and layouts
+
+Android Studio layout editor: visual representation of XML 
+XML editor
+Java code
+محرر تخطيط Android Studio: التمثيل المرئي لـ XML
+محرر XML
+كود جافا
+
+11
+
+Slide 12:
+Android Studio layout editor
+12
+XML layout file 
+Design and Text tabs
+Palette pane
+Component Tree 
+Design and blueprint panes
+Attributes tab
+
+Slide 13:
+
+ملف تخطيط XML
+علامات تبويب التصميم والنص
+جزء لوح الألوان
+شجرة المكون
+أجزاء التصميم والمخطط
+علامة التبويب السمات
+13
+
+Slide 14:
+View defined in XML
+<TextView
+       android:id="@+id/show_count"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="@color/myBackgroundColor"
+       android:text="@string/count_initial_value"
+       android:textColor="@color/colorPrimary"
+       android:textSize="@dimen/count_text_size"
+       android:textStyle="bold" 
+/>
+14
+
+Slide 15:
+View attributes in XML
+15
+android:<property_name>="<property_value>"
+Example: android:layout_width="match_parent"
+
+android:<property_name>="@<resource_type>/resource_id"
+Example: android:text="@string/button_label_next"
+
+android:<property_name>="@+id/view_id"
+Example: android:id="@+id/show_count"
+
+
+
+Slide 16:
+Create View in Java code
+In an Activity:
+
+TextView myText = new TextView(this);
+myText.setText("Display this text!");
+
+16
+context
+
+Slide 17:
+What is the context? 
+Context is an interface to global information about an application environment
+Get the context:
+Context context = getApplicationContext();
+An Activity is its own context:TextView myText = new TextView(this);
+السياق هو واجهة للمعلومات العالمية حول بيئة التطبيق
+احصل على السياق:
+سياق السياق = getApplicationContext () ،
+النشاط هو سياقه الخاص: TextView myText = new TextView (this)؛
+17
+
+Slide 18:
+Custom views
+Over 100 (!) different types of views available from the Android system, all children of the View class
+If necessary, create custom views by subclassing existing views or the View class
+أكثر من 100 (!) نوع مختلف من العروض المتاحة من نظام Android ، جميع الأطفال من فئة View
+إذا لزم الأمر ، قم بتكوين طرق عرض مخصصة عن طريق تصنيف طرق العرض الموجودة أو فئة المشاهدة
+18
+
+Slide 19:
+ViewGroup and View hierarchy
+19
+
+Slide 20:
+
+ConstraintLayout: Positions UI elements using constraint connections to other elements and to the layout edges
+ScrollView: contains one element and enables scrolling
+ RecyclerView: Contains a list of elements and enables scrolling by adding and removing elements dynamically
+ مواضع عناصر واجهة المستخدم باستخدام اتصالات القيد بالعناصر الأخرى وإلى حواف التخطيط
+ScrollView: يحتوي على عنصر واحد ويتيح التمرير
+RecyclerView: يحتوي على قائمة بالعناصر ويتيح التمرير عن طريق إضافة العناصر وإزالتها ديناميكيًا
+
+20
+
+Slide 21:
+ViewGroups for layouts 
+Layouts 
+are specific types of ViewGroups (subclasses of ViewGroup)
+contain child views
+can be in a row, column, grid, table, absolute
+التخطيطات هي أنواع محددة من ViewGroup (فئات فرعية من ViewGroup) تحتوي على طرق عرض فرعية يمكن أن تكون في صف أو عمود أو شبكة أو جدول أو مطلق
+
+
+21
+
+Slide 22:
+Common Layout Classes
+22
+LinearLayout
+ConstraintLayout
+GridLayout
+TableLayout
+
+Slide 23:
+Common Layout Classes
+ConstraintLayout: Connect views with constraints 
+LinearLayout: Horizontal or vertical row
+RelativeLayout: Child views relative to each other
+TableLayout: Rows and columns
+FrameLayout: Shows one child of a stack of children
+مخطط القيد: ربط طرق العرض بالقيود
+LinearLayout: صف أفقي أو عمودي
+RelativeLayout: المشاهدات الفرعية المتعلقة ببعضها البعض
+TableLayout: صفوف وأعمدة
+FrameLayout: يُظهر فرعاً واحداً من كومة من الأطفال
+
+
+
+23
+
+Slide 24:
+Class hierarchy vs. layout hierarchy
+View class-hierarchy is standard object-oriented class inheritance
+For example, Button is-a TextView is-a View is-an Object
+Superclass-subclass relationship
+Layout hierarchy is how views are visually arranged
+For example, LinearLayout can contain Buttons arranged in a row
+Parent-child relationship
+24
+
+Slide 25:
+
+عرض التسلسل الهرمي للفئة هو وراثة فئة موجهة للكائنات
+على سبيل المثال ، الزر هو - عرض النص - طريقة العرض - كائن
+علاقة فوق الطبقة الفرعية؟
+التسلسل الهرمي للمخطط هو كيفية ترتيب طرق العرض بصريًا
+على سبيل المثال ، يمكن أن يحتوي LinearLayout على أزرار مرتبة في صف واحد
+العلاقة بين الوالدين والطفل
+25
+
+Slide 26:
+Hierarchy of viewgroups and views
+26
+ViewGroup
+ViewGroup
+View
+View
+View
+View
+View
+Root view is always a ViewGroup
+
+Slide 27:
+View hierarchy and screen layout
+27
+
+Slide 28:
+View hierarchy in the layout editor
+28
+
+
+Slide 29:
+Layout created in XML
+<LinearLayout 
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+    <Button
+       ... />
+    <TextView
+       ... />
+    <Button
+       ... />
+</LinearLayout
+29
+
+Slide 30:
+Layout created in Java Activity code
+LinearLayout linearL = new LinearLayout(this);
+linearL.setOrientation(LinearLayout.VERTICAL);
+TextView myText = new TextView(this);
+myText.setText("Display this text!");
+linearL.addView(myText);
+setContentView(linearL);
+30
+
+Slide 31:
+Set width and height in Java code
+Set the width and height of a view:
+LinearLayout.LayoutParams layoutParams = 
+  new Linear.LayoutParams(
+     LayoutParams.MATCH_PARENT,       LayoutParams.MATCH_CONTENT);
+myView.setLayoutParams(layoutParams);
+
+31
+
+Slide 32:
+Best practices for view hierarchies
+32
+Arrangement of view hierarchy affects app performance
+Use smallest number of simplest views possible
+Keep the hierarchy flat—limit nesting of views and view groups
+يؤثر ترتيب العرض الهرمي في أداء التطبيق
+استخدم أصغر عدد ممكن من أبسط المشاهدات
+حافظ على التدرج الهرمي مسطحًا - حد من تداخل طرق العرض ومجموعات العرض
+
+Slide 33:
+The layout editor and ConstraintLayout
+33
+
+Slide 34:
+The layout editor with ConstraintLayout
+34
+Connect UI elements to parent layout
+Resize and position elements
+Align elements to others 
+Adjust margins and dimensions
+Change attributes
+
+
+Slide 35:
+
+ربط عناصر واجهة المستخدم بالتخطيط الأصلي
+تغيير الحجم وموضع العناصر
+محاذاة العناصر مع الآخرين
+اضبط الهوامش والأبعاد
+تغيير السمات
+35
+
+Slide 36:
+What is ConstraintLayout?
+36
+Default layout for new Android Studio project
+ViewGroup that offers flexibility for layout design
+Provides constraints to determine positions and alignment of UI elements
+Constraint is a connection to another view, parent layout, or invisible guideline
+
+
+Slide 37:
+
+التخطيط الافتراضي لمشروع Android Studio الجديد
+ViewGroup التي توفر المرونة لتصميم التخطيط
+يوفر قيودًا لتحديد المواضع ومحاذاة عناصر واجهة المستخدم
+القيد هو اتصال بطريقة عرض أخرى أو تخطيط رئيسي أو إرشادات غير مرئية
+37
+
+Slide 38:
+Layout editor main toolbar
+38
+Select Design Surface: Design and Blueprint panes
+Orientation in Editor: Portrait and Landscape
+Device in Editor: Choose device for preview
+API Version in Editor: Choose API for preview
+Theme in Editor: Choose theme for preview 
+Locale in Editor: Choose language/locale for preview
+
+
+Slide 39:
+
+حدد Design Surface: أجزاء التصميم والمخطط
+الاتجاه في المحرر: عمودي وأفقي
+الجهاز في المحرر: اختر الجهاز للمعاينة
+إصدار API في المحرر: اختر API للمعاينة
+الموضوع في المحرر: اختر سمة للمعاينة
+الإعدادات المحلية في المحرر: اختر اللغة / المكان للمعاينة
+39
+
+Slide 40:
+ConstraintLayout toolbar in layout editor
+40
+Show: Show Constraints and Show Margins
+Autoconnect: Enable or disable
+Clear All Constraints: Clear all constraints in layout
+Infer Constraints: Create constraints by inference
+Default Margins: Set default margins
+Pack: Pack or expand selected elements
+Align: Align selected elements
+Guidelines: Add vertical or horizontal guidelines
+Zoom controls: Zoom in or out
+
+
+Slide 41:
+
+عرض: إظهار القيود وإظهار الهوامش
+الاتصال التلقائي: تمكين أو تعطيل
+مسح كافة القيود: قم بإلغاء تحديد كافة القيود في التخطيط
+قيود الاستنتاج: إنشاء قيود عن طريق الاستدلال
+الهوامش الافتراضية: قم بتعيين الهوامش الافتراضية
+الحزم: حزم العناصر المحددة أو توسيعها
+محاذاة: محاذاة العناصر المحددة
+إرشادات: أضف إرشادات رأسية أو أفقية
+ضوابط التكبير: تكبير أو تصغير
+41
+
+Slide 42:
+Autoconnect
+
+
+42
+Enable Autoconnect      in toolbar if disabled
+Drag element to any part of a layout
+Autoconnect generates constraints against parent layout
+
+
+Slide 43:
+
+قم بتمكين الاتصال التلقائي في شريط الأدوات إذا تم تعطيله
+اسحب العنصر إلى أي جزء من التخطيط
+ينشئ التوصيل التلقائي قيودًا ضد التخطيط الأصل
+43
+
+Slide 44:
+ConstraintLayout handles
+44
+Resizing handle
+Constraint line and handle
+Constraint handle
+Baseline handle
+مقبض تغيير الحجم
+خط القيد والتعامل معه
+مقبض القيد
+مقبض خط الأساس
+
+Slide 45:
+Align elements by baseline
+45
+Click the       baseline  constraint button 
+Drage frome  baseline  to other elements  baseline
+  انقر فوق زر قيد الخط الأساسي اسحب من الخط الأساسي إلى الخط الأساسي للعناصر الأخرى
+
+Slide 46:
+Attributes pane
+46
+Click the Attributes tab
+Attributes pane includes:
+Margin controls for positioning
+Attributes such as layout_width
+انقر فوق علامة التبويب السمات
+يتضمن جزء السمات:
+ضوابط الهامش لتحديد المواقع
+سمات مثل layout_width
+
+Slide 47:
+Attributes pane view inspector
+47
+Vertical view size control specifies layout_height
+Horizontal view size control specifies layout_width
+Attributes pane close button
+يحدد التحكم في حجم العرض العمودي layout_height
+يحدد التحكم في حجم العرض الأفقي layout_width
+زر إغلاق جزء السمات
+
+Slide 48:
+Layout_width and layout_height
+48
+layout_width and layout_height change with size controls
+        match_constraint: Expands element to fill its parent
+        wrap_content: Shrinks element to enclose content
+        Fixed number of dp (density-independent pixels)
+يتم تغيير layout_width و layout_height مع التحكم في الحجم
+        match_constraint: يوسع العنصر لملء العنصر الأصل
+        wrap_content: يتقلص العنصر لإحاطة المحتوى
+        عدد ثابت من dp (بكسل مستقل الكثافة)
+
+Slide 49:
+Set attributes
+49
+To view and edit all attributes for element:
+Click Attributes tab
+Select element in design, blueprint, or Component Tree 
+Change most-used attributes
+Click     at top or View more attributes at bottom to see and change more attributes
+
+
+Slide 50:
+
+لعرض وتحرير كافة السمات الخاصة بالعنصر:
+انقر فوق علامة التبويب السمات
+حدد عنصرًا في التصميم أو المخطط أو شجرة المكونات
+قم بتغيير السمات الأكثر استخدامًا
+انقر في الأعلى أو عرض المزيد من السمات في الأسفل لرؤية المزيد من السمات وتغييرها
+50
+
+Slide 51:
+Set attributes example: TextView
+51
+
+Slide 52:
+Preview layouts
+52
+Preview layout with horizontal/vertical orientation:
+Click Orientation in Editor button
+Choose Switch to Landscape or Switch to Portrait 
+Preview layout with different devices:
+Click Device in Editor button 
+Choose device  
+
+
+Slide 53:
+
+معاينة التخطيط بالاتجاه الأفقي / العمودي:
+انقر فوق الاتجاه في زر المحرر
+اختر تبديل إلى أفقي أو تبديل إلى عمودي
+معاينة التخطيط بأجهزة مختلفة:
+انقر فوق زر الجهاز في المحرر
+اختر الجهاز
+53
+
+Slide 54:
+Create layout variant for landscape
+54
+Click Orientation in Editor button
+Choose Create Landscape Variation
+Layout variant created: activity_main.xml (land)
+Edit the layout variant as needed
+انقر فوق الاتجاه في زر المحرر
+اختر إنشاء تنوع أفقي
+تم إنشاء متغير التخطيط: activity_main.xml (الأرض)
+قم بتحرير متغير التخطيط حسب الحاجة
+
+Slide 55:
+Create layout variant for tablet
+55
+Click Orientation in Layout Editor 
+Choose Create layout x-large Variation
+Layout variant created: activity_main.xml (xlarge)
+Edit the layout variant as needed
+انقر فوق الاتجاه في محرر التخطيط
+اختر إنشاء مخطط x-كبير Variation
+تم إنشاء متغير التخطيط: activity_main.xml (xlarge)
+قم بتحرير متغير التخطيط حسب الحاجة
+
+
+Slide 56:
+Event Handling
+56
+
+Slide 57:
+Events
+57
+Something that happens
+In UI: Click, tap, drag
+Device: DetectedActivity such as walking, driving, tilting
+Events are "noticed" by the Android system
+شيء ما يحدث في واجهة المستخدم: انقر واضغط واسحب الجهاز: النشاط المكتشف مثل المشي والقيادة والإمالة "يلاحظ" الأحداث بواسطة نظام Android
+
+
+Slide 58:
+Event Handlers
+58
+Methods that do something in response to a click 
+A method, called an event handler, is triggered by a specific event and does something in response to the event
+الطرق التي تقوم بشيء ما استجابة للنقرة
+يتم تشغيل طريقة ، تسمى معالج الأحداث ، بواسطة حدث معين وتقوم بشيء ما استجابة للحدث
+
+
+Slide 59:
+Attach in XML and implement in Java
+59
+Attach handler to view in XML layout:
+android:onClick="showToast"
+
+Implement handler in Java activity:
+public void showToast(View view) {
+  String msg = "Hello Toast!";
+  Toast toast = Toast.makeText(
+        this, msg, duration);
+  toast.show();
+  }
+}
+
+
+Slide 60:
+Alternative: Set click handler in Java
+60
+final Button button = (Button) findViewById(R.id.button_id);
+button.setOnClickListener(new View.OnClickListener() {
+    public void onClick(View v) {
+        String msg = "Hello Toast!";
+        Toast toast = Toast.makeText(this, msg, duration);
+        toast.show();
+        }
+     });
+
+Slide 61:
+Resources and measurements
+61
+
+Slide 62:
+Resources
+Separate static data from code in your layouts.
+Strings, dimensions, images, menu text, colors, styles
+Useful for localization
+افصل البيانات الثابتة عن التعليمات البرمجية في تخطيطاتك.
+السلاسل والأبعاد والصور ونص القائمة والألوان والأنماط
+مفيد في الترجمة
+62
+
+Slide 63:
+Where are the resources in your project?
+63
+resources and resource files
+stored in res folder
+
+
+Slide 64:
+Refer to resources in code
+64
+Layout:
+R.layout.activity_main
+setContentView(R.layout.activity_main);
+View:
+R.id.recyclerview
+rv = (RecyclerView) findViewById(R.id.recyclerview);
+String:
+In Java: R.string.title
+In XML: android:text="@string/title"
+
+Slide 65:
+Measurements
+Density-independent Pixels (dp): for Views
+Scale-independent Pixels (sp): for text
+Don't use device-dependent or density-dependent units:
+Actual Pixels (px)
+Actual Measurement (in, mm)
+Points - typography 1/72 inch (pt)
+65
+
+Slide 66:
+
+وحدات البكسل المستقلة عن الكثافة (dp): للمشاهدات
+وحدات البكسل المستقلة عن المقياس (sp): للنص
+لا تستخدم الوحدات المعتمدة على الجهاز أو الكثافة:
+وحدات البكسل الفعلية (بكسل)
+القياس الفعلي (ملم)
+بوينتس - طباعة 1/72 بوصة (نقطة)
+66
+
+Slide 67:
+Learn more
+67
+
+Slide 68:
+Learn more
+Views: 
+View class documentation
+device independent pixels
+Button class documentation
+TextView class documentation
+Layouts:
+developer.android.com Layouts
+Common Layout Objects
+68
+
+Slide 69:
+
+الآراء:
+عرض وثائق الفصل
+وحدات البكسل المستقلة عن الجهاز
+وثائق فئة الزر
+وثائق فئة TextView
+التخطيطات:
+developer.android.com تخطيطات
+كائنات التخطيط المشتركة
+69
+
+Slide 70:
+Learn even more
+Resources:
+Android resources
+Color class definition
+R.color resources
+Supporting Different Densities
+Color Hex Color Codes
+موارد:
+موارد Android
+تعريف فئة اللون
+R. اللون الموارد
+دعم الكثافات المختلفة
+رموز اللون السداسي عشري
+70
+Other:
+Android Studio documentation
+Image Asset Studio
+UI Overview 
+Vocabulary words and concepts glossary
+Model-View-Presenter (MVP) architecture pattern
+Architectural patterns
+أخرى: وثائق Android Studio Image Asset Studio GUI نظرة عامة على واجهة المستخدم الرسومية المفردات الكلمات والمفاهيم مسرد نموذج العرض مقدم العرض؟ (MVP) نمط العمارة الأنماط المعمارية
+
+
+Slide 71:
+What's Next?
+71
+Concept Chapter: 1.2 Layouts and resources for the UI
+Practicals: 
+1.2A : Your first interactive UI
+1.2B : The layout editor 
+
+Slide 72:
+END
+
+72
+
+

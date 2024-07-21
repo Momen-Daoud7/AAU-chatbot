@@ -1,0 +1,189 @@
+Slide 1:
+Data Mining:
+1
+Concepts and Techniques
+Pattern Growths -FP-tree
+— ModelEvaulation —
+
+Slide 2:
+
+
+Slide 3:
+
+
+Slide 4:
+
+
+Slide 5:
+Partition Patterns and Databases
+Frequent patterns can be partitioned into subsets according to f-list
+F-list = f-c-a-b-m-p
+Patterns containing p
+Patterns having m but no p
+…
+Patterns having c but no a nor b, m, p
+Pattern f
+Completeness and non-redundency
+29
+
+Slide 6:
+
+
+Slide 7:
+
+
+Slide 8:
+
+
+Slide 9:
+
+
+Slide 10:
+
+
+Slide 11:
+11
+Classification—A Two-Step Process
+Model construction: describing a set of predetermined classes
+Each tuple/sample is assumed to belong to a predefined class, as determined by the class label attribute
+The set of tuples used for model construction is training set
+The model is represented as classification rules, decision trees, or mathematical formulae
+Model usage: for classifying future or unknown objects
+Estimate accuracy of the model
+The known label of test sample is compared with the classified result from the model
+Accuracy rate is the percentage of test set samples that are correctly classified by the model
+Test set is independent of training set (otherwise overfitting)
+If the accuracy is acceptable, use the model to classify new data
+Note: If the test set is used to select models, it is called validation (test) set
+
+Slide 12:
+Model Evaluation and Selection
+12
+Evaluation metrics: How can we measure accuracy?	Other  metrics to consider?
+Use validation test set of class-labeled tuples instead of  training set when assessing accuracy
+Methods for estimating a classifier’s accuracy:
+Holdout method, random subsampling
+Cross-validation
+Bootstrap
+Comparing classifiers:
+Cost-benefit analysis and ROC Curves
+
+Slide 13:
+Evaluating Classifier Accuracy:  Holdout & Cross-Validation Methods
+13
+Holdout method
+Given data is randomly partitioned into two independent sets
+Training set (e.g., 2/3) for model construction
+Test set (e.g., 1/3) for accuracy estimation
+Random sampling: a variation of holdout
+Repeat holdout k times, accuracy = avg. of the accuracies
+obtained
+Cross-validation (k-fold, where k = 10 is most popular)
+Randomly partition the data into k mutually exclusive subsets,  each approximately equal size
+At i-th iteration, use Di as test set and others as training set
+Leave-one-out: k folds where k = # of tuples, for small sized  data
+*Stratified cross-validation*: folds are stratified so that class
+dist. in each fold is approx. the same as that in the initial data
+
+Slide 14:
+Evaluating Classifier Accuracy: Bootstrap
+Bootstrap
+Works well with small data sets
+Samples the given training tuples uniformly with replacement
+i.e., each time a tuple is selected, it is equally likely to be selected  again and re-added to the training set
+Several bootstrap methods, and a common one is .632 boostrap
+A data set with d tuples is sampled d times, with replacement, resulting in  a training set of d samples. The data tuples that did not make it into the  training set end up forming the test set. About 63.2% of the original data  end up in the bootstrap, and the remaining 36.8% form the test set (since  (1 – 1/d)d ≈ e-1 = 0.368)
+Repeat the sampling procedure k times, overall accuracy of the model:
+14
+
+Slide 15:
+Model Selection: ROC Curves/ifdata has Bais
+15
+ROC (Receiver Operating  Characteristics) curves: for visual  comparison of classification models
+Originated from signal detection theory
+Shows the trade-off between the true  positive rate and the false positive rate
+The area under the ROC curve is a  measure of the accuracy of the model
+Rank the test tuples in decreasing  order: the one that is most likely to  belong to the positive class appears at  the top of the list
+The closer to the diagonal line (i.e., the  closer the area is to 0.5), the less  accurate is the model
+Vertical axis  represents the true  positive rate
+Horizontal axis rep.  the false positive rate
+The plot also shows a  diagonal line
+A model with perfect  accuracy will have an  area of 1.0
+
+Slide 16:
+Issues Affecting Model Selection
+16
+Accuracy
+classifier accuracy: predicting class label
+Speed
+time to construct the model (training time)
+time to use the model (classification/prediction time)
+Robustness: handling noise and missing values
+Scalability: efficiency in disk-resident databases
+Interpretability
+understanding and insight provided by the model
+Other measures, e.g., goodness of rules, such as decision tree  size or compactness of classification rules
+
+Slide 17:
+Ensemble Methods: Increasing the Accuracy
+17
+Ensemble methods
+Use a combination of models to increase accuracy
+Combine a series of k learned models, M1, M2, …, Mk, with  the aim of creating an improved model M*
+Popular ensemble methods
+Bagging: averaging the prediction over a collection of  classifiers
+Boosting: weighted vote with a collection of classifiers
+Ensemble: combining a set of heterogeneous classifiers
+
+Slide 18:
+Classification of Class-Imbalanced Data Sets
+0
+Class-imbalance problem: Rare positive example but numerous  negative ones, e.g., medical diagnosis, fraud, oil-spill, fault, etc.
+Traditional methods assume a balanced distribution of classes  and equal error costs: not suitable for class-imbalanced data
+Typical methods for imbalance data in 2-class classification:
+Oversampling: re-sampling of data from positive class
+Under-sampling: randomly eliminate	tuples from negative  class
+Threshold-moving: moves the decision threshold, t, so that  the rare class tuples are easier to classify, and hence, less  chance of costly false negative errors
+Ensemble techniques: Ensemble multiple classifiers  introduced above
+Still difficult for class imbalance problem on multiclass tasks
+
+Slide 19:
+Classifier Evaluation Metrics: Confusion  Matrix
+19
+Given m classes, an entry, CMi,j in a confusion matrixìi indicates  # of tuples in class i	that were labeled by the classifier as class j
+May have extra rows/columns to provide totals
+Confusion Matrix:
+Example of Confusion Matrix:
+
+Slide 20:
+Classifier Evaluation Metrics: Accuracy,  Error Rate, Sensitivity and Specificity
+20
+Classifier Accuracy, or  recognition rate: percentage of  test set tuples that are correctly  classified
+Accuracy = (TP + TN)/All
+Error rate: 1 – accuracy, or
+Error rate = (FP + FN)/All
+Class Imbalance Problem:
+One class may be rare, e.g.  fraud, or HIV-positive
+Significant majority of the  negative class and minority of  the positive class
+Sensitivity: True Positive  recognition rate
+Sensitivity = TP/P
+Specificity: True Negative  recognition rate
+Specificity = TN/N
+
+Slide 21:
+Classifier Evaluation Metrics:  Precision and Recall, and F-measures
+Precision: exactness – what % of tuples that the classifier  labeled as positive are actually positive
+Recall: completeness – what % of positive tuples did the  classifier label as positive?
+Perfect score is 1.0
+Inverse relationship between precision & recall
+F measure (F1 or F-score): harmonic mean of precision and  recall,
+Fß:	weighted measure of precision and recall
+assigns ß times as much weight to recall as to precision
+21
+
+Slide 22:
+Classifier Evaluation Metrics: Example
+22
+Precision = 90/230 = 39.13%
+Recall = 90/300 = 30.00%
+

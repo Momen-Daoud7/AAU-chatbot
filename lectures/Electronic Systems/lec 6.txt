@@ -1,0 +1,138 @@
+Slide 1:
+LEC5:		Success Factors of eGovernment
+1
+AAU-FCSIT – lec4 - e-Base Systems - Dr. Ammar M abdo
+
+Slide 2:
+Successful eGovernment
+The increasing digitalization of our society demands a further strengthening of e-government systems and service provision
+This calls for a new e-skill profile for public administration.
+consistent citizen orientation,
+compelling cooperation,
+participation and transparency,
+high transaction interactivity with distinctive dialogue and responsiveness of public management, and
+a comprehensive multichannel e-government.
+Expansion and optimization of local online portals is required that clearly focuses on the users’ needs as well as on increasing user-friendliness of the e-government services
+2
+
+Slide 3:
+Successful eGovernment
+This development needs to go hand in hand with broadening the full online e-government service range and increasing service depth.
+In addition, online communication with the users should be further intensified and the provision of participation and collaboration e-government services expanded.
+Public sector organizations have to carry on with the establishment of an e-government service culture and the stepwise relocation of resources from offline to online e-government service provision.
+Small municipalities that do not possess the necessary resources should aim at creating regional e-government network solutions to benefit from the partner’s economies of scales and experience.
+3
+
+Slide 4:
+Success Factors of eGovernment
+The realization of e-government development demands a clear understanding of and a target-oriented focus on highly relevant e-government success factors
+User Centered Success Factors
+E-Services Success Factors
+IT Success Factors
+4
+
+Slide 5:
+User Centered Success Factors
+5
+
+Slide 6:
+User Centered Success Factors
+Ease of use/usability measures the perceived user effort to become acquainted with and learn to use a new technology.
+Usefulness measures the user’s subjective perception or impression that using a specific technology facilitates tasks or enhances performance. Thus, the e-government system needs to provide a clear value for the user.
+Website design/visual appeal is a further vital factor for the set-up of an e-government system. In summary, this refers to a user-friendly, transparent, and clear structure of the e-government portal or website.
+Although e-government service provision tends to be automated technology-based, web assistance or personal interaction are very important factors for the users. Furthermore, it fosters user trust and confidence in using e-government services.
+Multichannel e-government service usage has become a vital factor for user relationship management.
+6
+
+Slide 7:
+E-Services Success Factors
+In addition to providing e-government services to the users, it is also important to tailor the e-government offers to the needs and the requirements of the users.
+For this reason, there are particular success factors that are specifically associated with e-government service provision.
+These can be divided into two categories:
+Service-oriented success factors are primarily concerned with the question what services should be offered,
+Function-oriented success factors deal with the question how these services should be offered.
+7
+
+Slide 8:
+IT Success Factors
+8
+
+Slide 9:
+IT Success Factors
+Security and privacy are understood as perceived safety, secrecy, and confidentiality of personal user data and network-based information processing. If users believe that their personal information is not safe, they will be more reluctant to perform e-government transactions online or will not conduct them online at all.
+IT system quality includes all technological aspects of an information system as well as the associated e-government processes and resources. From a system. The e-government provider has to take care that a transparent performance monitoring with a clear focus on system quality is in place.
+9
+
+Slide 10:
+IT Success Factors
+Security and privacy are understood as perceived safety, secrecy, and confidentiality of personal user data and network-based information processing. If users believe that their personal information is not safe, they will be more reluctant to perform e-government transactions online or will not conduct them online at all.
+IT system quality includes all technological aspects of an information system as well as the associated e-government processes and resources. From a system. The e-government provider has to take care that a transparent performance monitoring with a clear focus on system quality is in place.
+10
+
+Slide 11:
+IT Success Factors
+Responsiveness of website and IT infrastructure is closely related to IT system quality. Here, e-government providers have to ensure that the website responds and the data exchange takes place within a reasonable period of time.
+Perceived IT performance and reliability is a vital factor for using an e-government system. If performance or reliability of the e-government system are perceived to be weak, this finally reduces the user’s desire to use the e-government services provided.
+Seamless multichannel IT support means that users should be technologically enabled to make use of full online e-government services through different online channels. This sets high demands on the interoperability of the applied e-government system and channels.
+11
+
+Slide 12:
+Implementing eGovernment?
+The development and design of a high-quality, citizen-centric e-government offering is a demanding challenge.
+In particular for smaller local authorities, it is often difficult to provide the required resources and competencies.
+Successful e-government implementation should at least include two major parts:
+First, a systematically developed e-government roadmap that provides a transparent overview of the necessary implementation activities and milestones.
+Second, an e-government audit and evaluation concept that determines the respective performance indicators as well as the monitoring and controlling processes, and allows early intervention or to take mitigating action in the event of adverse changes.
+12
+
+Slide 13:
+eGovernment Roadmap
+The development of an e-government roadmap usually moves through five phases:
+Analysis of strengths and weaknesses of the portal,
+benchmarking with best practice e-government,
+analysis of user needs and requirements,
+e-government strategy/concept development, and
+e-government test, roll-out, and monitoring.
+13
+
+Slide 14:
+1. Analysis of Strengths & Weakness
+Analysis of the strengths and weaknesses of the e-government portal from a public administration perspective
+Analysis of the strengths and weaknesses of the e-government portal from the perspective of external experts
+Creating an integrated strengths and weaknesses concept.
+14
+2. Benchmarking
+Selection of best practice e-government portals
+Benchmarking analysis of the e-government portals based on particular criteria
+Development of lessons learned concept
+
+Slide 15:
+3. Analysis of User Needs & Requirements
+Analysis of the user needs and requirements through interviews and online panels on the e-government portal
+Evaluation of current portal as well as expectations and future demands
+Establishing a user requirements concept
+15
+
+Slide 16:
+4. eGovt. Strategy/Concept Development
+Integration of strengths and weaknesses analysis, best practice insights, and user analysis into a basic e-government concept
+Potential assessment of shifting offline to online service provision
+Design of future portal strategy
+Deriving target state with milestone plan for implementation
+Establishment of implementation concept
+16
+
+Slide 17:
+5. eGovt. Test, Roll-out, & Monitoring
+Prototype design
+Prototype testing
+Rollout of new e-government portal
+Monitoring and controlling of user access data, user feedback, and complaints
+Yearly user panel to identify optimization potential
+Continuous improvement of the e-government portal
+17
+
+Slide 18:
+eGovt. 3+3 Audit and Evaluation System
+18
+

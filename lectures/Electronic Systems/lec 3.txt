@@ -1,0 +1,83 @@
+Slide 1:
+LEC3:			The Concept and Strategy of the eGovernment
+1
+AAU-FCSIT – lec3 - e-Base Systems - Dr. Ammar M abdo
+
+Slide 2:
+Four Forces Model
+The driving forces behind the e-Government, require change for government and public administration
+These driving forces can be explained by the Four Forces E-Government Model
+The model aggregates relevant drivers to four key developments:
+Convergence and Technology,
+State and Politics,
+Society and Economy
+Citizen Empowerment
+2
+
+Slide 3:
+Four Forces Model
+3
+
+Slide 4:
+Four Forces Model: Convergence and Technology
+Convergence can be divided into different types:
+Sector level: Convergence of a growing number of organizations within related sectors finally leads to the convergence of the corresponding sector
+Organization level: Convergence forces organizations to reposition their value chains and core activities and which results in modified institutional boundaries.
+Organization unit level: Organization unit convergence relates to various organization units of a public authority or different public authorities.
+Service and product level: Convergence of services, content (e.g., standardization of formats), distribution channels (e.g., same distribution channel for formerly different formats), or products (e.g., convergence through integration of functionalities)
+4
+
+Slide 5:
+Four Forces Model: State and Politics
+Denationalization of countries as well as regional coalescence of markets and nations require adequate technological preconditions for transnational cooperation on political and administrative level
+The expected e-government cost-cutting effects fit the current need to economize and the cost-saving character of e-government has positive side-effects on managing indebtness
+e-government is a decent system due to its administration process automation and standardization capacities. An example of a comparable undertaking is electronic banking.
+Political discontinuities represent a negative driver or obstacle
+5
+
+Slide 6:
+Four Forces Model: Society and Economy
+Its key drivers are globalization, digital divide, demographic change, and urbanization
+Digital divide describes differences in access to and use of information and communication technologies
+The use of modern ICT is not distributed evenly within society
+This unequal situation leads to social disparities of opportunity
+Demographic change, which in the context of ICT refers to the situation that a high proportion of older people with only limited Internet skills will face a young generation
+With increasing urbanization and rural depopulation, keeping up today’s expensive decentralized public administration is not feasible in the long-run
+6
+
+Slide 7:
+Four Forces Model: Citizens Empowerment
+The rising transparency and accountability of public actions and the possibility that citizens can locally, regionally, and nationally unite in social networks and communities all became possible due to modern ICT
+Furthermore, citizens claim more participation in public policy issues and for a renewed citizen-government Interaction.
+7
+
+Slide 8:
+E-Government Value Activity System (EVAS)
+Value activity systems are based on the concept of the value chain, which describes a set of organizational activities performed to deliver a product or service to the market.
+The underlying idea of the value chain is based on a process view of organizations.
+An organization is a system made up of subsystems that transform input factors into outputs. The effectiveness and efficiency of the associated activities determine the costs and the profit of the organization.
+8
+
+Slide 9:
+E-Government Value Activity System (EVAS)
+e-government value chain activities may consist of
+content and service concept,
+content and service development,
+technological distribution,
+marketing and user relationship management, and
+e-payment.
+9
+
+Slide 10:
+E-Government Value Activity System (EVAS)
+10
+
+Slide 11:
+E-Government Value Activity System (EVAS)
+User Touch Points
+The distinction of the different user touch points is based on their primary function.
+Information Points: this is the provision of information (e.g., information on opening or service hours on a website).
+Transaction Points: this is the transaction-based service offering (e.g., requesting a police certificate of good conduct).
+Service Points: this mainly deal with services that are provided before or after a transaction process has been started or inquiries that demand staff involvement (e.g., complaint management, inquiries regarding applications or requests in progress, customer call-backs).
+11
+

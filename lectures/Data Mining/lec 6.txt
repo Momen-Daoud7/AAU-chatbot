@@ -1,0 +1,398 @@
+Slide 1:
+DATA MININGLECTURE 6
+Classification
+Basic Concepts
+Decision Trees
+
+Slide 2:
+Catching tax-evasion
+Tax-return data for year 2011
+A new tax return for 2012
+Is this a cheating tax return?
+An instance of the classification problem: learn a method for discriminating between records of different classes (cheaters vs non-cheaters)
+
+Slide 3:
+What is classification?
+Classification is the task of learning a target function f that maps attribute set x to one of the predefined class labels y
+One of the attributes is the class attribute
+In this case: Cheat
+Two class labels (or classes): Yes (1), No (0)
+
+Slide 4:
+Why classification?
+The target function f is known as a classification model
+Descriptive modeling: Explanatory tool to distinguish between objects of different classes (e.g., understand why people cheat on their taxes)
+Predictive modeling: Predict a class of a previously unseen record
+
+Slide 5:
+Examples of Classification Tasks
+Predicting tumor cells as benign or malignant
+Classifying credit card transactions as legitimate or fraudulent
+Categorizing news stories as finance, weather, entertainment, sports, etc
+Identifying spam email, spam web pages, adult content
+Understanding if a web query has commercial intent or not
+
+Slide 6:
+ندخل الداتا بناء على مجموعه اسئله على الإجابات يتم التوقع
+
+Slide 7:
+General approach to classification
+Training set consists of records with known class labels
+Training set is used to build a classification model
+A labeled test set of previously unseen data records is used to evaluate the quality of the model.
+The classification model is applied to new records with unknown class labels
+
+Slide 8:
+Illustrating Classification Task
+
+Slide 9:
+Evaluation of classification models
+Counts of test records that are correctly (or incorrectly) predicted by the classification model
+Confusion matrix
+Predicted Class
+Actual Class
+
+Slide 10:
+Decision Trees
+Decision tree
+A flow-chart-like tree structure
+Internal node denotes a test on an attribute
+Branch represents an outcome of the test
+Leaf nodes represent class labels or class distribution
+
+Slide 11:
+ندخل الداتا بناء على مجموعه اسئله على الإجابات يتم التوقع
+
+Slide 12:
+Example of a Decision Tree
+Refund
+MarSt
+TaxInc
+YES
+NO
+NO
+NO
+Yes
+No
+Married
+Single, Divorced
+< 80K
+> 80K
+Splitting Attributes
+Training Data
+Model:  Decision Tree
+Test outcome
+Class labels
+
+Slide 13:
+Another Example of Decision Tree
+categorical
+categorical
+continuous
+class
+MarSt
+Refund
+TaxInc
+YES
+NO
+NO
+Yes
+No
+Married
+Single, Divorced
+< 80K
+> 80K
+There could be more than one tree that fits the same data!
+
+Slide 14:
+Decision Tree Classification Task
+Decision Tree
+
+Slide 15:
+Apply Model to Test Data
+Test Data
+Start from the root of tree.
+
+Slide 16:
+Apply Model to Test Data
+Test Data
+
+Slide 17:
+Apply Model to Test Data
+Refund
+MarSt
+TaxInc
+YES
+NO
+NO
+NO
+Yes
+No
+Married
+Single, Divorced
+< 80K
+> 80K
+Test Data
+
+Slide 18:
+Apply Model to Test Data
+Refund
+MarSt
+TaxInc
+YES
+NO
+NO
+NO
+Yes
+No
+Married
+Single, Divorced
+< 80K
+> 80K
+Test Data
+
+Slide 19:
+Apply Model to Test Data
+Refund
+MarSt
+TaxInc
+YES
+NO
+NO
+NO
+Yes
+No
+Married
+Single, Divorced
+< 80K
+> 80K
+Test Data
+
+Slide 20:
+Apply Model to Test Data
+Refund
+MarSt
+TaxInc
+YES
+NO
+NO
+NO
+Yes
+No
+Married
+Single, Divorced
+< 80K
+> 80K
+Test Data
+Assign Cheat to “No”
+
+Slide 21:
+Decision Tree Classification Task
+Decision Tree
+
+Slide 22:
+Tree Induction
+Finding the best decision tree is NP-hard
+Greedy strategy.
+Split the records based on an attribute test that optimizes certain criterion.
+Many Algorithms:
+Hunt’s Algorithm (one of the earliest)
+CART
+ID3, C4.5
+SLIQ,SPRINT
+
+Slide 23:
+General Structure of Hunt’s Algorithm
+Let Dt be the set of training records that reach a node t
+General Procedure:
+If Dt contains records that belong the same class yt, then t is a leaf node labeled as yt
+If Dt contains records with the same attribute values, then t is a leaf node labeled with the majority class yt
+If Dt is an empty set, then t is a leaf node labeled by the default class, yd
+If Dt contains records that belong to more than one class, use an attribute test to split the data into smaller subsets.
+Recursively apply the procedure to each subset.
+Dt
+?
+
+Slide 24:
+Hunt’s Algorithm
+Don’t
+Cheat
+
+Slide 25:
+Constructing decision-trees (pseudocode)
+GenDecTree(Sample S, Features F)
+If stopping_condition(S,F) = true then
+leaf = createNode()
+leaf.label= Classify(S)
+return leaf
+root = createNode()
+root.test_condition = findBestSplit(S,F)
+V = {v| v a possible outcome of root.test_condition}
+for each value vєV:
+Sv: = {s | root.test_condition(s) = v and s є S};
+child = GenDecTree(Sv ,F) ;
+Add child as a descent of root and label the edge (rootchild) as v
+return root
+
+Slide 26:
+Tree Induction
+Issues
+How to Classify a leaf node
+Assign the majority class
+If leaf is empty, assign the default class – the class that has the highest popularity.
+Determine how to split the records
+How to specify the attribute test condition?
+How to determine the best split?
+Determine when to stop splitting
+
+Slide 27:
+How to Specify Test Condition?
+Depends on attribute types
+Nominal
+Ordinal
+Continuous
+Depends on number of ways to split
+2-way split
+Multi-way split
+
+Slide 28:
+Splitting Based on Nominal Attributes
+Multi-way split: Use as many partitions as distinct values.
+Binary split:  Divides values into two subsets. 		      Need to find optimal partitioning.
+OR
+
+Slide 29:
+Multi-way split: Use as many partitions as distinct values.
+Binary split:  Divides values into two subsets – respects the order. Need to find optimal partitioning.
+What about this split?
+Splitting Based on Ordinal Attributes
+OR
+
+Slide 30:
+Splitting Based on Continuous Attributes
+Different ways of handling
+Discretization to form an ordinal categorical attribute
+Static – discretize once at the beginning
+Dynamic – ranges can be found by equal interval 	bucketing, equal frequency bucketing (percentiles), or clustering.
+Binary Decision: (A < v) or (A  v)
+consider all possible splits and finds the best cut
+can be more compute intensive
+
+Slide 31:
+How to determine the Best Split
+Before Splitting: 10 records of class 0,		10 records of class 1
+Which test condition is the best?
+
+Slide 32:
+How to determine the Best Split
+Greedy approach:
+Nodes with homogeneous class distribution are preferred
+Need a measure of node impurity:
+Ideas?
+Non-homogeneous,
+High degree of impurity
+Homogeneous,
+Low degree of impurity
+
+Slide 33:
+Measuring Node Impurity
+p(i|t): fraction of records associated with node t belonging to class i
+Used in ID3 and C4.5
+Used in CART, SLIQ, SPRINT.
+
+Slide 34:
+Impurity is when we have a traces of one class division into other.
+Impurity
+
+Slide 35:
+Gain
+Gain of an attribute split: compare the impurity of the parent node with the average impurity of the child nodes
+Maximizing the gain  Minimizing the weighted average impurity measure of children nodes
+If I() = Entropy(), then Δinfo is called information gain
+
+Slide 36:
+قيمة الشجرة فى نهايه  0 or 1
+
+Slide 37:
+An Example
+Suppose we have a following data for playing a golf on various conditions.
+
+Slide 38:
+An Example
+Now if the weather condition is given as:
+Outlook: Rainy, Temperature: Cool, Humidity: High, Windy: False
+Should We Play Golf?
+
+Slide 39:
+Entropyدائما يطبق على العمود الاخير
+
+Slide 40:
+فكرة شجرة القرارات البحث عن السوال الذى يعطى افضل تقسيم للبيانات
+السؤال لمن كان الجو حار
+النقاط الحمراء لم يتدرب
+هل كان الجو مشمس
+السؤال الثانى افضل
+لانو احتمالية اللعب اكثر
+
+Slide 41:
+السؤال 3 مثالي
+إجابة السؤال 100%
+سؤال غير موفق  لانو الإجابة %50%50
+لابد من تحويلها لصيغ رياضية حتى ندخلها الحاسوب وتتراوح قيمتها بين 0&1
+
+Slide 42:
+Entropy
+
+Slide 43:
+
+
+Slide 44:
+اكبر قيمة 1 Entropy
+
+Slide 45:
+
+
+Slide 46:
+بطريقة عكسيهEntropy
+
+Slide 47:
+
+
+Slide 48:
+
+
+Slide 49:
+
+
+Slide 50:
+Entropy كلما قيمته قليله افضل 1 -0عكسinformation Gain كلما ذادت قيمته افضل
+
+Slide 51:
+INFORMATION Gain for each question
+
+Slide 52:
+
+
+Slide 53:
+
+
+Slide 54:
+
+
+Slide 55:
+
+
+Slide 56:
+ميزات الشجرة سهله القراءة وتساعد فى تنبو اذا كان الافضل انو الاعب يلعب ام لا
+ملاحظة انو درجة الحرارة غير موجودة لانها غير مهمه وغير موثرة
+لانو السوال هل يلعب ام لا
+لكن اذا كان السوال هل بسافر ام لا تكون درجة الحرارة مهمه
+
+Slide 57:
+Decision Tree Based Classification
+Advantages:
+Inexpensive to construct
+Extremely fast at classifying unknown records
+Easy to interpret for small-sized trees
+Accuracy is comparable to other classification techniques for many simple data sets
+

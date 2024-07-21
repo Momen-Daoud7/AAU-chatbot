@@ -1,0 +1,78 @@
+Slide 1:
+LEC 2:		  Introduction to eGovernment
+1
+AAU-FCSIT - lec2 - e-Base System - Dr. Ammar M abdo
+
+Slide 2:
+What is eGovernment?
+Silcock 2001, 88
+“Simply stated, e-Government is the use of technology to enhance the access to and delivery of government services to benefit citizens, business partners and employees”
+UNDPEPA and ASPA 2002, 1
+“[...] E-government is defined as: utilizing the internet and the world-wide-web for delivering government information and services to citizens”
+The advantages in timeliness, responsiveness, and cost containment are outstanding”
+Carter and Bélanger 2005, 5
+E-government refers to “[…] the use of information technology to enable and improve the efficiency with which government services are provided to citizens, employees, business and agencies”
+2
+
+Slide 3:
+What is eGovernment? (cont'd.)
+3
+
+Slide 4:
+Importance of eGovernment
+Special needs and requirements that public authorities have to meet from a G2B-perspective as well as for the citizens.
+Remarkable potential for improving the responsiveness of governments and the public sector to the needs of their stakeholders.
+Political pressure arises from the fact that the Internet has massively influenced citizens’ behavior as well as their desired information requirements.
+4
+
+Slide 5:
+Importance of eGovernment (cont'd.)
+Thus, public authorities need to effectively deal with this transformational change to stay on top of it and not to lose touch with their citizens by actively and directly interacting with their stakeholders and rethink their role and delivery model within the digital world.
+Moreover, governments and public sector organizations, which tend to show long processing times, lack of flexibility, and a focus on processes instead of results, face general demands of reducing costs and improve operations.
+Governments are under growing pressure to consider environmental aspects within public policy-making and to elaborate governance measures and mechanisms that foster environmental protection and promote a sustainable management of natural resources.
+5
+
+Slide 6:
+Vision of eGovernance
+Enabling everyone to use effective government services, in a secure, integrated and easy way, through multiple electronic channels.
+Availability of services in real time from online & mobile platform.
+All citizens’ entitlements to be portable and available on the cloud.
+Sharable private space on a public cloud.
+Digital transformed services for improving ease of doing business.
+Ease access to a common service Centre.
+6
+
+Slide 7:
+Vision of eGovernance (cont'd.)
+Mobile phone and bank account enabling citizen participation in digital and financial space.
+Leveraging Geospatial Information Systems (GIS) for decision support systems & development.
+Cradle to grave digital identity that is unique, lifelong, online and authenticable to every citizen.
+Improve the experience of the public in their interactions with government.
+Develop a culture of collaboration and innovation.
+Improve government efficiency.
+7
+
+Slide 8:
+Advantages of eGovernment
+It is supposed to ease access to public sector information and to make interaction with government and public institutions more convenient through online transactions, thus, advancing public administration and transforming public service provision
+The concept embraces the idea of fostering internal efficiency, effectiveness, and productivity, and thus substantial e-government-related cost savings are expected
+Increased accountability reflects citizens’ demands for transparency and improves control over government bureaucracy
+8
+
+Slide 9:
+Advantages of eGovernment (cont'd.)
+e-government is expected to generate benefits for social inclusion, employment, health, and education, as well as to help governments to promote effective natural resource management.
+Finally, e-government is considered to have the power to renew the image of the government and the public and thus to strengthen citizen trust in the government
+9
+
+Slide 10:
+Advantages of eGovernment (cont'd.)
+10
+
+Slide 11:
+Summary
+E-government is defined as running government affairs with the help of information and communication technologies
+The advancement and widespread use of ICT persuades governments to use these technologies to facilitate services to citizens
+The e-government offers many potential benefits including ease of access to services, transparency, accountability, etc.
+11
+

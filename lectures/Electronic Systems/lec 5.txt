@@ -1,0 +1,53 @@
+Slide 1:
+LEC5:		eGovernment Services
+1
+AAU-FCSIT – lec4 - e-Base Systems - Dr. Ammar M abdo
+
+Slide 2:
+eGovernment Services
+E-government services have become an important instrument of public administration.
+E-services trigger radical process changes in public administration organizations.
+E-services offer considerable advantages like reduction in processing times thanks to electronic data transmission, automated data processing, e-invoicing, etc.
+For example, the introduction of electronic tax declarations substituted former workflows (e.g., mail delivery, digitization of information or documents) and electronic completion of forms drastically limited incorrectly filled out declarations.
+2
+
+Slide 3:
+eGovernment Service Maturity Models
+The evolutionary process of the e-government service can be divided in specific development stages representing e-government services maturity models
+These maturity models are used, for example, to compare the development status of different e-government portals, to support public service development, and to serve as a guide for evaluating and improving e-government portal quality
+The maturity models can be classified into five groups, according to their overall development scope/highest development stage:
+transaction,
+integration,
+transformation,
+participation, and
+open collaboration.
+3
+
+Slide 4:
+eGovernment Service Maturity Models
+4
+
+Slide 5:
+Government to Citizen (G2C) Services
+5
+
+Slide 6:
+Government to Citizen (G2C) Services
+6
+
+Slide 7:
+Government to Citizen (G2C) Services
+7
+
+Slide 8:
+Government to Business (G2B) Services
+8
+
+Slide 9:
+Government to Business (G2B) Services
+9
+
+Slide 10:
+Government to Business (G2B) Services
+10
+

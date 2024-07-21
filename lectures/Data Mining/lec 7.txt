@@ -1,0 +1,408 @@
+Slide 1:
+DATA MININGLECTURE 7
+Classification
+k-nearest neighbor classifier
+Naïve Bayes
+Logistic Regression
+Support Vector Machines
+
+Slide 2:
+NEAREST NEIGHBOR CLASSIFICATION
+
+Slide 3:
+Illustrating Classification Task
+
+Slide 4:
+Instance-Based Classifiers
+Store the training records
+Use training records to    predict the class label of    unseen cases
+
+Slide 5:
+Instance Based Classifiers
+Examples:
+Rote-learner
+Memorizes entire training data and performs classification only if attributes of record match one of the training examples exactly
+Nearest neighbor classifier
+Uses k “closest” points (nearest neighbors) for performing classification
+
+Slide 6:
+Nearest Neighbor Classifiers
+Basic idea:
+“If it walks like a duck, quacks like a duck, then it’s probably a duck”
+
+Slide 7:
+Nearest-Neighbor Classifiers
+Requires three things
+The set of stored records
+Distance Metric to compute distance between records
+The value of k, the number of nearest neighbors to retrieve
+To classify an unknown record:
+Compute distance to other training records
+Identify k nearest neighbors
+Use class labels of nearest neighbors to determine the class label of unknown record (e.g., by taking majority vote)
+
+Slide 8:
+Definition of Nearest Neighbor
+K-nearest neighbors of a record x are data points that have the k smallest distance to x
+
+Slide 9:
+1 nearest-neighbor
+Voronoi Diagram defines the classification boundary
+The area takes the class of the green point
+
+Slide 10:
+Nearest Neighbor Classification
+Compute distance between two points:
+Euclidean distance
+Determine the class from nearest neighbor list
+take the majority vote of class labels among the k-nearest neighbors
+Weigh the vote according to distance
+weight factor, w = 1/d2
+
+Slide 11:
+Nearest Neighbor Classification…
+Choosing the value of k:
+If k is too small, sensitive to noise points
+If k is too large, neighborhood may include points from other classes
+
+Slide 12:
+Nearest Neighbor Classification…
+Scaling issues
+Attributes may have to be scaled to prevent distance measures from being dominated by one of the attributes
+Example:
+height of a person may vary from 1.5m to 1.8m
+weight of a person may vary from 90lb to 300lb
+income of a person may vary from $10K to $1M
+
+Slide 13:
+Nearest Neighbor Classification…
+Problem with Euclidean measure:
+High dimensional data
+curse of dimensionality
+Can produce counter-intuitive results
+1 1 1 1 1 1 1 1 1 1 1 0
+0 1 1 1 1 1 1 1 1 1 1 1
+1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 1
+vs
+d = 1.4142
+d = 1.4142
+Solution: Normalize the vectors to unit length
+
+Slide 14:
+Nearest neighbor Classification…
+k-NN classifiers are lazy learners
+It does not build models explicitly
+Unlike eager learners such as decision trees
+Classifying unknown records are relatively expensive
+Naïve algorithm: O(n)
+Need for structures to retrieve nearest neighbors fast.
+The Nearest Neighbor Search problem.
+
+Slide 15:
+Nearest Neighbor Search
+Two-dimensional kd-trees
+A data structure for answering nearest neighbor queries in R2
+kd-tree construction algorithm
+Select the x or y dimension (alternating between the two)
+Partition the space into two with a line passing from the median point
+Repeat recursively in the two partitions as long as there are enough points
+
+Slide 16:
+2-dimensional kd-trees
+Nearest Neighbor Search
+
+Slide 17:
+2-dimensional kd-trees
+Nearest Neighbor Search
+
+Slide 18:
+2-dimensional kd-trees
+Nearest Neighbor Search
+
+Slide 19:
+2-dimensional kd-trees
+Nearest Neighbor Search
+
+Slide 20:
+2-dimensional kd-trees
+Nearest Neighbor Search
+
+Slide 21:
+2-dimensional kd-trees
+Nearest Neighbor Search
+
+Slide 22:
+region(u) – all the black points in the subtree of u
+2-dimensional kd-trees
+Nearest Neighbor Search
+
+Slide 23:
+A binary tree:
+Size O(n)
+Depth O(logn)
+Construction time O(nlogn)
+Query time: worst case O(n), but for many cases O(logn)
+Generalizes to d dimensions
+Example of Binary Space Partitioning
+2-dimensional kd-trees
+Nearest Neighbor Search
+
+Slide 24:
+SUPPORT VECTOR MACHINES
+
+Slide 25:
+Support Vector Machines
+Find a linear hyperplane (decision boundary) that will separate the data
+
+Slide 26:
+Support Vector Machines
+One Possible Solution
+
+Slide 27:
+Support Vector Machines
+Another possible solution
+
+Slide 28:
+Support Vector Machines
+Other possible solutions
+
+Slide 29:
+Support Vector Machines
+Which one is better? B1 or B2?
+How do you define better?
+
+Slide 30:
+Support Vector Machines
+Find hyperplane maximizes the margin => B1 is better than B2
+
+Slide 31:
+Support Vector Machines
+
+Slide 32:
+Support Vector Machines
+We want to maximize:
+Which is equivalent to minimizing:
+But subjected to the following constraints:
+This is a constrained optimization problem
+Numerical approaches to solve it (e.g., quadratic programming)
+
+Slide 33:
+Support Vector Machines
+What if the problem is not linearly separable?
+
+Slide 34:
+Support Vector Machines
+What if the problem is not linearly separable?
+
+Slide 35:
+Support Vector Machines
+What if the problem is not linearly separable?
+Introduce slack variables
+Need to minimize:
+Subject to:
+
+Slide 36:
+Nonlinear Support Vector Machines
+What if decision boundary is not linear?
+
+Slide 37:
+Nonlinear Support Vector Machines
+Transform data into higher dimensional space
+Use the Kernel Trick
+
+Slide 38:
+LOGISTIC REGRESSION
+
+Slide 39:
+Classification via regression
+Instead of predicting the class of an record we want to predict the probability of the class given the record
+The problem of predicting continuous values is called regression problem
+General approach: find a continuous function that models the continuous points.
+
+Slide 40:
+Example: Linear regression
+
+Slide 41:
+Classification via regression
+Assume a linear classification boundary
+
+Slide 42:
+Logistic Regression
+The logistic function
+Linear regression on the log-odds ratio
+
+Slide 43:
+Logistic Regression
+Produces a probability estimate for the class membership which is often very useful.
+The weights can be useful for understanding the feature importance.
+Works for relatively large datasets
+Fast to apply.
+
+Slide 44:
+NAÏVE BAYES CLASSIFIER
+
+Slide 45:
+Bayes Classifier
+A probabilistic framework for solving classification problems
+A, C random variables
+Joint probability: Pr(A=a,C=c)
+Conditional probability: Pr(C=c | A=a)
+Relationship between joint and conditional probability distributions
+Bayes Theorem:
+
+Slide 46:
+Bayesian Classifiers
+Consider each attribute and class label as random variables
+Evade C
+Event space: {Yes, No}
+P(C) = (0.3, 0.7)
+Refund A1
+Event space: {Yes, No}
+P(A1) = (0.3,0.7)
+Martial Status A2
+Event space: {Single, Married, Divorced}
+P(A2) = (0.4,0.4,0.2)
+Taxable Income A3
+Event space: R
+P(A3) ~ Normal(,)
+
+Slide 47:
+Bayesian Classifiers
+Given a record X over attributes (A1, A2,…,An)
+E.g., X = (‘Yes’, ‘Single’, 125K)
+The goal is to predict class C
+Specifically, we want to find the value c of C that maximizes P(C=c| X)
+Maximum Aposteriori Probability estimate
+Can we estimate P(C| X) directly from data?
+This means that we estimate the probability for all possible values of the class variable.
+
+Slide 48:
+Bayesian Classifiers
+Approach:
+compute the posterior probability P(C | A1, A2, …, An) for all values of C using the Bayes theorem
+Choose value of C that maximizes 		P(C | A1, A2, …, An)
+Equivalent to choosing value of C that maximizes       	P(A1, A2, …, An|C) P(C)
+How to estimate P(A1, A2, …, An | C )?
+
+Slide 49:
+Naïve Bayes Classifier
+
+Slide 50:
+How to Estimate Probabilities from Data?
+
+Slide 51:
+How to Estimate Probabilities from Data?
+For continuous attributes:
+Discretize the range into bins
+one ordinal attribute per bin
+violates independence assumption
+Two-way split:  (A < v) or (A > v)
+choose only one of the two splits as new attribute
+Probability density estimation:
+Assume attribute follows a normal distribution
+Use data to estimate parameters of distribution    (i.e., mean  and standard deviation )
+Once probability distribution is known, we can use it to estimate the conditional probability P(Ai|c)
+
+Slide 52:
+How to Estimate Probabilities from Data?
+Normal distribution:
+One for each (ai,ci) pair
+For (Income, Class=No):
+If Class=No
+sample mean = 110
+sample variance = 2975
+
+Slide 53:
+Example of Naïve Bayes Classifier
+Creating a Naïve Bayes Classifier, essentially means to compute counts:
+Total number of records: N = 10
+Class No:
+Number of records: 7
+Attribute Refund:
+Yes: 3
+No:  4
+Attribute Marital Status:
+Single:     2
+Divorced: 1
+Married:   4
+Attribute Income:
+mean:     110
+variance: 2975
+Class Yes:
+Number of records: 3
+Attribute Refund:
+Yes: 0
+No:  3
+Attribute Marital Status:
+Single:     2
+Divorced: 1
+Married:   0
+Attribute Income:
+mean:     90
+variance: 25
+
+Slide 54:
+Example of Naïve Bayes Classifier
+P(X|Class=No) = P(Refund=No|Class=No)		  P(Married| Class=No)		  P(Income=120K| Class=No)	              = 4/7  4/7  0.0072 = 0.0024
+P(X|Class=Yes) = P(Refund=No| Class=Yes)   	                   P(Married| Class=Yes)   	                   P(Income=120K| Class=Yes)	               = 1  0  1.2  10-9 = 0
+P(No) = 0.3, P(Yes) = 0.7
+Since P(X|No)P(No) > P(X|Yes)P(Yes)
+Therefore P(No|X) > P(Yes|X)      => Class = No
+Given a Test Record:
+
+Slide 55:
+Naïve Bayes Classifier
+If one of the conditional probability is zero, then the entire expression becomes zero
+Probability estimation:
+Ni: number of attribute values for attribute Ai
+p: prior probability
+m: parameter
+
+Slide 56:
+Example of Naïve Bayes Classifier
+P(X|Class=No) = P(Refund=No|Class=No)		  P(Married| Class=No)		  P(Income=120K| Class=No)	              = 5/9  5/10  0.0072
+P(X|Class=Yes) = P(Refund=No| Class=Yes)   	                   P(Married| Class=Yes)   	                   P(Income=120K| Class=Yes)	               = 4/5  1/6  1.2  10-9
+P(No) = 0.7, P(Yes) = 0.3
+Since P(X|No)P(No) > P(X|Yes)P(Yes)
+Therefore P(No|X) > P(Yes|X)      => Class = No
+Given a Test Record:
+With Laplace Smoothing
+
+Slide 57:
+Implementation details
+
+Slide 58:
+Naïve Bayes for Text Classification
+
+Slide 59:
+
+
+Slide 60:
+Naïve Bayes (Summary)
+Robust to isolated noise points
+Handle missing values by ignoring the instance during probability estimate calculations
+Robust to irrelevant attributes
+Independence assumption may not hold for some attributes
+Use other techniques such as Bayesian Belief Networks (BBN)
+Naïve Bayes can produce a probability estimate, but it is usually a very biased one
+Logistic Regression is better for obtaining probabilities.
+
+Slide 61:
+Generative vs Discriminative models
+Naïve Bayes is a type of a generative model
+Generative process:
+First pick the category of the record
+Then given the category, generate the attribute values from the distribution of the category
+Conditional independence given C
+We use the training data to learn the distribution of the values in a class
+C
+
+Slide 62:
+Generative vs Discriminative models
+Logistic Regression and SVM are discriminative models
+The goal is to find the boundary that discriminates between the two classes from the training data
+In order to classify the language of a document, you can
+Either learn the two languages and find which is more likely to have generated the words you see
+Or learn what differentiates the two languages.
+

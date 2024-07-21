@@ -1,0 +1,539 @@
+Slide 1:
+Chapter 2: Getting to Know Your Data
+1
+Data Objects and Attribute Types
+Basic Statistical Descriptions of Data
+Data Visualization
+Measuring Data Similarity and Dissimilarity
+Summary
+
+Slide 2:
+Measuring the Dispersion of Data
+Quartiles, outliers and boxplots
+Quartiles: Q1 (25th percentile), Q3 (75th percentile)
+Inter-quartile range: IQR = Q3 – Q1
+Five number summary: min, Q1, median, Q3, max
+Boxplot: ends of the box are the quartiles; median is marked; add whiskers, and plot outliers individually
+Outlier: usually, a value higher/lower than 1.5 x IQR
+Variance and standard deviation (sample: s, population: σ)
+Variance: (algebraic, scalable computation)
+Standard deviation s (or σ) is the square root of variance s2 (or σ2)
+s	
+n
+n
+ i
+n
+2
+2
+2
+2
+) ]
+1
+[ xi		(	x
+(xi  x)	
+n 1	n 1	n
+1
+1
+
+1
+  2
+ 2 
+n
+i
+n
+i
+ x
+2
+i1	i1	i1	i1	i1
+2
+1
+N
+1
+N
+(x  )	
+
+Slide 3:
+Boxplot Analysis
+Five-number summary of a distribution
+Minimum, Q1, Median, Q3, Maximum
+Boxplot
+Data is represented with a box
+The ends of the box are at the first and third quartiles, i.e., the height of the box is IQR
+The median is marked by a line within the box
+Whiskers: two lines outside the box extended
+to Minimum and Maximum
+Outliers: points beyond a specified outlier threshold, plotted individually
+1
+
+Slide 4:
+March 30, 2021
+Data Mining: Concepts and Techniques
+4
+Visualization of Data Dispersion: 3-D Boxplots
+
+Slide 5:
+Properties of Normal Distribution Curve
+The normal (distribution) curve
+From μ–σ to μ+σ: contains about 68% of the measurements	(μ: mean, σ: standard deviation)
+From μ–2σ to μ+2σ: contains about 95% of it
+From μ–3σ to μ+3σ: contains about 99.7% of it
+5
+
+Slide 6:
+Graphic Displays of Basic Statistical Descriptions
+5
+Boxplot: graphic display of five-number summary
+Histogram: x-axis are values, y-axis repres. frequencies
+indicating
+Quantile plot:	each value xi	is paired with fi
+that approximately 100 fi % of data	are  xi
+Quantile-quantile (q-q) plot: graphs the quantiles of one univariant distribution against the corresponding quantiles of another
+Scatter plot: each pair of values is a pair of coordinates and plotted as points in the plane
+
+Slide 7:
+Histogram Analysis
+Histogram: Graph display of tabulated frequencies, shown as bars
+It shows what proportion of cases fall into each of several categories
+value, not the height as in bar
+categories are not of uniform width
+The categories are usually specified as non-overlapping intervals of some variable. The categories (bars) must be adjacent
+charts, a crucial distinction when the10
+Differs from a bar chart in that it is the area of the bar that denotes the 20
+5
+15
+40
+35
+30
+25
+0
+10000
+10
+30000
+50000
+70000
+90000
+
+Slide 8:
+Histograms Often Tell More than Boxplots
+The two histograms shown in the left may have the same boxplot representation
+The same values for: min, Q1, median, Q3, max
+But they have rather different data distributions
+10
+
+Slide 9:
+Quantile-Quantile (Q-Q) Plot
+Graphs the quantiles of one univariate distribution against the corresponding quantiles of another
+View: Is there is a shift in going from one distribution to another?
+Example shows unit price of items sold at Branch 1 vs. Branch 2 for each quantile.	Unit prices of items sold at Branch 1 tend to be lower than those at Branch 2.
+10
+
+Slide 10:
+Scatter plot
+Provides a first look at bivariate data to see clusters of points, outliers, etc
+Each pair of values is treated as a pair of coordinates and plotted as points in the plane
+10
+
+Slide 11:
+Positively and Negatively Correlated Data
+The left half fragment is positively
+correlated
+The right half is negative correlated
+10
+
+Slide 12:
+1
+Uncorrelated Data
+2
+
+Slide 13:
+Chapter 2: Getting to Know Your Data
+Data Objects and Attribute Types
+Basic Statistical Descriptions of Data
+Data Visualization
+Measuring Data Similarity and Dissimilarity
+Summary
+13
+
+Slide 14:
+Data Visualization
+13
+Why data visualization?
+Gain insight into an information space by mapping data onto graphical primitives
+Provide qualitative overview of large data sets
+Search for patterns, trends, structure, irregularities, relationships among data
+Help find interesting regions and suitable parameters for further quantitative analysis
+Provide a visual proof of computer representations derived
+Categorization of visualization methods:
+Pixel-oriented visualization techniques
+Geometric projection visualization techniques
+Icon-based visualization techniques
+Hierarchical visualization techniques
+Visualizing complex data and relations
+
+Slide 15:
+Pixel-Oriented Visualization Techniques
+For a data set of m dimensions, create m windows on the screen, one for each dimension
+The m dimension values of a record are mapped to m pixels at the corresponding positions in the windows
+The colors of the pixels reflect the corresponding values
+(a)	Income
+13
+(b) Credit Limit
+(c) transaction volume
+(d) age
+
+Slide 16:
+Laying Out Pixels in Circle Segments
+To save space and show the connections among multiple dimensions, space filling is often done in a circle segment
+(a)	Representing a data record
+in circle segment
+(b) Laying out pixels in circle segment
+13
+
+Slide 17:
+Geometric Projection Visualization Techniques
+13
+Visualization of geometric transformations and projections of the data
+Methods
+Direct visualization
+Scatterplot and scatterplot matrices
+Landscapes
+Projection pursuit technique: Help users find meaningful projections of multidimensional data
+Prosection views
+Hyperslice
+Parallel coordinates
+
+Slide 18:
+Scatterplot Matrices
+13
+Matrix of scatterplots (x-y-diagrams) of the k-dim. data [total of (k2/2-k) scatterplots]
+Used by ermission of M. Ward, Worcester Polytechnic Institute
+
+Slide 19:
+Attr. 1
+13
+Attr. 2
+Attr. k
+Attr. 3
+• • •
+Parallel Coordinates
+n equidistant axes which are parallel to one of the screen axes and correspond to the attributes
+The axes are scaled to the [minimum, maximum]: range of the corresponding attribute
+Every data item corresponds to a polygonal line which intersects each of the axes at the point which corresponds to the value for the attribute
+
+Slide 20:
+Parallel Coordinates of a Data Set
+13
+
+Slide 21:
+Icon-Based Visualization Techniques
+13
+Visualization of the data values as features of icons
+Typical visualization methods
+Chernoff Faces
+Stick Figures
+General techniques
+Shape coding: Use shape to represent certain information encoding
+Color icons: Use color icons to encode more information
+Tile bars: Use small icons to represent the relevant feature vectors in document retrieval
+
+Slide 22:
+Chernoff Faces
+A way to display variables on a two-dimensional surface, e.g., let x be
+eyebrow slant, y be eye size, z be nose length, etc.
+The figure shows faces produced using 10 characteristics--head eccentricity, eye size, eye spacing, eye eccentricity, pupil size, eyebrow slant, nose size, mouth shape, mouth size, and mouth opening): Each assigned one of 10 possible values, generated using Mathematica (S. Dickson)
+REFERENCE: Gonick, L. and Smith, W. The Cartoon Guide to Statistics. New York: Harper Perennial, p. 212, 1993
+Weisstein, Eric W. "Chernoff Face." From MathWorld--A Wolfram Web Resource. mathworld.wolfram.com/ChernoffFace.html
+13
+
+Slide 23:
+Hierarchical Visualization Techniques
+13
+Visualization of the data using a hierarchical partitioning into subspaces
+Methods
+Dimensional Stacking
+Worlds-within-Worlds
+Tree-Map
+Cone Trees
+InfoCube
+
+Slide 24:
+Dimensional Stacking
+attribute 1
+Partitioning of the n-dimensional attribute space in 2-D subspaces, which are ‘stacked’ into each other
+Partitioning of the attribute value ranges into classes.	The important attributes should be used on the outer levels.
+Adequate for data with ordinal attributes of low cardinality
+But, difficult to display more than nine dimensions
+Important to map dimensions appropriately
+attribute 2
+attribute 3
+attribute 4
+13
+
+Slide 25:
+Used by permission of M. Ward, Worcester Polytechnic Institute
+Visualization of oil mining data with longitude and latitude mapped to the
+outer x-, y-axes and ore grade and depth mapped to the inner x-, y-axes
+25
+Dimensional Stacking
+
+Slide 26:
+26
+Tree-Map
+Screen-filling method which uses a hierarchical partitioning of the screen into regions depending on the attribute values
+The x- and y-dimension of the screen are partitioned alternately according to the attribute values (classes)
+MSR Netscan Image
+Ack.: http://www.cs.umd.edu/hcil/treemap-history/all102001.jpg
+
+Slide 27:
+Tree-Map of a File System (Schneiderman)
+29
+
+Slide 28:
+InfoCube
+A 3-D visualization technique where hierarchical information is displayed as nested semi-transparent cubes
+The outermost cubes correspond to the top level data, while the subnodes or the lower level data are represented as smaller cubes inside the outermost cubes, and so on
+29
+
+Slide 29:
+Three-D Cone Trees
+29
+3D cone tree visualization technique works well for up to a thousand nodes or so
+First build a 2D circle tree that arranges its nodes in concentric circles centered on the root node
+Cannot avoid overlaps when projected to 2D
+G. Robertson, J. Mackinlay, S. Card. “Cone Trees: Animated 3D Visualizations of Hierarchical Information”, ACM SIGCHI'91
+Graph from Nadeau Software Consulting website: Visualize a social network data set that models the way an infection spreads from one person to the next
+Ack.: http://nadeausoftware.com/articles/visualization
+
+Slide 30:
+Visualizing Complex Data and Relations
+Visualizing non-numerical data: text and social networks
+Tag cloud: visualizing user-generated tags
+The importance of tag is represented by font size/color
+Besides text data, there are also methods to visualize relationships, such as visualizing social networks
+Newsmap: Google News Stories in 2005
+
+Slide 31:
+Chapter 2: Getting to Know Your Data
+Data Objects and Attribute Types
+Basic Statistical Descriptions of Data
+Data Visualization
+Measuring Data Similarity and Dissimilarity
+Summary
+31
+
+Slide 32:
+Similarity and Dissimilarity
+31
+Similarity
+Numerical measure of how alike two data objects are
+Value is higher when objects are more alike
+Often falls in the range [0,1]
+Dissimilarity (e.g., distance)
+Numerical measure of how different two data objects are
+Lower when objects are more alike
+Minimum dissimilarity is often 0
+Upper limit varies
+Proximity refers to a similarity or dissimilarity
+
+Slide 33:
+Data Matrix and Dissimilarity Matrix
+31
+Data matrix
+n data points with p
+dimensions
+Two modes
+Dissimilarity matrix
+n data points, but registers only the distance
+A triangular matrix
+Single mode
+
+
+
+
+ xn1
+
+
+	...
+xnf
+...  
+xnp 
+ip 
+if
+...  
+x1p 
+...	x1f	...
+...	...	...
+...	x	...	x
+...	...	...
+...	...
+i1
+ x
+	...
+ x11
+
+
+
+
+
+
+0
+
+d (n,1)
+ d(2,1)	0
+
+ d(3,1)	d (3,2)	0
+	:	:	:
+d (n,2)	...
+
+...
+0
+
+Slide 34:
+Proximity Measure for Nominal Attributes
+Can take 2 or more states, e.g., red, yellow, blue, green (generalization of a binary attribute)
+Method 1: Simple matching
+m: # of matches, p: total # of variables
+p
+Method 2: Use a large number of binary attributes
+creating a new binary attribute for each of the
+M nominal states
+31
+d(i, j) 	p  m
+
+Slide 35:
+Proximity Measure for Binary Attributes
+A contingency table for binary data
+Object i
+Distance measure for symmetric binary variables:
+Distance measure for asymmetric
+binary variables:
+Jaccard coefficient (similarity measure for asymmetric binary variables):
+Note: Jaccard coefficient is the same as “coherence”:
+Object j
+31
+
+Slide 36:
+Dissimilarity between Binary Variables
+Example
+Gender is a symmetric attribute
+The remaining attributes are asymmetric binary
+Let the values Y and P be 1, and the value N 0
+ 0.75
+31
+1  1  2
+1  1  1
+1  2
+d ( jim, mary ) 
+ 0.67
+1  1
+d ( jack , jim) 
+ 0.33
+2  0  1
+0  1
+d ( jack , mary ) 
+
+Slide 37:
+Standardizing Numeric Data
+Z-score:
+X: raw score to be standardized, μ: mean of the population, σ:
+standard deviation
+the distance between the raw score and the population mean in units of the standard deviation
+negative when the raw score is below the mean, “+” when above
+An alternative way: Calculate the mean absolute deviation
+where
+standardized measure (z-score):
+Using mean absolute deviation is more robust than using standard deviation
+1 f	2 f	nf
+f
+n
+m		1(x	 x	 ...  x
+f	2 f	f	nf	f
+).
+1 f
+f
+n
+s	 1(| x	m	|| x	m	|...| x	m	|)
+if	f
+s
+f
+if
+x	 m
+z	
+
+31
+z 	x 
+
+Slide 38:
+Example:
+Data Matrix and Dissimilarity Matrix
+Dissimilarity Matrix (with Euclidean Distance)
+Data Matrix
+31
+
+Slide 39:
+Ordinal Variables
+An ordinal variable can be discrete or continuous
+Order is important, e.g., rank
+Can be treated like interval-scaled
+replace xif
+by their rank
+map the range of each variable onto [0, 1] by replacing
+i-th object in the f-th variable by
+compute the dissimilarity using methods for interval- scaled variables
+M f	1
+31
+1
+zif	
+rif
+rif {1,...,M f }
+
+Slide 40:
+Attributes of Mixed Type
+A database may contain all attribute types
+Nominal, symmetric binary, asymmetric binary, numeric,
+ordinal
+One may use a weighted formula to combine their effects
+f  1	ij
+f	is binary or nominal:
+ij	if	jf	ij
+d (f) = 0	if x	= x	, or d (f) = 1 otherwise
+f	is numeric: use the normalized distance
+f	is ordinal
+Compute ranks rif and
+Treat zif as interval-scaled
+ p	 ( f )
+ p	 ( f )d ( f )
+d(i, j)  	f  1	ij	ij
+1
+31
+M f  1
+z	
+rif
+if
+
+Slide 41:
+Cosine Similarity
+A document can be represented by thousands of attributes, each recording the frequency of a particular word (such as keywords) or phrase in the document.
+Other vector objects: gene features in micro-arrays, …
+Applications: information retrieval, biologic taxonomy, gene feature
+mapping, ...
+Cosine measure: If d1 and d2 are two vectors (e.g., term-frequency vectors), then
+cos(d1, d2) =	(d1  d2) /||d1|| ||d2|| ,
+where  indicates vector dot product, ||d||: the length of vector d
+31
+
+Slide 42:
+Example: Cosine Similarity
+42
+cos(d1, d2) =	(d1  d2) /||d1|| ||d2|| ,
+where  indicates vector dot product, ||d|: the length of vector d
+Ex: Find the similarity between documents 1 and 2.
+d1 =	(5, 0, 3, 0, 2, 0, 0, 2, 0, 0)
+d2 =	(3, 0, 2, 0, 1, 1, 0, 1, 0, 1)
+d1d2 = 5*3+0*0+3*2+0*0+2*1+0*1+0*1+2*1+0*0+0*1 = 25
+||d1||=	(5*5+0*0+3*3+0*0+2*2+0*0+0*0+2*2+0*0+0*0)0.5=(42)0.5
+= 6.481
+||d2||=	(3*3+0*0+2*2+0*0+1*1+1*1+0*0+1*1+0*0+1*1)0.5=(17)0.5
+= 4.12
+cos(d1, d2 ) = 0.94
+

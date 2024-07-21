@@ -1,0 +1,361 @@
+Slide 1:
+Data Mining:
+1
+Concepts and Techniques
+(3rd ed.)
+Jiawei Han, Micheline Kamber, and Jian Pei  University of Illinois at Urbana-Champaign &  Simon Fraser University
+©2011 Han, Kamber & Pei.	All rights reserved.
+
+Slide 2:
+Classification: Basic Concepts
+Classification: Basic Concepts
+Decision Tree Induction
+Bayes Classification Methods
+Rule-Based Classificati
+2
+
+Slide 3:
+Supervised vs. Unsupervised Learning
+3
+Supervised learning (classification)
+Supervision: The training data (observations,  measurements, etc.) are accompanied by labels indicating  the class of the observations
+New data is classified based on the training set
+Unsupervised learning (clustering)
+The class labels of training data is unknown
+Given a set of measurements, observations, etc. with the  aim of establishing the existence of classes or clusters in  the data
+
+Slide 4:
+Classification
+predicts categorical class labels (discrete or nominal)
+classifies data (constructs a model) based on the training  set and the values (class labels) in a classifying attribute  and uses it in classifying new data
+Numeric Prediction
+models continuous-valued functions, i.e., predicts  unknown or missing values
+Typical applications
+Credit/loan approval:
+Medical diagnosis: if a tumor is cancerous or benign
+Fraud detection: if a transaction is fraudulent
+Web page categorization: which category it is
+4
+Prediction Problems: Classification vs.
+Numeric Prediction
+
+Slide 5:
+Classification—A Two-Step Process
+5
+Model construction: describing a set of predetermined classes
+Each tuple/sample is assumed to belong to a predefined class, as
+determined by the class label attribute
+The set of tuples used for model construction is training set
+The model is represented as classification rules, decision trees, or  mathematical formulae
+Model usage: for classifying future or unknown objects
+Estimate accuracy of the model
+The known label of test sample is compared with the classified  result from the model
+Accuracy rate is the percentage of test set samples that are  correctly classified by the model
+Test set is independent of training set (otherwise overfitting)
+If the accuracy is acceptable, use the model to classify new data
+Note: If the test set is used to select models, it is called validation (test) set
+
+Slide 6:
+Process (1): Model Construction
+Training  Data
+Classification  Algorithms
+IF rank = ‘professor’  OR years > 6
+THEN tenured = ‘yes’
+Classifier  (Model)
+6
+
+Slide 7:
+Process (2): Using the Model in Prediction
+Classifier
+Testing  Data
+Unseen Data
+(Jeff, Professor, 4)
+Tenured?
+7
+
+Slide 8:
+Classification: Basic Concepts
+Classification: Basic Concepts
+Decision Tree Induction
+Bayes Classification Methods
+Rule-Based Classification
+8
+
+Slide 9:
+Decision Tree Induction: An Example
+age?
+overcast
+student?
+credit rating?
+<=30
+>40
+no
+9
+yes
+yes
+yes
+31..40
+fair
+excellent
+yes
+no
+Training data set: Buys_computer
+The data set follows an example of
+Quinlan’s ID3 (Playing Tennis)
+Resulting tree:
+
+Slide 10:
+10
+Algorithm for Decision Tree Induction
+Basic algorithm (a greedy algorithm)
+Tree is constructed in a top-down recursive divide-and-
+conquer manner
+At start, all the training examples are at the root
+Attributes are categorical (if continuous-valued, they are  discretized in advance)
+Examples are partitioned recursively based on selected  attributes
+Test attributes are selected on the basis of a heuristic or  statistical measure (e.g., information gain)
+Conditions for stopping partitioning
+All samples for a given node belong to the same class
+There are no remaining attributes for further partitioning –  majority voting is employed for classifying the leaf
+There are no samples left
+
+Slide 11:
+Brief Review of Entropy
+
+m = 2
+11
+
+Slide 12:
+
+
+Slide 13:
+
+
+Slide 14:
+Computing Information-Gain for  Continuous-Valued Attributes
+14
+Let attribute A be a continuous-valued attribute
+Must determine the best split point for A
+Sort the value A in increasing order
+Typically, the midpoint between each pair of adjacent values  is considered as a possible split point
+(ai+ai+1)/2 is the midpoint between the values of ai and ai+1
+The point with the minimum expected information  requirement for A is selected as the split-point for A
+Split:
+D1 is the set of tuples in D satisfying A ≤ split-point, and D2 is  the set of tuples in D satisfying A > split-point
+
+Slide 15:
+
+
+Slide 16:
+Other Attribute Selection Measures
+16
+CHAID: a popular decision tree algorithm, measure based on χ2 test for
+independence
+C-SEP: performs better than info. gain and gini index in certain cases
+G-statistic: has a close approximation to χ2 distribution
+MDL (Minimal Description Length) principle (i.e., the simplest solution is
+preferred):
+The best tree as the one that requires the fewest # of bits to both (1)  encode the tree, and (2) encode the exceptions to the tree
+Multivariate splits (partition based on multiple variable combinations)
+CART: finds multivariate splits based on a linear comb. of attrs.
+Which attribute selection measure is the best?
+Most give good results, none is significantly superior than others
+
+Slide 17:
+Overfitting and Tree Pruning
+17
+Overfitting: An induced tree may overfit the training data
+Too many branches, some may reflect anomalies due to  noise or outliers
+Poor accuracy for unseen samples
+Two approaches to avoid overfitting
+Prepruning: Halt tree construction early ̵ do not split a node  if this would result in the goodness measure falling below a  threshold
+Difficult to choose an appropriate threshold
+Postpruning: Remove branches from a “fully grown” tree—  get a sequence of progressively pruned trees
+Use a set of data different from the training data to
+decide which is the “best pruned tree”
+
+Slide 18:
+Enhancements to Basic Decision Tree Induction
+18
+Allow for continuous-valued attributes
+Dynamically define new discrete-valued attributes that  partition the continuous attribute value into a discrete set of  intervals
+Handle missing attribute values
+Assign the most common value of the attribute
+Assign probability to each of the possible values
+Attribute construction
+Create new attributes based on existing ones that are  sparsely represented
+This reduces fragmentation, repetition, and replication
+
+Slide 19:
+Classification in Large Databases
+19
+Classification—a classical problem extensively studied by  statisticians and machine learning researchers
+Scalability: Classifying data sets with millions of examples and  hundreds of attributes with reasonable speed
+Why is decision tree induction popular?
+relatively faster learning speed (than other classification  methods)
+convertible to simple and easy to understand classification  rules
+can use SQL queries for accessing databases
+comparable classification accuracy with other methods
+
+Slide 20:
+Classification: Basic Concepts
+Classification: Basic Concepts
+Decision Tree Induction
+Bayes Classification Methods
+Rule-Based Classification
+20
+
+Slide 21:
+Bayesian Classification: Why?
+21
+A statistical classifier: performs probabilistic prediction, i.e.,
+predicts class membership probabilities
+Foundation: Based on Bayes’ Theorem.
+Performance: A simple Bayesian classifier, naïve Bayesian  classifier, has comparable performance with decision tree and  selected neural network classifiers
+Incremental: Each training example can incrementally  increase/decrease the probability that a hypothesis is correct —  prior knowledge can be combined with observed data
+Standard: Even when Bayesian methods are computationally  intractable, they can provide a standard of optimal decision  making against which other methods can be measured
+
+Slide 22:
+
+
+Slide 23:
+
+
+Slide 24:
+Classification Is to Derive the Maximum Posteriori
+Since P(X) is constant for all classes, only
+P(Ci |X)  P(X|Ci)P(Ci)
+needs to be maximized
+P(X)
+24
+i
+Let D be a training set of tuples and their associated class  labels, and each tuple is represented by an n-D attribute vector  X = (x1, x2, …, xn)
+Suppose there are m classes C1, C2, …, Cm.
+Classification is to derive the maximum posteriori, i.e., the  maximal P(Ci|X)
+This can be derived from Bayes’ theorem
+P(C | X)  P(X|Ci)P(Ci)
+
+Slide 25:
+
+
+Slide 26:
+Naïve Bayes Classifier: Training Dataset
+26
+Class:
+C1:buys_computer = ‘yes’  C2:buys_computer = ‘no’
+Data to be classified:  X = (age <=30,
+Income = medium,  Student = yes
+Credit_rating = Fair)
+
+Slide 27:
+
+
+Slide 28:
+Avoiding the Zero-Probability Problem
+28
+Naïve Bayesian prediction requires each conditional prob. be
+non-zero.	Otherwise, the predicted prob. will be zero
+n
+P( X | Ci)		 P(xk | Ci)
+k   1
+Ex. Suppose a dataset with 1000 tuples, income=low (0),  income= medium (990), and income = high (10)
+Use Laplacian correction (or Laplacian estimator)
+Adding 1 to each case
+Prob(income = low) = 1/1003  Prob(income = medium) = 991/1003  Prob(income = high) = 11/1003
+The “corrected” prob. estimates are close to their
+“uncorrected” counterparts
+
+Slide 29:
+Naïve Bayes Classifier: Comments
+29
+Advantages
+Easy to implement
+Good results obtained in most of the cases
+Disadvantages
+Assumption: class conditional independence, therefore loss  of accuracy
+Practically, dependencies exist among variables
+E.g.,	hospitals: patients: Profile: age, family history, etc.  Symptoms: fever, cough etc., Disease: lung cancer,  diabetes, etc.
+Dependencies among these cannot be modeled by Naïve  Bayes Classifier
+How to deal with these dependencies? Bayesian Belief Networks  (Chapter 9)
+
+Slide 30:
+Classification: Basic Concepts
+Classification: Basic Concepts
+Decision Tree Induction
+Bayes Classification Methods
+Rule-Based Classification
+30
+
+Slide 31:
+Using IF-THEN Rules for Classification
+31
+Represent the knowledge in the form of IF-THEN rules
+R: IF age = youth AND student = yes THEN buys_computer = yes
+Rule antecedent/precondition vs. rule consequent
+Assessment of a rule: coverage and accuracy
+ncovers = # of tuples covered by R
+ncorrect = # of tuples correctly classified by R  coverage(R) = ncovers /|D|	/* D: training data set */  accuracy(R) = ncorrect / ncovers
+If more than one rule are triggered, need conflict resolution
+Size ordering: assign the highest priority to the triggering rules that has
+the “toughest” requirement (i.e., with the most attribute tests)
+Class-based ordering: decreasing order of prevalence or misclassification  cost per class
+Rule-based ordering (decision list): rules are organized into one long  priority list, according to some measure of rule quality or by experts
+
+Slide 32:
+age?
+student?
+credit rating?
+<=30
+>40
+no	yes
+yes
+yes
+31..40
+fair
+excellent
+yes
+38
+no
+IF age = young AND student = no  IF age = young AND student = yes  IF age = mid-age
+THEN buys_computer = no  THEN buys_computer = yes  THEN buys_computer = yes
+IF age = old AND credit_rating = excellent THEN buys_computer = no
+IF age = old AND credit_rating = fair	THEN buys_computer = yes
+Rule Extraction from a Decision Tree
+Rules are easier to understand than large  trees
+One rule is created for each path from the  root to a leaf
+Each attribute-value pair along a path forms a
+conjunction: the leaf holds the class
+prediction
+Rules are mutually exclusive and exhaustive
+Example: Rule extraction from our buys_computer decision-tree
+
+Slide 33:
+Rule Induction: Sequential Covering Method
+33
+Sequential covering algorithm: Extracts rules directly from training  data
+Typical sequential covering algorithms: FOIL, AQ, CN2, RIPPER
+Rules are learned sequentially, each for a given class Ci will cover  many tuples of Ci but none (or few) of the tuples of other classes
+Steps:
+Rules are learned one at a time
+Each time a rule is learned, the tuples covered by the rules are  removed
+Repeat the process on the remaining tuples until termination  condition, e.g., when no more training examples or when the  quality of a rule returned is below a user-specified threshold
+Comp. w. decision-tree induction: learning a set of rules
+simultaneously
+
+Slide 34:
+Sequential Covering Algorithm
+while (enough target tuples left)
+generate a rule
+remove positive target tuples satisfying this rule
+Examples covered
+34
+by Rule 2
+Examples covered
+by Rule 3
+Examples covered
+by Rule 1
+Positive  examples
+
+Slide 35:
+
+

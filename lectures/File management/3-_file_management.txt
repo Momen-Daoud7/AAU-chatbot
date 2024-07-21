@@ -1,0 +1,171 @@
+Slide 1:
+RAIDRedundant Arrays Of Independent Disks
+
+Slide 2:
+Background
+Computer Speed depends on
+CPU Speed
+Memory Speed
+I/O Activity
+Data Striping
+هي عبارة عن توزيع البيانات على القراص لتعمل كلها كقرص واحد وسريع
+
+Slide 3:
+Solution: RAID
+Technology that employs the simultaneous use of two or more hard disk drives to achieve greater levels of performance & reliability.
+Several physical disks are set up to use RAID technology, they are said to be in a RAID array.
+This array distributes data across several disks, but the array is seen by the computer user and operating system as one single disk.
+
+Slide 4:
+Several improvements in disk-use techniques involve the use of multiple disks working cooperatively
+Disk striping uses a group of disks as one storage unit
+RAID schemes improve performance and improve the reliability of the storage system by storing redundant data
+Mirroring or shadowing (RAID 1) keeps duplicate of each disk
+Striped mirrors (RAID 1+0) or mirrored stripes (RAID 0+1) provides high performance and high reliability
+Block interleaved parity (RAID 4, 5, 6) uses much less redundancy
+
+Slide 5:
+تصنيفات raid بناء على عاملين
+Granularity of data striping *
+.Pattern used to compute redundant information
+
+Slide 6:
+Different Levels of RAID
+RAID Level 0
+RAID Level 1
+RAID Level 2
+RAID Level 3
+RAID Level 4
+RAID Level 5
+RAID Level 6
+n all the diagrams mentioned below:
+A, B, C, D, E and F – represents blocks
+p1, p2, and p3 – represents parity
+
+Slide 7:
+RAID Level 0(Striping)
+
+Slide 8:
+RAID Level 0
+Requires a minimum of 2 drives to implement.
+The first byte of the file is sent to the first drive, then the second to second drive and so on.
+Striping is the segmentation of logically sequential data, such as a single file, so that segments can be assigned to multiple physical devices
+
+Slide 9:
+RAID LEVEL 0
+Following are the key points to remember for RAID level 0.
+Minimum 2 disks.
+Excellent performance ( as blocks are striped ).
+No redundancy ( no mirror, no parity ).
+Don’t use this for any critical system.
+
+Slide 10:
+RAID Level 0
+Advantages:
+I/o performance is greatly improved by spreading the i/o load across many channels & drives.
+Best performance is achieved when data is striped across multiple controllers with only one drive per controller.
+Disadvantages:
+It is not a “True” RAID because it is NOT fault-tolerant. The failure of just one drive will result in all data in an array being lost.
+
+Slide 11:
+RAID Level 1 (Mirroring)
+
+Slide 12:
+RAID Level 1
+Data duplicated, also the controller card
+Requires only two drives to implement
+Duplicate copies of data, so if a disk fails, data is still available and applications keep running.
+Advantages
+Better than single disk
+Simple to Implement
+Disadvantage - high check disk overhead.
+Following are the key points to remember for RAID level 1.
+Minimum 2 disks.
+Good performance ( no striping. no parity ).
+Excellent redundancy ( as blocks are mirrored ).
+
+Slide 13:
+RAID Level 2
+
+Slide 14:
+RAID Level 2
+Uses Bit-level striping with Hamming codes of ECC.(error correcting code)
+Disks are synchronized and striped in very small stripes, often in single bytes/words.
+Hamming codes error correction is calculated across corresponding bits on disks, and is stored on multiple parity disks.
+Advantages
+Good read and write performance
+Disadvantages:
+High overhead for check disks
+Not used in modern systems
+
+Slide 15:
+RAID Level 3
+
+Slide 16:
+RAID Level 3
+Uses dedicated parity disk.
+Requires a minimum of 3 drives to implement.
+Every write requires updation in parity data .
+Advantages
+improved performance and fault tolerance.
+Disadvantages:
+One minor benefit is the dedicated parity disk allows the parity drive to fail and operation will continue without parity or performance penalty.
+
+Slide 17:
+Raid level3
+This uses byte level striping. i.e Instead of striping the blocks across the disks, it stripes the bits across the disks.
+In the above diagram B1, B2, B3 are bytes. p1, p2, p3 are parities.
+Uses multiple data disks, and a dedicated disk to store parity.
+The disks have to spin in sync to get to the data.
+Sequential read and write will have good performance.
+Random read and write will have worst performance.
+This is not commonly used.
+
+Slide 18:
+RAID Level 4
+
+Slide 19:
+RAID Level 4
+Uses Block-level striping with dedicated parity
+Requires minimum of 3 drives to implement
+Each disk operates independently which allows I/O requests to be performed in parallel.
+Advantages
+Read Performance is very good because of the blocks.
+Lowest overhead of check disks.
+Disadvantages
+Quite complex controller design
+Not commonly used
+
+Slide 20:
+RAID Level 5
+
+Slide 21:
+RAID Level 5
+Uses Block-level striping with distributed parity
+Requires a minimum of 3 drives to implement
+Advantages
+Read performance very good.
+Lowest overhead of check disks.
+Disadvantages
+Most complex controller design.
+Difficult to rebuild in the event of a disk failure.
+
+Slide 22:
+RAID Level 6
+
+Slide 23:
+RAID Level 6
+Raid Level 6 uses Block-level striping with dual distributed parity.
+Advantages:
+Continues to operate with up to two failed drives.
+Disadvantages
+Most complex controller design.
+Difficult to rebuild in the event of multiple disk failure.
+
+Slide 24:
+Just like RAID 5, this does block level striping. However, it uses dual parity.
+In the above diagram A, B, C are blocks. p1, p2, p3 are parities.
+This creates two parity blocks for each data block.
+Can handle two disk failure
+This RAID configuration is complex to implement in a RAID controller, as it has to calculate two parity data for each data block.
+

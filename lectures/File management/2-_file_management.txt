@@ -1,0 +1,308 @@
+Slide 1:
+File Management
+Overview
+File organisation and Access
+File Directories
+File Sharing
+Record Blocking
+
+Slide 2:
+Files
+Files are the central element to most applications
+file as an input to applications
+file as an output for long-term storage and for later access
+Desirable properties of files:
+Long-term existence
+Controlled sharing between processes
+Structure that is convenient for particular applications
+
+Slide 3:
+File StructureFields and Records
+Fields
+Basic element of data
+e.g., student’s last name
+Contains a single value
+Characterized by its length and data type
+Records
+Collection of related fields
+e.g., a student record
+Treated as a unit
+
+Slide 4:
+File StructureFile and Database
+File
+Collection of similar records
+Treated as a single entity and may be referenced by name
+Access control restrictions usually apply at the file level
+Database
+Collection of related data
+Explicit relationships exist among elements
+Consists of one or more files
+
+Slide 5:
+Structure Terms
+Field
+basic element of data
+contains a single value
+fixed or variable length
+File
+collection of related fields that can be treated as a unit by some application program
+One field is the key – a unique identifier
+Record
+Database
+collection of similar records
+treated as a single entity
+may be referenced by name
+access control restrictions usually apply at the file level
+collection of related data
+relationships among elements of data are explicit
+designed for use by a number of different applications
+consists of one or more types of files
+
+Slide 6:
+A Big Picture
+How to identify and locate a selected file?
+How to enforce user access control in shared systems?
+How to organize records as a sequence of blocks for I/O?
+individual block I/O requests must be scheduled for optimizing performance
+
+Slide 7:
+File Organization Types
+بحث عن طريق حقل مفتاحى
+
+Slide 8:
+Roadmap
+Overview
+File organisation and Access
+File Directories
+File Sharing
+Record Blocking
+
+Slide 9:
+File Organization
+The basic operations that a user or application may perform on a file are performed at the record level
+The file is viewed as having some structure that organizes the records
+File organization refers to the logical structuring of records
+Determined by the way in which files are accessed (access method)
+
+Slide 10:
+Criteria for File Organization
+Important criteria include:
+Short access time
+Ease of update
+Economy of storage
+Simple maintenance
+Reliability
+
+Slide 11:
+The Pile
+Data are collected in the order they arrive
+No structure
+Purpose is to accumulate a mass of data and save it
+Records may have different fields
+
+Slide 12:
+The Pile
+Heap (or pile) file organization is a simple technique, in which records are stored by order of input.
+This system has a “fast insert operation,” meaning that new records can be rapidly added to the end of the file.
+However, performing a search on a heap organization tends to be time-consuming since it often involves scanning a large part of the file.
+disadvantage is that deleted records often leave holes in the structure, requiring additional time spent on eliminating space.
+
+Slide 13:
+The Sequential File
+Fixed format used for records
+Records are of the same length
+same number of fixed-length fields in a particular order
+Only the values of fields need to be stored
+Field name and length are attributes of the file structure
+
+Slide 14:
+The Sequential File
+Key field
+Uniquely identifies the record
+Records are stored in key sequence
+ Optimal for batch applications if they involve the processing of all the records
+ Easily stored on tape and disk
+ Poor performance for interactive applications
+considerable processing and delay due to the sequential search of the file for a key match
+adding and deleting files within this system can be a challenge
+
+Slide 15:
+Indexed Sequential File
+An index is added to support random access
+An index record contains a key field and a pointer into the main file
+The index is a sequential file
+For searching
+Search the index to find the highest key value that is equal to or precedes the desired key value
+Search continues in the main file at the location indicated by the pointer
+
+Slide 16:
+An overflow file is added
+A new record is added to the overflow file and is located by following a pointer from its predecessor record
+The indexed sequential file is occasionally merged with the overflow file in batch mode
+Greatly reduces the time required to access a single record, without sacrificing the sequential nature.
+Indexed Sequential File
+
+Slide 17:
+Indexed File
+Records are accessed only through their indexes
+no restriction on the placement of records
+allows variable-length records
+Uses multiple indexes for different key fields
+An exhaustive index contains one entry for every record in the main file
+A partial index contains entries to records where the field of interest exists
+
+Slide 18:
+Indexed File
+When a new record is added to the main file, all of the index files must be updated.
+Used mostly in applications where
+timeliness of information is critical and
+data are rarely processed exhaustively
+examples: airline reservation systems and inventory control systems
+
+Slide 19:
+Roadmap
+Overview
+File organisation and Access
+File Directories
+File Sharing
+Record Blocking
+
+Slide 20:
+File Directory
+Contains information about files
+Attributes
+Location
+Ownership
+Directory itself is a file owned by the operating system
+
+Slide 21:
+Directory Elements
+Basic Information
+File name: must be unique
+File type: e.g., text, binary
+File organization
+Address Information
+Volume: device on which file is stored
+Starting address: e.g., cylinder, track on disk
+Size used: in bytes, words or blocks
+Size allocated: maximum size of the file
+
+Slide 22:
+Directory Elements
+Access Control Information
+Owner: able to grant/deny access to other users and to change these privileges
+Access information: e.g., user’s name and password for each authorized user
+Permitted actions: controls reading, writing, executing, transmitting over a network
+Usage Information
+Date Created, Identity of Creator, Date Last Read Access, Identity of Last Reader, Date Last Modified
+
+Slide 23:
+Naming
+The tree structure allows users to find a file by following a path from the root or master directory down various branches until the file is reached
+The series of directory names, culminating in the file name itself, constitutes a pathname for the file
+Duplicate filenames are possible if they have different pathnames
+
+Slide 24:
+Naming
+Usually an interactive user or a process is associated with a current or working directory
+Files are referenced relative to the working directory unless an explicit full pathname is used
+
+Slide 25:
+Roadmap
+Overview
+File organisation and Access
+File Directories
+File Sharing
+Record Blocking
+
+Slide 26:
+File Sharing
+In multiuser system, there is almost always a requirement for allowing files to be shared among a number of users
+Two issues
+Access rights
+Management of simultaneous access
+
+Slide 27:
+Access Rights
+A wide variety of access rights have been used by various systems
+often as a hierarchy, with each right implying those that precede it.
+None
+User may not know the existence of file by not allowing to read the user directory that includes this file
+Knowledge
+User can only determine that the file exists and who its owner is
+
+Slide 28:
+Access Rights cont…
+Execution
+The user can load and execute a program but cannot copy it, e.g., proprietary programs
+Reading
+The user can read the file for any purpose, including copying and execution
+Appending
+The user can add data to the file but cannot modify or delete any of the file’s contents
+
+Slide 29:
+Access Rights cont…
+Updating
+The user can modify, delete, and add to the file’s data.
+Changing protection
+User can change access rights granted to other users
+Deletion
+User can delete the file
+
+Slide 30:
+User Classes
+Access can be provided to different classes of users
+Owner: usually the files creator, has full rights and may grant rights to others
+Specific users: individual users who are designated by user ID
+User groups: a set of users identified as a group
+All: all users who have access to this system
+
+Slide 31:
+Roadmap
+Overview
+File organisation and Access
+File Directories
+File Sharing
+Record Blocking
+
+Slide 32:
+Blocks and records
+Records are the logical unit of access of a structured file
+Blocks are the unit for I/O with secondary storage
+For I/O to be performed, records must be organized as blocks.نقل البيانات بين الذاكرة والقرص الصلب
+Three methods of blocking are common
+Fixed length blocking
+Variable length spanned blocking
+Variable-length unspanned blocking
+
+Slide 33:
+Fixed Blocking
+Fixed-length records are used, and an integral number of records are stored in a block
+Unused space at the end of a block is internal fragmentation
+Common for sequential files with fixed-length records
+
+Slide 34:
+Fixed Blocking
+
+Slide 35:
+Variable Length Spanned Blocking
+Variable-length records are used and are packed into blocks with no unused space
+Some records may span multiple blocks
+Continuation is indicated by a pointer to the successor block
+ Efficient for storage and does not limit the size of records
+
+Slide 36:
+Variable Blocking: Spanned
+ Difficult to implement
+ Records that span two blocks require two I/O operations
+
+Slide 37:
+Variable-length unspanned blocking
+Uses variable length records without spanning
+ Wasted space in most blocks because of the inability to use the remainder of a block if the next record is larger than the remaining unused space
+ Limits record size to the size of a block
+
+Slide 38:
+Variable Blocking: Unspanned
+

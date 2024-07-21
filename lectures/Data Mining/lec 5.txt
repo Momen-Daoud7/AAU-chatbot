@@ -1,0 +1,280 @@
+Slide 1:
+DATA MININGLECTURE 6
+Frequent Itemsets
+Association Rules
+
+Slide 2:
+2
+Market-Basket Data
+A large set of items, e.g., things sold in a supermarket.
+A large set of baskets, each of which is a small set of the items, e.g., the things one customer buys on one day.
+
+Slide 3:
+3
+Market-Baskets – (2)
+Really, a general many-to-many mapping (association) between two kinds of things, where the one (the baskets) is a set of the other (the items)
+But we ask about connections among “items,” not “baskets.”
+The technology focuses on common events, not rare events (“long tail”).
+
+Slide 4:
+Given a set of transactions, find combinations of items (itemsets) that occur frequently
+Market-Basket transactions
+{Bread}: 4
+{Milk} : 4
+{Diaper} : 4
+{Beer}: 3
+{Diaper, Beer} : 3{Milk, Bread} : 3
+Frequent Itemsets
+Items: {Bread, Milk, Diaper, Beer, Eggs, Coke}
+
+Slide 5:
+5
+Applications – (1)
+Items = products; baskets = sets of products someone bought in one trip to the store.
+Example application: given that many people buy beer and diapers together:
+Run a sale on diapers; raise price of beer.
+Only useful if many buy diapers & beer.
+
+Slide 6:
+6
+Applications – (2)
+Baskets = sentences; items = documents containing those sentences.
+Example application: Items that appear together too often could represent plagiarism.
+Notice items do not have to be “in” baskets.
+
+Slide 7:
+Definition: Frequent Itemset
+Itemset
+A collection of one or more items
+Example: {Milk, Bread, Diaper}
+k-itemset
+An itemset that contains k items
+Support ()
+Count: Frequency of occurrence of an itemset
+E.g.   ({Milk, Bread,Diaper}) = 2
+Fraction: Fraction of transactions that contain an itemset
+E.g.   s({Milk, Bread, Diaper}) = 40%
+Frequent Itemset
+An itemset whose support is greater than or equal to a minsup threshold
+
+Slide 8:
+Mining Frequent Itemsets task
+Input: A set of transactions T, over a set of items I
+Output: All itemsets with items in I having
+support ≥ minsup threshold
+Problem parameters:
+N = |T|: number of transactions
+d = |I|: number of (distinct) items
+w: max width of a transaction
+Number of possible itemsets?
+Scale of the problem:
+WalMart sells 100,000 items and can store billions of baskets.
+The Web has  billions of words and many billions of pages.
+M = 2d
+
+Slide 9:
+The itemset lattice
+Given d items, there are 2d possible  itemsets
+
+Slide 10:
+A Naïve Algorithm
+Brute-force approach, each itemset is a candidate :
+Consider each itemset in the lattice, and count the support of each candidate by scanning the data
+Time Complexity ~ O(NMw) , Space Complexity ~ O(M)
+OR
+Scan the data, and for each transaction generate all possible itemsets. Keep a count for each itemset in the data.
+Time Complexity ~ O(N2w) , Space Complexity ~ O(M)
+Expensive since M = 2d !!!
+
+Slide 11:
+11
+Computation Model
+Typically, data is kept in flat files rather than in a database system.
+Stored on disk.
+Stored basket-by-basket.
+Expand baskets into pairs, triples, etc. as you read baskets.
+Use k  nested loops to generate all sets of size k.
+
+Slide 12:
+Example file: retail
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29
+30 31 32
+33 34 35
+36 37 38 39 40 41 42 43 44 45 46
+38 39 47 48
+38 39 48 49 50 51 52 53 54 55 56 57 58
+32 41 59 60 61 62
+3 39 48
+63 64 65 66 67 68
+32 69
+48 70 71 72
+39 73 74 75 76 77 78 79
+36 38 39 41 48 79 80 81
+82 83 84
+41 85 86 87 88
+39 48 89 90 91 92 93 94 95 96 97 98 99 100 101
+36 38 39 48 89
+39 41 102 103 104 105 106 107 108
+38 39 41 109 110
+39 111 112 113 114 115 116 117 118
+119 120 121 122 123 124 125 126 127 128 129 130 131 132 133
+48 134 135 136
+39 48 137 138 139 140 141 142 143 144 145 146 147 148 149
+39 150 151 152
+38 39 56 153 154 155
+Example: items are
+positive integers,
+and each basket corresponds to a line in the file of space separated integers
+
+Slide 13:
+13
+Computation Model – (2)
+The true cost of mining disk-resident data is usually the number of disk I/O’s.
+In practice, association-rule algorithms read the data in passes  –  all baskets read in turn.
+Thus, we measure the cost by the number of passes an algorithm takes.
+
+Slide 14:
+14
+Main-Memory Bottleneck
+For many frequent-itemset algorithms, main memory is the critical resource.
+As we read baskets, we need to count something, e.g., occurrences of pairs.
+The number of different things we can count is limited by main memory.
+Swapping counts in/out is a disaster (why?).
+
+Slide 15:
+The Apriori Principle
+Apriori principle (Main observation):
+If an itemset is frequent, then all of its subsets must also be frequent
+If an itemset is not frequent, then all of its supersets cannot be frequent
+The support of an itemset never exceeds the support of its subsets
+This is known as the anti-monotone property of support
+
+Slide 16:
+Illustration of the Apriori principle
+Found to be frequent
+Frequent subsets
+
+Slide 17:
+Illustration of the Apriori principle
+Infrequent supersets
+
+Slide 18:
+R. Agrawal, R. Srikant: "Fast Algorithms for Mining Association Rules",
+Proc. of the 20th Int'l Conference on Very Large Databases, 1994.
+The Apriori algorithm
+Level-wise approach
+Ck = candidate itemsets of size k
+Lk = frequent itemsets of size k
+Candidate generation
+Frequent itemset generation
+k = 1, C1 = all items
+While Ck not empty
+Scan the database to find which itemsets in Ck are frequent and put them into Lk
+Use Lk to generate a collection of candidate itemsets Ck+1 of size k+1‏
+k = k+1
+
+Slide 19:
+Items (1-itemsets)‏
+Pairs (2-itemsets)‏
+(No need to generatecandidates involving Cokeor Eggs)‏
+Triplets (3-itemsets)‏
+minsup = 3
+Illustration of the Apriori principle
+Only this triplet has all subsets to be frequent
+But it is below the minsup threshold
+
+Slide 20:
+Apriori
+
+Slide 21:
+Apriori Example 2
+
+Slide 22:
+Candidate Generation
+Basic principle (Apriori):
+An itemset of size k+1 is candidate to be frequent only if all of its subsets of size k are known to be frequent
+Main idea:
+Construct a candidate of size k+1 by combining frequent itemsets of size k
+If k = 1, take the all pairs of frequent items
+If k > 1, join pairs of itemsets that differ by just one item
+For each generated candidate itemset ensure that all subsets of size k are frequent.
+
+Slide 23:
+Generating Candidates Ck+1 in SQL
+self-join Lk ‏
+insert into Ck+1
+select p.item1, p.item2, …, p.itemk, q.itemk
+from Lk p, Lk q
+where p.item1=q.item1, …, p.itemk-1=q.itemk-1, p.itemk < q.itemk
+
+Slide 24:
+Generate Candidates Ck+1
+Are we done? Are all the candidates valid?
+Pruning step:
+For each candidate (k+1)-itemset create all subset k-itemsets
+Remove a candidate if it contains a subset k-itemset that is not frequent
+Is this a valid candidate?
+No. Subsets (1,3,5) and (2,3,5) should also be frequent
+Apriori principle
+
+Slide 25:
+L3={abc, abd, acd, ace, bcd}
+Self-joining: L3*L3
+abcd  from abc and abd
+acde  from acd and ace
+Pruning:
+abcd is kept since all subset itemsets are in L3
+acde is removed because ade is not in L3
+C4={abcd}
+Example I
+
+Slide 26:
+We have all frequent k-itemsets Lk
+Step 1: self-join Lk‏
+Create set Ck+1 by joining frequent k-itemsets that share the first k-1 items
+Step 2: prune
+Remove from Ck+1 the itemsets that contain a subset  k-itemset that is not frequent
+Generate Candidates Ck+1
+
+Slide 27:
+Maximal Frequent Itemset
+Border
+Infrequent Itemsets
+Maximal Itemsets
+An itemset is maximal frequent if none of its immediate supersets is frequent
+Maximal itemsets = positive border
+Maximal: no superset has this property
+
+Slide 28:
+Negative Border
+Border
+Infrequent Itemsets
+Itemsets that are not frequent, but all their immediate subsets are frequent.
+Minimal: no subset has this property
+
+Slide 29:
+Border
+Border = Positive Border + Negative Border
+Itemsets such that all their immediate subsets are frequent and all their immediate supersets are infrequent.
+Either the positive, or the negative border is sufficient to summarize all frequent itemsets.
+
+Slide 30:
+Closed Itemset
+An itemset is closed if none of its immediate supersets has the same support as the itemset
+
+Slide 31:
+Maximal vs Closed Itemsets
+Transaction Ids
+Not supported by any transactions
+
+Slide 32:
+Maximal vs Closed Frequent Itemsets
+Minimum support = 2
+# Closed = 9
+# Maximal = 4
+Closed and maximal
+Closed but not maximal
+
+Slide 33:
+Maximal vs Closed Itemsets
+

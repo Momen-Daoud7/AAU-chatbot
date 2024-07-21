@@ -1,0 +1,228 @@
+Slide 1:
+
+
+Build your first app
+Lesson 1
+
+Android Developer Fundamentals V2
+
+
+Slide 2:
+1.1 Your first Android app
+
+
+Slide 3:
+Contents
+
+Android Studio
+Creating "Hello World" app in Android Studio
+Basic app development workflow with Android Studio
+Running apps on virtual and physical devices
+
+
+
+Slide 4:
+Prerequisites
+Java Programming Language
+Object-oriented programming
+XML - properties / attributes
+Using an IDE for development and debugging
+
+
+Slide 5:
+Android Studio
+
+
+Slide 6:
+What is Android Studio?
+
+Android integrated development environment (IDE) 
+Project and Activity templates
+Layout editor
+Testing tools
+Gradle-based build
+Log console and debugger
+Emulators
+
+Slide 7:
+Android Studio interface
+
+Toolbar
+Navigation bar
+Project pane
+Editor
+Tabs for other panes
+
+Slide 8:
+Installation Overview
+Mac, Windows, or Linux
+Download and install Android Studio from https://developer.android.com/studio/
+See 1.1 P: Android Studio and Hello World
+
+
+Slide 9:
+Creating your first Android app
+
+
+Slide 10:
+Start Android Studio
+
+
+
+
+
+Slide 11:
+Create a project inside Android Studio
+
+
+
+Slide 12:
+Name your app
+
+
+
+
+Slide 13:
+Pick activity template
+
+Choose templates for common activities, such as maps or navigation drawers.
+
+Pick Empty Activity or Basic Activity for simple and custom activities. 
+
+Slide 14:
+Name your activity
+
+Good practice:
+Name main activity  MainActivity
+Name layout activity_main
+Use AppCompat
+Generating layout file is convenient
+
+Slide 15:
+Project folders
+
+manifests—Android Manifest file - description of app read by the Android runtime 
+java—Java source code packages
+res—Resources (XML) - layout, strings, images, dimensions, colors...
+build.gradle—Gradle build files
+
+Slide 16:
+Gradle build system
+Modern build subsystem in Android Studio
+Three build.gradle:
+project
+module
+settings
+Typically not necessary to know low-level Gradle details
+Learn more about gradle at https://gradle.org/
+
+
+Slide 17:
+Run your app
+
+
+
+Run
+2. Select virtual or physical device
+
+3. OK
+
+Slide 18:
+Create a virtual device
+
+Use emulators to test app on different versions of Android and form factors. 
+
+
+
+
+Tools > Android > AVD Manager                  or:
+
+Slide 19:
+Configure virtual device
+
+Choose hardware
+Select Android version
+Finalize
+
+Slide 20:
+Run on a virtual device
+
+
+
+Slide 21:
+Run on a physical device
+
+Turn on Developer Options: 
+Settings > About phone
+Tap Build number seven times 
+Turn on USB Debugging
+Settings > Developer Options > USB Debugging
+Connect phone to computer with cable
+
+Windows/Linux additional setup: 
+Using Hardware Devices
+
+Windows drivers:
+ OEM USB Drivers
+
+Slide 22:
+Get feedback as your app runs
+Emulator running the app
+Run pane
+Run tab to open or close the Run pane
+
+
+Slide 23:
+Adding logging to your app
+As the app runs, the Logcat pane shows information
+Add logging statements to your app that will show up in the Logcat pane 
+Set filters in Logcat pane to see what's important to you
+Search using tags
+
+
+Slide 24:
+The Logcat pane
+Logcat tab to show Logcat pane
+Log level menu
+
+
+Slide 25:
+Logging statement
+import android.util.Log;
+
+// Use class name as tag
+private static final String TAG =       MainActivity.class.getSimpleName();
+
+// Show message in Android Monitor, logcat pane
+// Log.<log-level>(TAG, "Message");
+Log.d(TAG, “Creating the URI…”);
+
+
+Slide 26:
+Learn more
+Meet Android Studio
+Official Android documentation at developer.android.com
+Create and Manage Virtual Devices
+Supporting Different Platform Versions
+Supporting Multiple Screens
+
+
+Slide 27:
+Learn even more
+Gradle Wikipedia page
+Google Java Programming Language style guide
+Find answers at Stackoverflow.com
+
+
+Slide 28:
+What's Next?
+
+Concept Chapter: 1.1 Your first Android app
+Practical: 1.1 Android Studio and Hello World
+
+Slide 29:
+END
+
+
+
+

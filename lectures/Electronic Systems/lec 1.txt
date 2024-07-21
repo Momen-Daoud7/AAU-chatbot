@@ -1,0 +1,169 @@
+Slide 1:
+Alzaiem Alazhari University
+Faculty of Computer science and Information Technology
+e-Based Systems
+Dr. Ammar Mohamed Abdo
+
+Slide 2:
+E-Based Systems: Overview
+E-Based Systems, short for Electronic-Based Systems, are comprehensive frameworks of interconnected electronic components and software applications designed to support various digital operations, processes, and functionalities within an organization or across multiple entities. These systems leverage electronic technologies, including hardware, software, and networking infrastructure, to facilitate efficient, secure, and reliable electronic operations.
+
+Slide 3:
+E-Based Systems: Overview (cont'd.)
+electronic system incorporates various components to facilitate the efficient processing, storage, and communication of information, including Internet or extranet-based site, whether such electronic system is owned, operated or hosted by the Administrative Agent.
+
+Slide 4:
+Key Characteristics of E-Based Systems
+Integration of Electronic Components:
+E-Based Systems integrate a wide range of electronic components, including hardware devices (such as servers, computers, networking equipment, and peripherals) and software applications (such as operating systems, databases, and specialized software tools).
+Interconnectivity and Interoperability:
+Components within E-Based Systems are interconnected through networks, protocols, and interfaces, enabling seamless communication, data exchange, and interoperability between different system elements.
+
+Slide 5:
+Key Characteristics of E-Based Systems (cont'd.)
+Functionality Across Multiple Domains:
+E-Based Systems support diverse functionalities and operations across various domains, including business, government, healthcare, education, finance, manufacturing, and entertainment.
+Digital Data Processing and Management:
+E-Based Systems facilitate digital data processing, storage, retrieval, and management, enabling organizations to efficiently handle large volumes of information and derive insights for decision-making.
+
+Slide 6:
+Key Characteristics of E-Based Systems (cont'd.)
+Automation and Efficiency:
+Many E-Based Systems incorporate automation technologies and workflow processes to streamline operations, reduce manual effort, and improve efficiency in performing routine tasks and activities.
+Security and Data Protection:
+E-Based Systems implement robust security measures, including encryption, access controls, authentication mechanisms, and cybersecurity protocols, to safeguard sensitive data, prevent unauthorized access, and mitigate cyber threats.
+
+Slide 7:
+Key Characteristics of E-Based Systems (cont'd.)
+Scalability and Flexibility:
+E-Based Systems are designed to scale and adapt to changing organizational needs, technological advancements, and business requirements, ensuring they can accommodate growth, expansion, and evolving user demands over time.
+User Interfaces and Experience:
+E-Based Systems provide user-friendly interfaces and experiences, allowing users to interact with the system easily, access relevant information, perform tasks efficiently, and receive feedback in a timely manner.
+
+Slide 8:
+Components of Electronic Based System:
+Hardware Infrastructure:
+Servers: Centralized computing devices that provide resources and services to other devices within the network.
+Networking Equipment: Includes routers, switches, hubs, and modems that facilitate data communication and connectivity between devices.
+Computers and Workstations: End-user devices used to access and interact with the electronic base system.
+Storage Devices: Hard drives, solid-state drives, and network-attached storage (NAS) systems for data storage and retrieval.
+Peripheral Devices: Additional hardware such as printers, scanners, and external drives that support various functions.
+
+Slide 9:
+Components of Electronic Based System: (cont'd.)
+Operating Systems:
+Server OS: Software that manages server hardware and resources, such as Windows Server, Linux distributions (e.g., Ubuntu Server, Red Hat Enterprise Linux), and Unix.
+Client OS: Software that runs on end-user devices, like Windows, macOS, and various Linux distributions.
+
+Slide 10:
+Components of Electronic Based System: (cont'd.)
+Networking Infrastructure:
+Local Area Networks (LANs): Networks that connect devices within a limited area, such as an office or building.
+Wide Area Networks (WANs): Networks that cover broader geographic areas, connecting multiple LANs.
+Internet and Extranet: Global networks that enable communication and data exchange beyond local and wide area networks.
+
+Slide 11:
+Components of Electronic Based System: (cont'd.)
+Data Storage and Management:
+Databases: Structured systems for storing, managing, and retrieving large volumes of data.
+File Servers: Systems that provide centralized storage and management of files, enabling easy access and sharing.
+Cloud Storage: Remote storage solutions provided by services like Amazon S3, Google Drive, and Microsoft OneDrive, offering scalability and accessibility.
+
+Slide 12:
+Components of Electronic Based System: (cont'd.)
+Security Mechanisms:
+Encryption: Techniques for securing data by converting it into a coded format that is unreadable without a decryption key.
+Access Control: Methods for restricting access to resources based on user credentials and permissions.
+Firewalls: Security systems that monitor and control incoming and outgoing network traffic based on predetermined security rules.
+Intrusion Detection/Prevention Systems (IDS/IPS): Tools for detecting and preventing unauthorized access or attacks on the network.
+
+Slide 13:
+Components of Electronic Based System: (cont'd.)
+Software Applications:
+Enterprise Applications: Systems like Enterprise Resource Planning (ERP), Customer Relationship Management (CRM), and Human Resource Management Systems (HRMS) that support business operations.
+Productivity Tools: Software such as office suites (e.g., Microsoft Office, Google Workspace) that enhance productivity and collaboration.
+Communication Tools: Platforms like email, instant messaging, and video conferencing that facilitate communication.
+
+Slide 14:
+Components of Electronic Based System: (cont'd.)
+Monitoring and Management Tools:
+System Monitoring: Tools that track the performance, health, and security of the electronic base system, such as Nagios, Zabbix, and SolarWinds.
+Configuration Management: Software for managing system configurations and ensuring consistency, such as Ansible, Puppet, and Chef.
+
+Slide 15:
+Components of Electronic Based System: (cont'd.)
+Compliance and Regulatory Frameworks:
+Policies and protocols to ensure adherence to industry standards, legal requirements, and best practices for data protection, privacy, and security.
+
+Slide 16:
+Importance of E-Systems
+a number of benefits for E-Based Systems, some of these are:
+Accessing a greater customer base
+Broadening market reach
+Lowering of entry barrier to new markets and cost of acquiring new customers
+Alternative communication channel to customers
+Increasing services to customers
+
+Slide 17:
+Importance of E-Systems (cont'd.)
+Enhancing perceived company image
+Gaining competitive advantages
+Enhancing transparency
+Potential for increasing Customer knowledge
+
+Slide 18:
+E-based Systems cost factors
+Some major cost factors are:
+Expense of setting up applications
+Maintaining applications
+Internet connection
+Hardware/software
+
+Slide 19:
+E-based Systems cost factors (cont'd.)
+Security concerns
+legal issues
+Training
+Rapid technology changes
+
+Slide 20:
+E-base Systems Architecture
+Depending on the types of services, there are certain functionalities required in the certain layers of e-system architectural framework, these include but are not limited to:
+Data layer (data sources).
+processing layers (customer service systems.
+management systems.
+data warehouse systems.
+
+Slide 21:
+E-base Systems Architecture (cont'd.)
+integrated customer content systems).
+exchange layer (Enterprise Application Integration– EAI).
+interaction layer.
+presentation layer (customer interface through which the web pages and e-services
+are linked).
+
+Slide 22:
+Examples of E-Based Systems:
+E-Government Platforms:
+Digital platforms and portals used by government agencies to deliver public services, interact with citizens, facilitate online transactions, and disseminate information and resources to the public.
+E-Commerce, or Electronic Commerce, specifically refers to the buying and selling of goods and services over the internet. It focuses primarily on the transactional aspect of online business activities.
+
+Slide 23:
+Examples of E-Based Systems: (cont'd.)
+Health Information Systems:
+Comprehensive electronic systems used in healthcare settings to manage patient records, medical data, clinical workflows, diagnostic information, and administrative processes.
+Digital Banking and Financial Systems:
+Banking and financial platforms offering online banking services, electronic payment solutions, mobile banking apps, trading platforms, and wealth management tools to customers and clients.
+
+Slide 24:
+Examples of E-Based Systems: (cont'd.)
+Manufacturing Execution Systems (MES):
+Systems used in manufacturing industries to monitor, control, and optimize production processes, track inventory, manage quality assurance, and improve operational efficiency.
+Educational Management Systems:
+Digital platforms used in educational institutions to administer student information, course materials, learning resources, assessments, and academic records.
+
+Slide 25:
+Examples of E-Based Systems: (cont'd.)
+Digital Entertainment and Media Platforms:
+Online platforms and streaming services offering digital content, including video streaming, music streaming, e-books, gaming, and digital publications.
+
