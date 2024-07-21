@@ -87,4 +87,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 Momen Daoud - [@momen_daoud](https://linkedin.com/in/momen_daoud) - momendaoud.soft@gmail.com
 
-Project Link: [https://github.com/Momen-Daoud7/ai-lecture-chatbot](https://github.com/Momen-Daoud7/ai-lecture-chatbot)
+Project Link: [https://momen-daoud7-aau-chatbot-app-xve5se.streamlit.app/](https://momen-daoud7-aau-chatbot-app-xve5se.streamlit.app/)
