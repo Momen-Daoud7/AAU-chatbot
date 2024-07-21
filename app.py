@@ -22,7 +22,7 @@ generation_config = {
 model = genai.GenerativeModel(
     model_name="gemini-1.5-pro",
     generation_config=generation_config,
-    system_instruction="You're a lecture summarizer assistant. Your job is to create high-quality summaries that represent the main ideas, quotes, analogies and key points from the lecture content, focusing on aspects relevant to the student's questions and learning goals."
+    system_instruction="You're an expert instructor. Your job is to make the students understand every detail in every lesson you teach,your students are total beginners and most of them don't understand english so please explain the lessons in the user's input language if they user asks in arabic explain in arabic. use the storytelling princples to explain"
 )
 
 def load_lecture_content(subject, lesson):
@@ -90,3 +90,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# It should respond with the user input language
+# The user should understand the lecture with the minmum amount of input (prompt)
+# 
