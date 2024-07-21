@@ -4,11 +4,11 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 from quiz_feature import quiz_mode  # Import the quiz_mode function
 
-# Load environment variables
+# Load environment variables from .env file
 load_dotenv()
 
-# Configure Google Generative AI
-GEMINI_API_KEY = "AIzaSyCvAksr5dpxOCaozeR_bOeEVrVeyhAWfMA"
+# Get API key from environment variable
+GEMINI_API_KEY = os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
 
 # Set up generation config

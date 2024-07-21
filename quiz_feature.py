@@ -6,6 +6,7 @@ quiz_translations = {
     "English": {
         "quiz_mode": "Quiz Mode",
         "question": "Question",
+        "of": "of",
         "your_answer": "Your answer:",
         "submit_answer": "Submit Answer",
         "next_question": "Next Question",
@@ -23,6 +24,7 @@ quiz_translations = {
     "Arabic": {
         "quiz_mode": "وضع الاختبار",
         "question": "السؤال",
+        "of": "من",
         "your_answer": "إجابتك:",
         "submit_answer": "أرسل الإجابة",
         "next_question": "السؤال التالي",
@@ -107,13 +109,23 @@ def quiz_mode(model, lecture_content, language):
 
     current_q = st.session_state.quiz_state["question_bank"][st.session_state.quiz_state["current_question_index"]]
     
-    st.write(f"{t['question']} {st.session_state.quiz_state['current_question_index'] + 1} of {len(st.session_state.quiz_state['question_bank'])}")
+    # Localized question numbering
+    if language == "English":
+        question_number = f"{t['question']} {st.session_state.quiz_state['current_question_index'] + 1} {t['of']} {len(st.session_state.quiz_state['question_bank'])}"
+    else:
+        # Arabic numerals and right-to-left formatting
+        arabic_numerals = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"]
+        current_num = ''.join(arabic_numerals[int(d)] for d in str(st.session_state.quiz_state['current_question_index'] + 1))
+        total_num = ''.join(arabic_numerals[int(d)] for d in str(len(st.session_state.quiz_state['question_bank'])))
+        question_number = f"{t['question']} {current_num} {t['of']} {total_num}"
+
+    st.write(question_number)
     
     if language == "English":
         st.write(f"{t['question']}: {current_q['question_en']}")
     else:
         st.write(f"{t['question']}: {current_q['question_ar']}")
-    
+
     user_answer = st.text_input(t["your_answer"], key="user_answer_input")
     
     if st.button(t["submit_answer"]):
